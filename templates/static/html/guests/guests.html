@@ -1,0 +1,103 @@
+<html>
+<head></head>
+<body>
+   
+  <img src="administrator/media/page/template/logo4.png" style="width: 6%;position: absolute;top: 30px;left: 49%;">
+        <span style="font-family:Nexabold;font-size:200%;position:absolute;top:-50px;letter-spacing: 10px;top:130px;left:40%;color:rgb(207,53,64);"><b>GUEST SPEAKERS</b></span>
+
+
+        
+
+        <div id="tiles_gl">
+
+            
+
+                <div class="gl_tile" id="gl_1" onclick="openPopup('1')">
+                    <div class="gl_tile_img" style="background: url({{guests.0.image}});"><p>{{guests.0.name}}</p>
+                    </div>
+                </div>
+
+                
+
+            
+
+                <div class="gl_tile" id="gl_2" onclick="openPopup('2')">
+                    <div class="gl_tile_img" style="background: url({{guests.1.image}});"><p>{{guests.1.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_3" onclick="openPopup('3')">
+                    <div class="gl_tile_img" style="background: url({{guests.2.image}});"><p>{{guests.2.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_4" onclick="openPopup('4')">
+                    <div class="gl_tile_img" style="background: url({{guests.3.image}});"><p>{{guests.3.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_5" onclick="openPopup('5')">
+                    <div class="gl_tile_img" style="background: url({{guests.4.image}});"><p>{{guests.4.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_6" onclick="openPopup('6')">
+                    <div class="gl_tile_img" style="background: url({{guests.5.image}});"><p>{{guests.5.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_7" onclick="openPopup('7')">
+                    <div class="gl_tile_img" style="background: url({{guests.6.image}});"><p>{{guests.6.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_8" onclick="openPopup('8')">
+                    <div class="gl_tile_img" style="background: url({{guests.7.image}});"><p>{{guests.7.name}}</p>
+                    </div>
+                </div>
+
+            
+
+                <div class="gl_tile" id="gl_9" onclick="openPopup('9')">
+                    <div class="gl_tile_img" style="background: url({{guests.8.image}});"><p>{{guests.8.name}}</p>
+                    </div>
+                </div>
+
+            
+            </div>
+            <article class="work_rel">
+            <div class="popout" hidden>
+                 
+                 <div class="exhi_pop">Loading</div>
+            </div>
+        </article>
+            <div hidden>
+            {% for guest in guests %}
+            <div id="item{{guest.id}}">
+                <div class="btn_close" onclick="hidework();" style="display: block; opacity: 1;"></div>
+                <img src="{{guest.image}}" style="height:150px;top:30px;display:block;margin:auto;font-size:22px;"/><br><br>
+                <h1 style="color:rgb(207,53,64);text-align:center;font-family:Nexabold;font-size:22px;top:15px;"><b>{{guest.name}}</b></h1><br><br>
+           
+                <p style="font-family:Nexa-light;font-size:15px;margin-left:10%;margin-right:10%;text-align:justify;overflow:auto;">
+                {{guest.description|safe|escape}}
+                </p>
+            </div>
+            {%endfor%}
+         
+            </div>
+
+
+</body>
+</html>

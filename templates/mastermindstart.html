@@ -1,0 +1,647 @@
+{% load staticfiles %}
+{% load cache %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <!-- Description -->
+            <title>Mastermind Online Prelims - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur</title>
+            <meta name="description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta name="keywords" content="Kshitij,2016, Kshitij 2016, Asia's largest, Techno-management fest, Online Events, IIT Kharagpur, technology, management, ASME, IEEE, ACM, ASHRAE, IMechE, college fest, university, India, IIT, Indian Institute of technology, Kshitij 2015, technical fest, events, megashows,guests, workshops, c-monopoly, forex, excaliber, cryptex, innovation, Online Competitions, West Bengal, Bombay, Delhi, Science, robotix, robotics, India, Kgp, IIT Kgp" />
+            <base href="" />
+        <!-- -->
+
+<!-- Aplication icons -->
+            <meta name="mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <link rel="shortcut icon" sizes="196x196" href="{% static 'administrator/media/page/app_icon_196.png' %}"  />
+            <link rel="shortcut icon" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+            <link rel="shortcut icon" sizes="24x24" href="{% static 'administrator/media/page/icon.png' %}" />
+            <link rel="apple-touch-icon" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+            <link rel="apple-touch-icon-precomposed" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+            <link rel="apple-touch-startup-image" href="{% static 'administrator/media/page/app_icon_196.png' %}" />
+        <!-- -->
+        <!-- Share -->
+            <meta property="og:title" content="Mastermind - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur" />
+            <meta property="og:description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta property="og:image" content="https://ktj.in/static/images/kolkata.jpg" />
+            <meta property="og:url"           content="https://ktj.in/mastermind" />
+            <meta itemprop="sameas" content="https://en.wikipedia.org/wiki/Kshitij" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <link rel="canonical" href="https://ktj.in/mastermind" />
+        <!-- -->
+    <!-- <link href="{% static 'accounts/css/base.css' %}" rel="stylesheet"/> -->
+
+    <!--  Android 5 Chrome Color-->
+        <meta name="theme-color" content="#DE3454">
+    	<link href="/static/css/prism.css" rel="stylesheet">
+        <link href="/static/css/main.css" rel="stylesheet">
+        <link href="/static/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="http://cdn.transifex.com/live.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+<script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-66400807-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+        
+<style type="text/css">
+.questions {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#countTime{
+      position: relative;
+      right: 3%;
+      top: 235px;
+      width: 100px;
+      background: linear-gradient(#ddd, white, #ddd);
+      padding: 15px 0px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+</style>
+<script type="text/javascript">
+    var countdown = (1800-({{ minremain }} * 60+{{ secremain }}))*1000;
+    var timerId = setInterval(function(){
+    countdown -= 1000;
+    var min = Math.floor(countdown / (60 * 1000));
+    var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);
+    if (sec<10) {sec="0"+sec;};
+    if (min<10) {min="0"+min;};
+    if (countdown <= 0) {
+      $("#countTime").html("00 : 00");
+      var frm = $("#upload_data");
+      $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success:function(data){window.location.replace("https://ktj.in/mastermind/submit")},
+            });
+      return;
+    } else {
+       $("#countTime").html(min + " : " + sec);
+    }
+
+  }, 1000);
+    
+</script>
+        
+       
+
+</head>
+<body>
+
+	        <!-- Header Starts -->
+			<header>
+	              <nav class="top-nav fixed">
+	                      <div class="container">
+	                        <div class="nav-wrapper"><a class="page-title">Mastermind Online Prelims</a>
+	                        <ul class="right" style="padding-top:25px;">
+	                              <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="dropdown-more" ><i class="mdi-navigation-more-vert"></i></a>
+	                                <ul id="dropdown-more" class="dropdown-content" style="margin-left: 0px; z-index: 99999; overflow: visible; min-width: 148px !important; width: 68px; position: absolute; top: 0px; left: 928px; opacity: 1; display: none;">
+	                                  
+	                                  <li><a class="waves-effect waves-dark modal-trigger" href="http://m.ktj.in/accounts/profile">Profile</a></li>
+	                                  <!-- <li class="divider"></li> -->
+	                                  <li><a class="waves-effect waves-dark modal-trigger" href="http://m.ktj.in/accounts/logout">Logout</a></li>
+	                                  
+	                               
+	                                </ul>
+	                          </ul></div>
+	                      </div>
+	                    </nav>
+	               <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+	              <ul id="nav-mobile" class="side-nav fixed">
+	                <li class="logo"><a id="logo-container" href="/" class="brand-logo">
+	                    <object id="front-page-logo" type="image/png" data="/static/images/mobile/logo.png">Your browser does not support SVG</object></a></li>
+	                <li class="search">
+	                  <div class="search-wrapper card">
+	                    <input id="search"><i class="material-icons">search</i>
+	                    <div class="search-results"></div>
+	                  </div>
+	                </li>
+	                <li class="bold"><a href="http://m.ktj.in/" class="waves-effect waves-red">Home</a></li>
+	                <li class="no-padding">
+	                  <ul class="collapsible collapsible-accordion">
+	                    <li class="bold"><a class="collapsible-header  waves-effect waves-red">Events</a>
+	                      <div class="collapsible-body">
+	                        <ul>
+	                          <li><a href="http://m.ktj.in/events?genre=1"><img class="genre-icons" src="/static/images/mobile/1.png"></img>Genesis</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=2"><img class="genre-icons" src="/static/images/mobile/2.png">Quizzard</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=3"><img class="genre-icons" src="/static/images/mobile/3.png">Conceptualise</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=4"><img class="genre-icons" src="/static/images/mobile/4.png">Theories N Core</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=5"><img class="genre-icons" src="/static/images/mobile/5.png">Robotix</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=6"><img class="genre-icons" src="/static/images/mobile/6.png">Ab-Initio</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=7"><img class="genre-icons" src="/static/images/mobile/7.png">Strategia</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=8"><img class="genre-icons" src="/static/images/mobile/9.png">Tech4Fun</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=9"><img class="genre-icons" src="/static/images/mobile/8.png">IDP</a></li>
+	                        </ul>
+	                      </div>
+	                    </li>
+	                  </ul>
+	                </li>
+	                <li class="bold"><a href="http://m.ktj.in/sponsors" class="waves-effect waves-red">Sponsors</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/guests" class="waves-effect waves-red">Guests</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/workshops" class="waves-effect waves-red">Workshops</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/exhibitions" class="waves-effect waves-red">Exhibitions</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/megashows" class="waves-effect waves-red">Megashows</a></li>
+	                <li class="bold "><a href="http://m.ktj.in/contacts" class="waves-effect waves-red">Contacts</a></li>
+	              </ul>
+	            </header>
+	            <!-- Header Ends -->
+	            
+	            <!-- Main Page Starts -->
+	            <main >
+
+	           <div class="" style="background-image: url('/static/mastermind/bg.jpg');background-size: 100% 300px;background-repeat: no-repeat;z-index:-10;">
+	           <div class="section" style="width: 70%;margin-left: auto;margin-right: auto;padding-bottom: 41px;background-color: transparent;z-index:0;display:block;">
+	             <div class="" style="margin-top: 100px;padding-top: 20px;background-color: #FFFFFF;height: auto; box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);padding-bottom: 20px;">
+	             <div class="row container">
+	             	<div class="tabs-wrapper pinned" id="countTime">-- : --</div>
+	               <h2 class="header center-align">Mastermind Online Prelims</h2>
+	               <!-- <p style="text-align:center;"><b>Thank you for making our Workshop successful.</b></p> -->
+	               <p class="grey-text text-darken-3 lighten-3"><b>Note:</b> All answers will be submitted once you click on "Submit" button. No further requests are allowed.<br><br>
+	               	
+					   <form class="signup"  id="upload_data" method="post" action="/mastermind/submit" enctype="multipart/form-data">
+					       
+					       <div class="card-content"><div class="questions">
+					       
+					               
+					       {% csrf_token%}
+					       <ol start="1" type="1">
+					         <li>Name of the first company       to design and implement HRD system</li>
+					       </ol>
+					       <ol type="A" >
+					         <li style="list-style-type: upper-alpha;">Larsen  &amp; Toubro</li>
+					         <li style="list-style-type: upper-alpha;">Asian  Paints</li>
+					         <li style="list-style-type: upper-alpha;">Ashok  Leyland</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer1" max-length="30" class="validate" id="answer1"><label for="answer1" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+
+					       <ol start="2" type="1">
+					         <li>Instrument or sub-system       of HRD is concerned with</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Counselling  and mentoring</li>
+					         <li style="list-style-type: upper-alpha;">Potential  appraisal</li>
+					         <li style="list-style-type: upper-alpha;">Performance  appraisal </li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer2" max-length="30" class="validate" id="answer2"><label for="answer2" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="3" type="1">
+					         <li>________ focus on       eliminating waste by purchasing or manufacturing just enough for right       items at proper time </li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">TQM</li>
+					         <li style="list-style-type: upper-alpha;">Kaizen</li>
+					         <li style="list-style-type: upper-alpha;">Just-in-time</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer3" max-length="30" class="validate" id="answer3"><label for="answer3" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="4" type="1">
+					         <li>A systematic and objective       way of evaluation both work related behaviour and potential of employees </li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Performance  appraisal </li>
+					         <li style="list-style-type: upper-alpha;">HRD</li>
+					         <li style="list-style-type: upper-alpha;">Benchmarking</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer4" max-length="30" class="validate" id="answer4"><label for="answer4" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="5" type="1">
+					         <li>_______ is a mental       picture that an individual holds about a person because of that person&rsquo;s       sex, age, religion, caste, etc. By generalizing behaviour on the basis of       such blurred images, the rater grossly overestimates or underestimates a       person&rsquo;s performance</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Advisory  evaluation</li>
+					         <li style="list-style-type: upper-alpha;">Stereotyping</li>
+					         <li style="list-style-type: upper-alpha;">Appraisal  evaluation</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer5" max-length="30" class="validate" id="answer5"><label for="answer5" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="6" type="1">
+					         <li>Which of the following are the correct sequences of training evaluation</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Reaction,  Learning, Behaviour and Results</li>
+					         <li style="list-style-type: upper-alpha;">Reaction,  Behaviour, Learning and Results</li>
+					         <li style="list-style-type: upper-alpha;">Learning,  Behaviour, Reaction and Results</li>
+					         <li style="list-style-type: upper-alpha;">Reaction,  Behaviour , Learning and Results</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer6" max-length="30" class="validate" id="answer6"><label for="answer6" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="7" type="1">
+					         <li>What is/are the correct code(s) of the following phases of training?</li>
+					       </ol>
+					       <ol type="i">
+					         <li style="list-style-type: lower-roman;">Development Phase</li>
+					         <li style="list-style-type: lower-roman;">Design Phase</li>
+					         <li style="list-style-type: lower-roman;">Need analysis Phase</li>
+					         <li style="list-style-type: lower-roman;">Implementation Phase</li>
+					         <li style="list-style-type: lower-roman;">Evaluation Phase</li>
+					       </ol>
+					       <p>Codes:</p>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">(iii)  (ii) (i) (iv) (v)</li>
+					         <li style="list-style-type: upper-alpha;"> (ii) (i) (iii) (v) (iv)</li>
+					         <li style="list-style-type: upper-alpha;">(iii)  (iv) (i) (ii) (v)</li>
+					         <li style="list-style-type: upper-alpha;">(iv)  (iii) (ii) (i) (v)</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer7" max-length="30" class="validate" id="answer7"><label for="answer7" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="8" type="1">
+					         <li>Training is more _______       it emphasizes inform and predictable response to standard guidance and       instruction reinforced by practice and repetition changes in the       individual</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Organic </li>
+					         <li style="list-style-type: upper-alpha;">Mechanistic</li>
+					         <li style="list-style-type: upper-alpha;">Both  (A) &amp; (B)</li>
+					         <li style="list-style-type: upper-alpha;">None  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer8" max-length="30" class="validate" id="answer8"><label for="answer8" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="9" type="1">
+					         <li>_______ is a process in       which executives acquire not only skill and competencies in their present       job but also capabilities for future managerial tasks of increasing       difficulty and scope</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Training</li>
+					         <li style="list-style-type: upper-alpha;">Executive  development</li>
+					         <li style="list-style-type: upper-alpha;">Education</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer9" max-length="30" class="validate" id="answer9"><label for="answer9" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="10" type="1">
+					         <li>_______ the evaluator uses       his own trait as a basis for assessing the employees. If the raters are       aggressive, then they will try to find out this trait in subordinates</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Faulty  assumptions</li>
+					         <li style="list-style-type: upper-alpha;">Leniency  and strictness</li>
+					         <li style="list-style-type: upper-alpha;">Similarity  errors</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer10" max-length="30" class="validate" id="answer10"><label for="answer10" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="11" type="1">
+					         <li>Match the following :</li>
+					       </ol >
+					       <p>       List-A                                                             List-B</p>
+					       <ol type="a">
+					         <li  style="list-style-type: lower-alpha;">Job  rotation                                 (i) The trainer appraises the performance of the trainee,provides feedback information and corrects the trainee.   </li>
+
+					         <li style="list-style-type: lower-alpha;">Job  instruction                          (ii)  Movement of the trainee from one job to another</li>
+					         <li  style="list-style-type: lower-alpha;">Vestibule  training                     (iii) Simulation of actual  work conditions in a classroom</li>
+					         <li style="list-style-type: lower-alpha;">Programmed  instruction         (iv) The subject  matter to be learned is presented in a service of carefully planned sequential units.</li>
+					       </ol>
+
+					       <ol type="A">
+					         		<strong>(a)  (b)    (c)   (d)</strong>
+					         <li style="list-style-type: upper-alpha;">       (ii)     (i)    (iii)   (iv)</li>
+					         <li style="list-style-type: upper-alpha;">       (ii)     (iii)   (iv)   (i)    </li>
+					         <li style="list-style-type: upper-alpha;">       (iii)    (iv)   (ii)    (i)    </li>
+					         <li style="list-style-type: upper-alpha;">       (ii)     (i)    (iv)    (iii)   </li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer11" max-length="30" class="validate" id="answer11"><label for="answer11" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="12" type="1">
+					         <li>In _______ a person is       perceived on the basis of a single trait.</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Halo  effect</li>
+					         <li style="list-style-type: upper-alpha;">Hawthorne  effect</li>
+					         <li style="list-style-type: upper-alpha;">Stereotyping</li>
+					         <li style="list-style-type: upper-alpha;">None  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer12" max-length="30" class="validate" id="answer12"><label for="answer12" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="13" type="1">
+					         <li>Which of the following are       the internal sources of recruitment?</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Promotion</li>
+					         <li style="list-style-type: upper-alpha;">Trainees</li>
+					         <li style="list-style-type: upper-alpha;">Transfers</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer13" max-length="30" class="validate" id="answer13"><label for="answer13" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="14" type="1">
+					         <li>After the trainees are       given background information on a simulated exercise about a company and       its products, organisation and key personnel</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">In  basket exercise</li>
+					         <li style="list-style-type: upper-alpha;">Business  games</li>
+					         <li style="list-style-type: upper-alpha;">Case  study</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer14" max-length="30" class="validate" id="answer14"><label for="answer14" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="15" type="1">
+					         <li>Forecast future manpower       requirement quantitatively and qualitatively is called</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Analysis  of objectives</li>
+					         <li style="list-style-type: upper-alpha;">Manpower  inventory</li>
+					         <li style="list-style-type: upper-alpha;">Manpower  forecasting</li>
+					         <li style="list-style-type: upper-alpha;">Manpower  plan</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer15" max-length="30" class="validate" id="answer15"><label for="answer15" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="16" type="1">
+					         <li>Under the ______ employees       who have attained a particular age or completed some particular years of       service, would seek voluntary retirement.</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Downsizing</li>
+					         <li style="list-style-type: upper-alpha;">Exit  policy</li>
+					         <li style="list-style-type: upper-alpha;">Golden  Handshake</li>
+					         <li style="list-style-type: upper-alpha;">All  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer16" max-length="30" class="validate" id="answer16"><label for="answer16" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="17" type="1">
+					         <li>KPO stands for</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Knowledge  power Output</li>
+					         <li style="list-style-type: upper-alpha;">Knowledge  Process Outsourcing</li>
+					         <li style="list-style-type: upper-alpha;">Knowledge  Process Output</li>
+					         <li style="list-style-type: upper-alpha;">None  of these</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer17" max-length="30" class="validate" id="answer17"><label for="answer17" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="18" type="1">
+					         <li>Match the following :</li>
+					       </ol>
+					       <p>       List-A                                                             List-B</p>
+					       <ol type="a">
+					         <li  style="list-style-type: lower-alpha;">Technical                                   (i) This  skill relate to person&rsquo;s knowledge and ability in any organisational functional area</li>
+
+					         <li  style="list-style-type: lower-alpha;">Leadership                                (ii) This skill  is the ability to work effectively with people and to build teamwork</li>
+
+					         <li  style="list-style-type: lower-alpha;">Conceptual                               (iii) This skill  is the ability to think in terms of models,frameworks and broad relationships such as long range plans </li>
+
+					         <li  style="list-style-type: lower-alpha;">Human                                      (iv) It  represents a person&rsquo;s philosophy, skills and attitudes</li>
+					         </ol>
+					         <ol type="A">
+					         <strong>(a)  (b)    (c)    (d)</strong></li>
+					         <li style="list-style-type: upper-alpha;">(i)     (iii)     (ii)    (iv)</li>
+					         <li style="list-style-type: upper-alpha;">(i)     (iv)     (iii)   (ii)</li>
+					         <li style="list-style-type: upper-alpha;">(iii)   (ii)     (i)     (iv)    </li>
+					         <li style="list-style-type: upper-alpha;">(iv)    (i)      (ii)    (iii)   </li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer18" max-length="30" class="validate" id="answer18"><label for="answer18" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="19" type="1">
+					         <li>The situation that exists       due to strict management controls and close supervision is</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">High  productivity, high morale</li>
+					         <li style="list-style-type: upper-alpha;">Low  productivity, high morale</li>
+					         <li style="list-style-type: upper-alpha;">High  productivity, low morale</li>
+					         <li style="list-style-type: upper-alpha;">Low  productivity, low morale</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer19" max-length="30" class="validate" id="answer19"><label for="answer19" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="20" type="1">
+					         <li>Individuals who bring       together the knowledge and skills of people from various work areas to       identify and solve mutual problems are known as:</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Problem-solving  teams</li>
+					         <li style="list-style-type: upper-alpha;">Functional  teams</li>
+					         <li style="list-style-type: upper-alpha;">Cross-functional  teams</li>
+					         <li style="list-style-type: upper-alpha;">Virtual  teams</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer20" max-length="30" class="validate" id="answer20"><label for="answer20" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="21" type="1">
+					         <li>Values and attitudes play       an important role in organisational behaviour because:</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">They  indicate the motives inherent in behaviour.</li>
+					         <li style="list-style-type: upper-alpha;">They  are the essential keys to understand individual behaviour.</li>
+					         <li style="list-style-type: upper-alpha;">They  are manifestations of explicit behaviour.</li>
+					         <li style="list-style-type: upper-alpha;">They  are easy to understand and predict.</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer21" max-length="30" class="validate" id="answer21"><label for="answer21" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="22" type="1">
+					         <li>Which of the following are       the examples of primary motives:</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Need  for power</li>
+					         <li style="list-style-type: upper-alpha;">Need  for status</li>
+					         <li style="list-style-type: upper-alpha;">Need  for affiliation</li>
+					         <li style="list-style-type: upper-alpha;">Need  for achievement</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer22" max-length="30" class="validate" id="answer22"><label for="answer22" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="23" type="1">
+					         <li>Which of the following       tools can be used for HR demand forecasting?</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Regression  analysis</li>
+					         <li style="list-style-type: upper-alpha;">Delphi  technique</li>
+					         <li style="list-style-type: upper-alpha;">Factor  analysis</li>
+					         <li style="list-style-type: upper-alpha;">Mathematical  modelling</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer23" max-length="30" class="validate" id="answer23"><label for="answer23" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="24" type="1">
+					         <li>Methods of job analysis       includes:</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Job  simplification</li>
+					         <li style="list-style-type: upper-alpha;">Job  specification</li>
+					         <li style="list-style-type: upper-alpha;">Job  evaluation</li>
+					         <li style="list-style-type: upper-alpha;">Job  description</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer24" max-length="30" class="validate" id="answer24"><label for="answer24" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       <ol start="25" type="1">
+					         <li>Managerial functions of       personnel management includes:</li>
+					       </ol>
+					       <ol type="A">
+					         <li style="list-style-type: upper-alpha;">Planning  and organising</li>
+					         <li style="list-style-type: upper-alpha;">Directing</li>
+					         <li style="list-style-type: upper-alpha;">Procurement</li>
+					         <li style="list-style-type: upper-alpha;">Maintaining</li>
+					       </ol>
+					       <div class="row">
+					           <div id="name_container" class="input-field col s12 required">
+					               <input type="text" name="answer25" max-length="30" class="validate" id="answer25"><label for="answer25" class="" data-error="wrong" >Answer</label>
+					           </div>
+					       </div>
+					       
+
+					            
+					   </div>
+
+					<div class="card-action">
+					    <div class="center-align">
+					        <button class="waves-effect waves-light btn" type="submit" id="file_upload_button">Submit</button>
+					    </div>
+					    
+					</div>
+
+					</div>
+
+					       </div>
+
+					        
+
+					                     </div>
+					       
+					       
+					       </div>
+					   </form>
+	               
+	             
+					 
+					 
+
+					
+					
+	           </div>
+	         </div>
+	       </main>
+
+	       <footer class="page-footer" style="background-color:#ee6e73;padding-top:0px;margin-top:0px;">
+	             
+	             <div class="footer-copyright">
+	               <div class="container">
+	               © 2015-2016 Kshitij
+	               <div class="social-buttons col s12 right" style="margin:12px;">
+	                         <a href="https://www.facebook.com/ktj.iitkgp" target="_blank"><img src="/static/images/mobile/02_facebook.png" style="margin-top:-12px;"></a>
+	                         <a href="https://twitter.com/ktj_iitkgp" target="_blank"><img src="/static/images/mobile/01_twitter.png" style="margin-top:-12px;"></a>
+	                         <a href="https://www.youtube.com/user/ktjiitkgp?sub_confirmation=1" target="_blank"><img src="/static/images/mobile/03_youtube.png" style="margin-top:-12px;"></a>
+	                         <a href="https://instagram.com/ktj.iitkgp/" target="_blank" ==""><img src="/static/images/mobile/10_instagram.png" style="margin-top:-12px;"></a>
+	                     </div>
+	               </div>
+	             </div>
+	           </footer>
+	     
+
+
+	<!--  Scripts-->
+	            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	            <script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); }
+	            </script>
+	            <script src="/static/js/jquery.timeago.min.js"></script>
+	            <script src="/static/js/prism.js"></script>
+	            <script src="/static/js/lunr.min.js"></script>
+	            <script src="/static/js/search.js"></script>
+	            <script src="/static/js/materialize.js"></script>
+	            <script src="/static/js/init.js"></script>
+
+	    <style type="text/css">
+	    .card:hover{
+	      transition: box-shadow .25s;
+	          box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	    }
+	    </style>
+	    <script type="text/javascript">
+	    function event_reg(id)
+	    {
+	        $("#event_1000_06_01").load('/eventreg/register_w');
+	        Materialize.toast($("#event_1000_06_01"), 5000);
+	    }
+	    $(document).ready(function(){
+    $('.tabs-wrapper .row').pushpin({ top: $('.tabs-wrapper').offset().top });
+  });
+	    </script>
+
+</body>
+</html>

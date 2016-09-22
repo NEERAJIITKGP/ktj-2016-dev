@@ -1,0 +1,522 @@
+{% load static %}
+{% load cache %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Math Challenge | Kshitij 2016</title>
+
+<style type="text/css">
+
+    @charset "utf-8";
+    /* CSS Document */
+
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: Tahoma, Geneva, sans-serif;
+      /*background: url({% static "img/mathCh/main/math_back.png" %}) ;*/
+      overflow: hidden;
+    }
+    #bkg-img{
+      z-index: -10000;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+      *::-webkit-scrollbar
+        {
+        width:10px;
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+        cursor:pointer;
+        }
+      *::-webkit-scrollbar : hover{
+        width:20px;
+        }
+      *::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        background:rgba(0,0,0,0.4);
+        }
+      *::-webkit-scrollbar-track
+        {
+        background:rgba(0,0,0,0.1);
+        }
+     #iitkgp-logo{
+     position: absolute;
+      left: 1.5%;
+      top: 78%;
+      width: 7.6%;
+      float: left;
+      cursor:pointer;
+     }
+    
+     #ktj{
+      position: absolute;
+      
+      width: 32%;
+      float: left;
+      cursor:pointer;
+     }
+
+      #home {
+      position:absolute;
+      top: 3%;
+      left: 48%;
+      /*width: 287px;*/
+      float: left;
+      cursor:pointer;
+      }
+        
+      #about {
+      position:absolute;
+      left: 60%;
+      top: 3%;
+      /*width: 287px;*/
+      float: left;
+      cursor:pointer;
+      }
+
+      #rules {
+      position: absolute;
+      left: 72%;
+      top: 3%;
+      /*width: 287px;*/
+      float: left;
+      cursor:pointer;
+      }
+    
+    #kshitij {
+      position: absolute;
+      left:85%;
+      top: 3%;
+      /*width: 287px;*/
+      float: left;
+      cursor:pointer;
+      }
+     
+      .homelogin, .homeabout, .homerules, .homekshitij
+      {
+        width: 150px;
+      }    
+
+      #user_pic
+      {position: absolute;
+      left:47%;
+      top: 27%;
+      /*width: 287px;*/
+      float: left;
+      cursor:pointer;}
+      
+    /*#user {
+      position: absolute;
+      left: 660px;
+      top: 220px;
+      width: 55px;
+      height: 150px;
+      float:left;
+    }*/
+    #logout {
+    position: absolute;
+    left: 85%;
+    top: 86%;
+    width: 55px;
+    height: 150px;
+    }
+    #calci {
+    position: absolute;
+    left: 14.5%;
+    top: 23.5%;
+   
+    
+    }
+    #content {
+      position:absolute;
+      left:48%;
+      width:44%;
+      height:300px;
+      top:38%;
+      color:white;
+      /*float:left;*/
+      /*background-color: rgba(0,0,0,0.5);*/
+      border-radius: 10px;
+      /*box-shadow: 3px 3px 3px #222;*/
+      overflow:auto;
+      text-align:justify;
+      padding:10px;
+    }
+    #qbox{
+      position:absolute;
+      left:48%;
+      width:630px;
+      height:300px;
+      top:38%;
+      color:white;
+      float:left;
+      overflow:auto;
+      text-align:justify;
+      padding:10px;
+    }
+    /* my alert */
+    #myAlert{
+      min-height:10%;
+      max-height:50%;
+      overflow-y:auto;
+      width:31%;
+      position:fixed;
+      left:35%;
+      top:30%;
+      z-index:99999;
+      opacity:0;
+      color:#6F6F6F;
+      font-family:Century Gothic;
+      border:2px solid #5e5645;
+      box-shadow:2px 2px 2px "#888888";
+      padding:0px;
+      padding-bottom:5%;
+      background:white;
+      border-radius:5px;
+      font-size:130%;
+      padding: 10px;
+      }
+      #myAlert h1{
+      margin:0px 0px 0px 0px;
+      background:#5e5645;
+      width:90%;
+      font-family:'Century Gothic';
+      color:white;
+      font-size:130%;
+      border-radius: 3px;
+      padding: 5px;
+      }
+      #myAlert #choice,#myAlert #choice2{
+      width:47%;
+      background:#5e5645;
+      color:white;
+      position:absolute;
+      bottom:5%;
+      font-size:130%;
+      border-radius:2px;
+      cursor:pointer;
+      right:2%;
+      text-align:center;
+      }
+
+      #myAlert #choice2{
+      left:2%;
+      }
+
+      #pageFill{
+      position:fixed;
+      background:black;
+      opacity:0.3;
+      top:0;
+      left:0;
+      z-index:6000;
+      width:100%;
+      height:100%;
+      }
+      #myClose{
+      color:red;
+      font-size:130%;
+      z-index:3;
+      position:absolute;
+      top:-1px;
+      right:2px;
+      cursor:pointer;
+      }
+      #register{
+      background: darkcyan;
+      padding: 15px 30px;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 4px 4px 4px #000;
+      }
+      #signup{
+      position: absolute;
+      bottom: 120px;
+      display: inline-flex;
+      }
+    .question{
+      width: 80%;
+      height: 320px;
+      margin-left: 5%;
+      margin-top: 1%;
+      float: left;
+      background: rgba(255,255,255, 0.5);
+      background-repeat: no-repeat;
+      overflow: hidden;
+      padding: 10px;
+      font-size: 16px;
+      font-family: arial;
+      border-radius: 9px;
+      }
+    #playbutton,  ,#nextbutton{
+      font-family: myfont;
+      font-size: 70px;
+      background: white;
+      opacity: 0.9;
+      text-align: center;
+      border-radius: 50px;
+      color: black;
+      box-shadow: -2px 5px 3px black;
+      width: 250px;
+      margin-top: 50px;
+      }
+    #answer{
+      position: absolute;
+      /*top: 3px;*/
+      background-color: #FFF;
+      opacity: 1;
+      font-size: 120%;
+      color: black;
+      width: 50%;
+      text-align: center;
+      font-weight: 200;
+      display: block;
+      border-radius: 10px;
+      /*margin-top: 89%;
+      margin-left: 15%;*/
+      }
+    #content1 {
+      position: relative;
+      left: 300px;
+      width: 900px;
+      height: 600px;
+      top: -40px;
+      color: white;
+      float: left;
+      background-color: ;
+      overflow: auto;
+      text-align: justify;
+      padding: 10px;
+    }
+    #startPlay, #playbutton{
+      padding: 20px;
+      font-size: 20px;
+      background: rgba(0,0,0,0.3);
+      color: white;
+      margin-top: -45px;
+      position: absolute;
+      top: 83%;
+      left: 84.5%;
+      border-radius: 5px;
+    }
+    #backbutton{
+      padding: 20px;
+      font-size: 20px;
+      background: rgba(0,0,0,0.4);
+      color: white;
+      margin-top: -45px;
+      position: absolute;
+      top: 83%;
+      left: 48.5%;
+      border-radius: 5px;
+    }
+    .ques{
+      display: none;
+      position: absolute;
+      top:27%;
+      background: rgba(0,0,0);
+      color: white;
+      /*margin: 45px 0px 0px 0px;*/
+      height: 57%;
+      width: 90%;
+      border-radius: 20px;
+      /*padding: 20px;*/
+      font-weight: bold;
+    }
+    #question-1{
+      display: block;
+    }
+    .qbox{
+     
+      background: linear-gradient(#aaa, white, #aaa);
+      font-size: 20px;
+      color: black;
+      float: left;
+      box-shadow: 2px 2px 2px black;
+      padding: 3px;
+      margin: 3px;
+      border-radius: 80px;
+      cursor: pointer;
+      font-family: "trebuchet ms";
+      width: 20px;
+      position: relative;
+      top:10px;
+      text-align:center;
+    }
+    .qbox:hover{
+      background: black;
+      color: white;
+    }
+    #finalktj{position: relative;
+        clear: both;
+        top: 20%;
+        left: 10%;
+        width: 700px;
+        color: white;
+        height:340px;
+        background-color: rgba(0,0,0,0);
+        overflow: hidden;
+        padding-left: 2%;
+        padding-top: 20px;}
+
+   
+    #finalktj1{position: absolute;
+       font-family: "trebuchet ms";
+       font-size: 20px;
+        top: 45%;
+        left: 50%;
+      }
+    #submitButton{
+      font-size: 20px;
+      border-radius: 5px;
+      background: black;
+      color: white;
+      /*height: 45px;*/
+      margin-left: 42px;
+      margin:15px;
+      position: relative;
+      /*top:50px;*/
+    }
+    #indexbox{
+      width: 510px;
+    }
+    #countTime{
+      position: relative;
+      right: -90%;
+      top: 30%;
+      width: 100px;
+      /*margin-top: -35px;
+      margin-bottom: 5px;*/
+      background: linear-gradient(#ddd, white, #ddd);
+      padding: 15px 0px;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+</style>
+<script type="text/javascript" src="{% static "js/vendor/jquery-1.11.1.min.js" %}"></script>
+<script type="text/javascript">
+
+  $(document).ready(function () {
+          $('#backbutton').show();
+          $("#calci").hide();
+          var fill = '';
+          $('#home').click(function () {
+              fill = "{{matter.introduction|escape}}";
+              $("#qbox").hide();
+              $('#backbutton').show();
+              $("#content").html(fill);
+              $("#content").show();
+             $("#calci").show();
+          });
+
+          $('#rules').click(function () {
+              fill = "{{matter.rules|safe|escape}}";
+              $("#qbox").hide();
+              $('#backbutton').show();
+              $("#content").html(fill);
+              $("#content").show();
+              $("#calci").show();
+
+              
+          });
+
+          $('#about').click(function () {
+              fill = "{{matter.prizes|safe|escape}}";
+              $("#qbox").hide();
+              $('#backbutton').show();
+              $("#content").html(fill);
+              $("#content").show();
+              $("#calci").show();
+              
+          });
+
+          $('.qbox').click(function(){
+            var q_id = "#question-"+ $(this).attr('id');
+            $('.ques').hide();
+            $('.qbox').css('background', 'linear-gradient(#aaa, white, #aaa)');
+            $('.qbox').css('color', 'black');
+            $(this).css('background', 'linear-gradient(#000, #444, #000)');
+            $(this).css('color', 'white');
+            $(q_id).show();
+            
+            
+          });
+          $('#backbutton').click(function () {
+                  $('#content').hide();
+                  $("#qbox").show();
+                  $('#backbutton').hide();
+                  $('#calci').hide();
+                  
+          });
+  });
+
+</script>
+</head>
+
+<body>
+<img src="{% static "img/mathCh/login/mathbg.png" %}" id="bkg-img">
+    
+<a href="http://www.ktj.in" target="_blank">
+    <img src="{% static "img/mathCh/login/ktj.png" %}" class="ktj" id="ktj">
+</a>
+
+    
+<div id="navigation">
+  
+  <div id="home"><img class="homelogin" src="{% static "img/mathCh/main/home.png" %}" alt="home" /></div>
+  <div id="about"><img class="homeabout" src="{% static "img/mathCh/main/about.png" %}" alt="about" /></div>
+  <div id="rules"><img class="homerules" src="{% static "img/mathCh/main/rules.png" %}" alt="rules"/></div>
+  <div id="kshitij"><a href="http://www.ktj.in" target="_blank"><img class="homekshitij" src="{% static "img/mathCh/main/kshitij.png" %}" /></a></div>
+  
+
+</div>
+
+<div id="user">
+<a href="#"><img src="{% static "img/mathCh/main/user.png" %}" id="user_pic"/> </a>
+</div>
+{% block timer %}
+{% endblock %}
+{% block content %}
+<div id="content">
+  {% if user.username %}
+  <p>Welcome {{ user.first_name }} {{ user.last_name }}!</p>
+  {% endif %}
+   Math Challenge will Start at 6:00 PM.
+</div>
+{% endblock %}
+
+{% block qbox %}
+{% endblock %}
+{% block calci %}
+  <div id="calci">
+  <img src="{% static "img/mathCh/main/calci.png" %}" width=395 height=450> 
+  </div>
+{% endblock %}
+{% block logout %}
+  <div id="logout">
+  <a href="logout/"><img src="{% static "img/mathCh/main/signout.png" %}"/> </a>
+  </div>
+{% endblock %}
+{% block play %}
+<form action="qstn/" method="POST" id="playButton">
+    {% csrf_token %}
+    <input type="submit" value="Start Playing" id="startPlay">
+</form>
+{% endblock %}
+
+{% block back %}
+{% endblock %}
+
+    
+<a href="http://www.iitkgp.ac.in" target="_blank">
+    <img src="{% static "img/mathCh/main/kgplogo.png" %}" class="iitkgp" href="http://www.iitkgp.ac.in" id="iitkgp-logo">
+</a>
+    
+</body>
+</html>

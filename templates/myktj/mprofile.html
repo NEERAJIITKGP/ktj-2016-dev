@@ -1,0 +1,92 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+
+{% block content %}
+<form method="POST" id="update_profile">
+    {% csrf_token%}
+<div id="m_profile" class="scroll">
+    
+    <div class="m_title">My Profile</div>
+    
+    <div class="profile_content">
+        <span class="m_content_title">First Name</span>
+        <div class="m_profile_field" id='m_firstname'>
+            <input type="text" name="m_profile_firstname" value="{{user.first_name}}">
+        </div>
+    </div>
+    
+    <div class="profile_content">
+        <span class="m_content_title">Last Name</span>
+        <div class="m_profile_field" id='m_lastname'>
+            <input type="text" name="m_profile_lastname" value="{{user.last_name}}">
+        </div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">Email</span>
+        <div class="m_profile_field" id='m_email'>
+            <input type="text" name="m_profile_email" value="{{user.email}}" readonly="readonly">
+        </div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">Username</span>
+        <div class="m_profile_field" id='m_username'>
+            <input type="text" name="m_profile_username" value="{{user.username}}" readonly="readonly">
+        </div>
+    </div>
+    
+    <div class="profile_content">
+        <span class="m_content_title">{{form.gender.label}}</span>
+        <div class="m_profile_field" id='m_gender'>{{form.gender}}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{ form.dateOfBirth.label }}</span>
+        <div class="m_profile_field">{{ form.dateOfBirth }}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{form.country.label}}</span>
+        <div class="m_profile_field">{{form.country}}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{form.state.label}}</span>
+        <div class="m_profile_field">{{form.state}}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{form.department.label}}</span>
+        <div class="m_profile_field">{{form.department}}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{form.year.label}}</span>
+        <div class="m_profile_field">{{form.year}}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{form.institution.label}}</span>
+        <div class="m_profile_field">{{form.institution}}</div>
+    </div>
+    
+    <div class="profile_content">
+        <span class="m_content_title">{{form.contact.label}}</span>
+        <div class="m_profile_field">{{form.contact}}</div>
+    </div>
+
+    <div class="profile_content">
+        <span class="m_content_title">{{form.address.label}}</span>
+        <div class="m_profile_field">{{form.address}}</div>
+    </div>
+
+    <button type="button" onclick="update_profile()" class="signup_click" id="m_event_reg_button">Update</button>
+
+</div>
+</form>
+
+{% endblock %}
+
+

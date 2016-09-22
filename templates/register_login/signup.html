@@ -1,0 +1,98 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+
+{% block content %}
+<style>
+.btn_close2{ transition: 0.2s background-color ; cursor: pointer; position: absolute;  right: 30px; border-radius: 50px; width: 48px; height: 48px; background: rgba(255,255,255,0) url(/static/administrator/js/cuppa/images/close_white.png) center no-repeat; }
+.btn_close2:hover{ background-color: rgba(255,255,255,0.05); }
+</style>
+<div class="reg_heading">
+    <span>Register</span>
+    <div class="btn_close2" onclick="closeRegister()"></div>
+</div>
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token%}
+	<div class="register-section">
+		<div class="register-wrap">
+	        <div class="label">Name</div>
+	        <div class="input-element">{{ form.firstname }}{{ form.lastname }}</div>
+	    </div>
+	    <div class="register-wrap">
+	        <div class="label">{{ form.username.label }}</div>
+	        <div class="input-element" id="username-input">{{ form.username }}</div>
+	    </div>
+
+	    <div class="register-wrap">
+	        <div class="label">{{ form.password1.label }}</div>
+	        <div class="input-element">{{ form.password1 }}</div>
+	    </div>
+	    <div class="register-wrap">
+	        <div class="label">{{ form.password2.label }}</div>
+	        <div class="input-element">{{ form.password2 }}</div>
+	    </div>
+	    <div class="register-wrap">
+	        <div class="label">{{ form.email.label }}</div>
+	        <div class="input-element" id="email-input">{{ form.email }}</div>
+	    </div>
+	    <div class="register-wrap">
+	        <div class="label">{{ form.contact.label }}</div>
+	        <div class="input-element">{{ form.contact }}</div>
+	    </div>
+	</div>
+
+	<div class="register-section">
+	<div class="register-wrap">
+	    <div class="label">{{ form.gender.label }}</div>
+	    <div class="input-element">{{ form.gender }}</div>
+	</div>
+	<div class="register-wrap">
+	    <div class="label">{{ form.dateOfBirth.label }}</div>
+	    <div class="input-element">{{ form.dateOfBirth}}</div>
+	</div>
+	<div class="register-wrap">
+	    <div class="label">{{ form.country.label }}</div>
+	    <div class="input-element">{{ form.country }}</div>
+	</div>
+	<div class="register-wrap">
+	    <div class="label">{{ form.state.label }}</div>
+	    <div class="scroll1 input-element">{{ form.state }}</div>
+	</div>
+	<div class="register-wrap">
+	    <div class="label">{{ form.department.label }}</div>
+	    <div class="scroll1 input-element" style="width:90%;">{{ form.department }}</div>
+	</div>
+	<div class="register-wrap">
+	    <div class="label"><label for="id_firstname">{{ form.year.label }}</label></div>
+	    <div class="scroll1 input-element">{{ form.year }}</div>
+	</div>
+	</div>
+
+	<div class="register-section">
+        <div class="register-wrap" style="width:100%;">
+            <div class="label">{{ form.institution.label }}</div>
+            <div class="scroll1 input-element">{{ form.institution }}</div>
+        </div>
+        <div class="register-wrap">
+            <div class="label">{{ form.address.label }}</div>
+            <div class="input-element">{{ form.address }}</div>
+        </div>
+        <div class="register-wrap errors">
+        
+			<div class="error">Note: If your Institute name is not in the list please mail us at <a style="text-decoration:underline;"href="mailto:kshitij@ktj.in?Subject=Add%20Institute" target="_top">kshitij@ktj.in</a> to add it to list.</div>
+		
+		</div>
+        <div class="register-wrap errors">
+        {% if form.errors %}
+			<div class="error">{{form.non_field_errors}}</div>
+		{% endif %}
+		</div>
+		<div class="register-wrap">
+  		    <div class="input-element">
+	            <button type="button" onclick="signup()" class="signup_click">Signup</button>
+	        </div>
+  		</div>
+	</div>
+</form>
+{% endblock %}

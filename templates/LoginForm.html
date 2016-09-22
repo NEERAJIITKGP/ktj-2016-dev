@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Login Form
+{% endblock %}
+
+{% block libraries %}
+<link href="{% static 'accounts/css/LoginForm.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block content %}
+<form action="{% url 'auth:login' %}" method="post" class="LoginForm">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="inputField">
+        <label for="id_{{field.name}}" class="label">{{ field.label }} :</label>
+        {{ field }}
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <p class="errorlist">{{ error }}</p>
+            {% endfor %}
+
+        {% endif %}
+        </div>
+    {% endfor %}
+<input type="submit" value="Login"/>
+</form>
+{% endblock %}

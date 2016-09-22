@@ -1,0 +1,150 @@
+<html>
+    <head>
+        <title>Cryptex - Kshitij 2016</title>
+        <link href="/static/css/cryptex.css" type="text/css" rel="stylesheet"/>
+        <script src="/static/js/vendor/jquery-1.11.1.min.js"></script>
+        <script src="/static/js/cryptex.js" type="text/javascript">
+            
+        </script>
+        
+        
+    </head>
+    <body>
+        
+        <header id="main_header">
+            <img src="/static/images/menu/kgp_logo.png" id="cryptex-logo"/>
+            
+            <a href="http://ktj.in"><img src="/static/images/cryptex/ktjwhite.png" style="position:relative;
+             left:400px;" width=400 height=100></a>
+        </header>
+        <section id="main_section">
+            <nav id="main_nav">
+                <a href="#"  onclick="$('.overlay').fadeOut()">Home</a>
+                
+                <a href="#" onclick="$('.overlay').fadeOut();$('#instructions').fadeIn();">Rules</a>
+                <a href="#"  onclick="$('.overlay').fadeOut();$('#contacts').fadeIn();">Contact</a>
+                <a href="/cryptex/logout">LogOut</a>
+            </nav>
+            <div class="overlay" hidden id="instructions">
+                Instructions: <br><br>
+
+This game is basically based on intelligent guessing and subsequent eliminations. On your screen there will be provided eight different colored balls which you can place in any order in the eight grids provided.<br><br>
+On the right hand side of the screen are two columns of 4 small colored dots. The dots, in effect, show the result of the guess you have made regarding the positions of the colored balls in the grids. The color coding of the dots on the right hand side is as follows: 
+Blue dot- The ball has been placed in the correct grid.
+White dot- This color is present in the answer but has been placed in the wrong grid.
+Grey dot: The color is not present in the answer.<br><br>
+
+Note:<br><br>
+
+The order in which dots appear on the right hand side of the screen has no relation whatsoever with the order in which colored balls are placed in the grids. 
+The same colored ball can be placed any number of times in the grids. Consequently, it is possible that a particular color is not present in the answer at all. That is what the grey dot shows.
+                
+            </div><div class="overlay" hidden id="contacts">
+                Contacts: <br><br>
+            Sunil Tatipelly<br>+91-9800116113<br>sunil.tatipelly@ktj.in<br><br>
+            Neeraj Giri<br>+91-8768792833<br>neeraj.giri@ktj.in<br>
+            
+                
+            </div>
+            </div>
+            <aside id="history">
+                <header>Stats</header>
+                <article>
+                    <span>Total</span>:<span id="total"></span><br>
+                    <span>Won</span>:<span id="won"></span><br>
+                    <span>Lost</span>:<span id="lost"></span><br>
+                    <span>Best Time</span> - <span id="mins"></span>:<span id="secs"></span><br>
+                </article>
+            </aside>
+            <section id="game_container">
+                <article id="game">
+                <div id="game2">
+
+                    <div id="notification" >
+                        <div id="newGame">Start New Game!</div>
+                        <div id="msg"></div>
+                    </div>
+                    <table>
+                        <tr class="game_header question">
+                            <td class="trail">
+                                <div class="game_circle">?</div>
+                                <div class="game_circle">?</div>
+                                <div class="game_circle">?</div>
+                                <div class="game_circle">?</div>
+                            </td>
+                            <td></td>
+                        </tr>                       
+                    </table>  
+                    </div>                  
+                    <article id="options">                        
+                        <div class="game_circle" id="g1"></div>
+                        <div class="game_circle" id="g2"></div>
+                        <div class="game_circle" id="g3"></div>
+                        <div class="game_circle" id="g4"></div><br>
+                        <div class="game_circle" id="g5"></div>
+                        <div class="game_circle" id="g6"></div>
+                        <div class="game_circle" id="g7"></div>
+                        <div class="game_circle" id="g8"></div>
+                        <article id="trail">
+                            <div class="game_circle" id="t1"></div>
+                            <div class="game_circle" id="t2"></div>
+                            <div class="game_circle" id="t3"></div>
+                            <div class="game_circle" id="t4"></div>                                   
+                            <div class="submit"> SUBMIT </div>
+                        </article>
+                    </article>
+                </article>
+            </section>
+        </section>
+        <footer>
+        </footer>
+        <data hidden>
+            <game>
+                <table>
+                    <tr class="game_header">
+                        <td class="trail">
+                            <div class="game_circle"></div>
+                            <div class="game_circle"></div>
+                            <div class="game_circle"></div>
+                            <div class="game_circle"></div>
+                        </td>
+                        <td class="pegs">
+                            <div class="game_peg"></div>
+                            <div class="game_peg"></div>
+                            <div class="game_peg"></div>
+                            <div class="game_peg"></div>
+                        </td>
+                    </tr>                      
+                </table>
+                
+            </game>
+            <backupGame>
+                <table>
+                    <tdata>
+                        <tr class="game_header question">
+                            <td class="trail">
+                                <div class="game_circle">?</div>
+                                <div class="game_circle">?</div>
+                                <div class="game_circle">?</div>
+                                <div class="game_circle">?</div>
+                            </td>
+                            <td></td>
+                        </tr>   
+                    </tdata>
+                </table>
+            </backupGame>
+            <div class="sample_history">
+                    <div class="history_element">
+                        <div class="his_circle"></div>
+                        <div class="his_circle"></div>
+                        <div class="his_circle"></div>
+                        <div class="his_circle"></div>
+                    </div>
+                </div>
+            <tempdata>
+            
+            </tempdata>
+        </data>
+                
+    </body>
+</html>

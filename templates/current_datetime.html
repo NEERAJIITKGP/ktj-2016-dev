@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+  <head onload="submitPayuForm()">
+  <script type="text/javascript">
+    var hash = "{{ hashh }}";
+    function submitPayuForm() {
+      if(hash =='') {
+        return;
+      }
+      var payuForm = document.forms.payuForm;
+      payuForm.submit();
+    }
+  </script>
+       <style>
+
+            input{border:.1em rgba(71,101,145,1) solid;margin:5px;padding:1px;padding-left:10px;border-radius: 4px;height:30px;width:270px;}
+            a{text-decoration: none;color: black;font-size: 20px;}
+            label{font-size:20px;}
+            .loginbox{
+                width:400px;
+                height:200px;
+                background-color:rgba(0,0,0,0.5);
+                padding:50px;
+                margin: auto;
+            }
+            .sub{
+    width:100px;height:35px;
+    background-color:#26a69a;
+    color:white;border:0px solid #4CAF50;
+    border-radius:5px;font-size:17px;
+    cursor:pointer;
+}
+.sub:hover{
+    background-color:#27C4B4 ;
+    }
+        </style>
+  </head>
+  <body>
+    <h2>PayU Form</h2>
+    <br/>
+    {% if error %}
+
+      <span style="color:red">Please fill all mandatory fields.</span>
+      <br/>
+      <br/>
+      {% endif %}
+
+      <form action={{ action }} method="post" name="payuForm">{% csrf_token %}
+      <input type="hidden" name="key" value="{{ MERCHANT_KEY }}" />
+      <input  name="hash_string" value="{{ hash_string }}" />
+      <input  name="hash" value="{{ hashh }}"/>
+       <input type="hidden" name="posted" value="{{ posted }}"/>
+      <input type="hidden" name="txnid" value="{{ txnid }}" />
+      <table>
+        <tr>
+          <td><b>Mandatory Parameters</b></td>
+        </tr>
+        <tr>
+         <td>Amount: </td>
+          <td><input name="amount" value="{{ posted.amount}}" /></td>
+          <td>First Name: </td>
+          <td><input name="firstname" id="firstname" value="{{ posted.firstname}}" /></td>
+        </tr>
+        <tr>
+          <td>Email: </td>
+          <td><input name="email" id="email" value="{{ posted.email}}" /></td>
+          <td>Phone: </td>
+          <td><input name="phone" value="{{ posted.phone}}" /></td>
+        </tr>
+        <tr>
+          <td>Product Info: </td>
+          <td colspan="3"><textarea name="productinfo">{{ posted.productinfo}}</textarea></td>
+        </tr>
+        <tr>
+          <td>Success URI: </td>
+          <td colspan="3"><input name="surl" value="{{ posted.surl }}" size="64" /></td>
+        </tr>
+        <tr>
+          <td>Failure URI: </td>
+          <td colspan="3"><input name="furl" value="{{ posted.furl }}" size="64" /></td>
+        </tr>
+
+        <tr>
+          <td colspan="3"><input type="hidden" name="service_provider" value="payu_paisa" size="64" /></td>
+        </tr>
+
+
+     <td colspan="4"><input type="submit" value="Submit" /></td>
+
+
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

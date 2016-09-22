@@ -1,0 +1,94 @@
+.f_nexabold{ font-family: 'Nexa-Bold'; }
+    @font-face{
+        font-family: 'Nexa-Bold';
+        src:url('fonts/Nexa-Bold.otf');
+    }
+    .f_nexalight{ font-family: 'Nexa-light'; }
+    @font-face{
+        font-family: 'Nexa-light';
+        src:url('fonts/Nexa-Light.otf');
+    }
+
+    .body1{
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Nexa-Light';
+      background: #2C2638;
+      color: #FFF;
+    }
+    .images-conatiner{
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-flow: row wrap;
+      justify-content: space-around;
+    }
+    .image1{
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 100px; /*Increse this to make the no of contacts appearing become less*/
+      /*width:250px;*/
+      margin-top: 20px;
+
+      margin-right: 150px;
+      margin-bottom: 40px;
+    }
+    .piclarge{
+      width:150px;
+        height:150px;
+        border-radius:50%;
+        overflow:hidden;
+        margin-bottom: 15px;
+    }
+    .pic{
+      width:150px;
+        height:150px;
+        border-radius:50%;
+        overflow:hidden;
+        margin-bottom: 15px;
+    }
+    .conttype{
+      color: #CF3540;
+    }
+    .image1 p{
+      font-family: 'Nexa-Bold';
+      font-size: 100%;
+      margin: 6px;
+      font-weight: normal;
+      letter-spacing: 1.5px;
+      line-height: 5px;
+    }
+    .main{
+      font-family: 'Nexa-Bold';
+      margin-top: 70px;
+      margin-bottom: 20px;
+      font-size: 250%;
+      font-weight: normal;
+      letter-spacing: 4px;
+    }
+    .conttype{
+      font-family: 'Nexa-Bold';
+      font-size: 120%;
+      margin: 20px;
+      font-weight: normal;
+      letter-spacing: 1px;
+      margin-top: 30px;
+      margin-bottom: 20px;
+    }

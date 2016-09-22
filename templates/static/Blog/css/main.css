@@ -1,0 +1,413 @@
+h1
+{
+    font-size:22px;
+    font-weight:300;
+    color:rgb(44, 167, 149);
+}
+.shadowed {
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+.float_right{
+    float:right;
+}
+.float_left
+{
+    float:left;
+}
+
+/*
+    brief desctiption:
+*Schema:
+
+*body
+    *main_header
+    *main_content
+        *main_aside
+            *aside_section
+            *****
+        *main_section
+            *blog_post
+            *****
+    *main_footer
+
+*/
+
+
+/*Overall Layout starts*/
+
+html{
+    margin:0;
+    padding:0;
+    height:100%;
+}
+#wrapper {
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    position:relative;
+    overflow-y: hidden;
+}
+body 
+{   position:absolute;
+    padding:0px;
+    /*margin: 0px;*/
+    background: rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight:300;
+    overflow:visible;
+    min-width:300px;
+    overflow-y: hidden;
+    margin: 0px;
+} 
+#main_header
+{
+    position:relative;
+    height:70px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-content:center;
+    text-align:center;
+    font-size:40px;
+    font-weight:400;
+    margin-bottom:10px;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+#main_container{
+    position:relative;
+    display:flex;
+    flex:1;
+    flex-flow:row wrap;
+    margin-top:0px;
+    margin-bottom:25px;
+    flex-direction:row;   
+}
+#main_footer
+{
+    display:block;
+    position:fixed;
+    
+    width:100%;
+    height:20px;
+    padding-top:5px;
+    text-align:center;
+    justify-content:center;
+    align-content:center;
+    vertical-align:middle;
+    background:#414f5c;
+    color:white;
+    bottom:0px;
+    font-weight:300;
+    font-size:12px;
+}
+/* Overall Layort Ends*/
+/* Main_header layout*/
+#main_header #title{
+    position:absolute;
+    width:100%;
+    left:0px;
+    text-align:center;
+    color:rgb(44, 167, 149);
+}
+#main_header #title span
+{
+	position:relative;
+	top:-35px;
+}
+#main_header #title img
+{
+    margin:10px;
+    height:50px;
+	
+}
+#main_header #title span img
+{
+	position:relative;
+    margin:0px;
+    height:80px;
+	top:28px;
+}
+#main_header #background{
+    position:relative;
+    float:top;
+    display:flex;
+    flex-direction:row;
+    flex-flow:row nowrap;
+    top:0px;
+    left:0px;
+    width:100%;
+}
+#main_header #background #block_2{
+    position:absolute;
+    display:inline-block;
+    float:left;
+    top:0px;
+    background:#2ca795;
+    width:320px;
+    height:70px;
+    left:-30px;
+    transform:skewX(40deg);
+    box-shadow:1px 1px 6px rgba(0,0,0,0.2);
+}
+#main_header #background #block_1{
+    position:absolute;
+    display:inline-block;
+    top:0px;
+    height:70px;
+    width:100%;
+    left:310px;
+    background:white;
+    flex:1;
+    transform:skewX(40deg);
+    box-shadow:1px 1px 6px rgba(0,0,0,0.2);
+}
+/* Main_container layout starts
+    * contains main_aside element and main_section
+*/
+#main_aside{
+    position:relative;
+    display:block;
+    float:left;
+    flex-direction:row;
+    width:340px;
+    left:0px;
+    margin-right:0px;
+    background:none;
+}
+#main_section
+{
+    position:relative;
+    display:inline-flex;
+    flex:1;
+    flex-flow:row wrap;
+    justify-content:center;
+    flex-basis:300px;
+    margin:5px;
+    margin-top:0px;
+    background:none;
+    left:0px;
+    overflow-y:scroll;
+    
+}
+
+#socialbox{
+    margin-left:10px;
+    padding:10px;
+    margin-bottom:5px;
+    border-bottom:1px solid #2ca795;
+    border-right:1px solid rgba(0,0,0,0.2);
+    border-bottom:1px solid #2ca795;
+    box-shadow:1px 1px 6px rgba(0,0,0,0.2);
+    background:white;
+}
+#socialbox1{
+    margin-left:10px;
+    /*padding:10px;*/
+    margin-right:8px; 
+    margin-bottom:5px;
+    border-bottom:1px solid #2ca795;
+    border-right:1px solid rgba(0,0,0,0.2);
+    border-bottom:1px solid #2ca795;
+    box-shadow:1px 1px 6px rgba(0,0,0,0.2);
+    background:white;
+}
+
+/*Main_container layout ends */
+/* main_aside layout starts*/
+#fblike{
+
+top:10px;
+left:-200px;
+}
+
+.aside_section{
+    margin:10px;
+    padding:10px;
+    padding-right:15px;
+    text-align:justify;
+    padding-left:15px;
+    background:white;
+    margin-bottom:10px;
+    border-bottom:1px solid #2ca795;
+    border-right:1px solid rgba(0,0,0,0.2);
+    border-bottom:1px solid #2ca795;
+    box-shadow:1px 1px 6px rgba(0,0,0,0.2);
+}
+
+.aside_section article{
+    text-align:justify;
+    font-size:14px;
+    
+}
+.aside_section footer{
+    margin-top:10px;
+    font-size:15px;    
+}
+
+/* Main_aside layout ends*/
+/* Blog_post layout*/
+.blog_post
+{
+    opacity:0;
+    position:relative;
+    margin:10px;
+    padding:25px;
+    padding-bottom:20px;
+    text-align:justify;
+    background:white;  
+    height:400px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    transform-origin:bottom;
+    border-left:1px solid #2ca795;
+    flex-basis:350px;
+    box-shadow:1px 1px 6px rgba(0,0,0,0.2);
+    overflow-x:hidden; 
+}
+.blog_post header{
+    position:relative;
+    display:block;
+    color:#2ca795;
+    font-size:20px;
+    padding-bottom:5px;
+    border-bottom:1px solid rgba(0,0,0,0.2);
+}
+.blog_post header .number{
+    font-size:12px;
+    position:relative;
+    bottom:0px;
+}
+.fbox{
+position:relative;
+    bottom:0px;
+}
+.blog_post header .time
+{
+    font-size:12px;
+    color:#b6b6b6;
+}
+.blog_post article{
+    position:relative;
+    display:block;
+    overflow-y:hidden;
+    overflow-x:hidden;
+    margin-top:10px;
+    font-size:15px;
+    flex:1;
+}
+.blog_post footer
+{
+    position:relative;
+    display:block;
+    color:#2ca795;
+    font-size:20px;
+    /*padding-bottom:5px;*/
+    }
+/*#post*/
+#post
+{
+    display:flex;
+    position:absolute;
+    margin:0px;
+	opacity:0;
+    right:0px;
+    z-index:10;
+    width:0px;height:0px;
+    background:none;
+}
+
+/*main_footer*/
+#main_footer
+{
+    padding-top: 5px;
+    padding-bottom: 0px;
+    /*position:absolute;*/
+    bottom:0;
+    width:100%;
+}
+#main_footer span
+{
+    margin-left:10px;
+    margin-right:10px;
+    font-weight:400;
+}
+
+#gshare{
+    vertical-align: middle;
+    text-indent: 1px;
+}
+
+.social4 span {
+    display: inline-block;
+    width: 85px;
+    vertical-align: bottom;
+}
+
+.social3 span {
+    display: inline-block;
+    width: 95px;
+}
+.social4 span {
+    display: inline-block;
+    width: 85px;
+    vertical-align: bottom;
+}
+
+/* This gets Google to fall into place */
+.social {
+    font-size: 1px;
+}
+ 
+/* This gets Facebook to fall into place */
+.social iframe {
+    vertical-align: middle;
+}
+ 
+/* Set an optional width for your button wrappers */
+.social span {
+    display: inline-block;
+    width: 75px;
+}
+ 
+/* Adjust the widths individually if you like */
+.social .google {
+    width: 62px;
+}
+
+.social1 span {
+    display: inline-block;
+    width: 90px;
+    vertical-align: bottom;
+}
+.social1 .google {
+    width: 75px;
+}
+.social1 {
+    font-size: 13px;
+}
+.social1 iframe {
+    vertical-align: middle;
+}
+.social2 span {
+    display: inline-block;
+    width: 82px;
+    padding-top: 5px;
+}
+.social3 span {
+    display: inline-block;
+    width: 95px;
+}
+.social4 span {
+    display: inline-block;
+    width: 85px;
+    vertical-align: bottom;
+}

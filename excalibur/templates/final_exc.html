@@ -1,0 +1,19 @@
+{% extends "main_exc.html" %}
+{% load static %}
+
+{% block qbox %}
+<div id="qbox">
+<div id="questions" style="text-align:center;">
+	<a href="https://ktj.in/"><img src="{% static "img/excalibur/ktj.png" %}" style="width:700px;"></a>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+	<div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block play %}
+{% endblock %}

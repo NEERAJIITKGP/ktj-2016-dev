@@ -1,0 +1,87 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+   
+{% block content %}
+<html>
+<head>
+    <title>Kshitij-2017 Signin</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+      
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style type="text/css">
+      @media screen and (min-width: 338px){
+        #card2{
+            min-width: 200px;
+        }
+      }
+      @media screen and (min-width: 270px){
+        #card2{
+            min-width: 200px;
+        }
+      }
+
+      </style>
+</head>
+    
+<body style="background-color:#004c4d">
+    <div id="signin_container" class="container">
+    <div class="row">
+    <div class="col s6 offset-s3">
+    <div class="card" id="card2" style="background-color:rgba(0,0,0,0.5);position: relative;top: 50%;">
+    <div class="card-content white-text">
+    <h1 align="center">
+        Kshitij 2017
+    </h1>
+    <header id='context' style="font-size:30px;" align="center">Signin</header>
+        
+
+    <form class="signin" id="signin_form" method="post" action="/accounts/msignin/">
+        {% csrf_token%}
+        <div>
+        <div class="row">
+            <div class='input-field col s12'>
+                {{form.username}}
+                <label for="id_username">{{form.username.label}}*</label>
+            </div>
+        </div>    
+            <div class="row">
+                <div class='input-field col s12'>
+                    {{form.password}}
+                    <label for="id_password">{{form.password.label}}*</label>
+                </div>
+            </div>
+            <!--<div class='input_element'>
+                <label>Remember Me:</label>
+                {{form.remember}}
+            </div>-->
+            <a href="/mailer/password/reset/" style="color:black;font-family:Nexa-Light;color:black;text-align:center;" target="_blank"><span style="color:white;text-decoration:underline;">Reset your Password</span></a><br><br>
+            <input type="hidden" name="next" value="{{ next }}" />
+            <div class="input-element" style="text-align:center;">
+                
+                
+                  
+                    <input type="submit" class="signup_click waves-effect waves-light btn" value="Signin" style="font-size:20px; padding-top: 6px;padding-bottom: 6px;">
+                </div>
+                <br>
+                <a href="/msignup" style="color:black;font-family:Nexa-Light;color:black;text-align:center;" target="_blank"><span style="color:white;text-decoration:underline;">Not a member Yet? SignUp</span></a>
+   
+        
+    </form>
+            {% if form.errors %}
+                <div class="error">{{form.non_field_errors}}</div>
+            {% endif %}
+    </div>
+    </div>
+    </div>
+    </div>        
+    </div>
+    {% endblock %}
+     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>   
+    </body>
+</html>

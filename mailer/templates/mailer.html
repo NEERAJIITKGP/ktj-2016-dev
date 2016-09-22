@@ -1,0 +1,14 @@
+<html>
+	<body>
+{% block content %}
+
+<form name="mailer_form" action="{% url 'mailer_send' %}" method="POST">
+
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit">
+</form>
+
+{% endblock %}
+	</body>
+</html>

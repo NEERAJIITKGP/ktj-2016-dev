@@ -1,0 +1,57 @@
+<div id="team_member_cont">
+	<h4>Pending Requests</h4> 
+	{% for invite in invites %}
+	<div id="m_team_block">
+	<table class="team">
+		<tr class="first">
+			<th>Team ID</th>
+			<th>Event</th>
+			<th>Members</th>
+			<th>Accept</th>
+			<th>Ignore</th>
+		</tr>
+		<tr>
+			<td>{{invite.team.id}}</td>
+			<td>{{invite.team.event.name}}</td>
+		<td>
+		{% for ur in invite.team.members.all %}
+			{{ur.user.username}}<br>
+		{% endfor %}
+		</td>
+		<td><button onclick="accept({{invite.id}})">Accept</button></td>
+		<td><button onclick="deleteRequest({{invite.id}})">Ignore</button></td>
+		</tr>
+	</table>
+	</div>
+	{% endfor %}
+</div>
+
+<div id="team_member_cont">
+	<h4>Invites Sent</h4> 
+	{% for invite in invites_sent %}
+	<div id="m_team_block">
+	<table class="team">
+		<tr class="first">
+			<th>Team ID</th>
+			<th>Event</th>
+			<th>Sent To</th>
+			<th>Members</th>
+			<th>Delete</th>
+		</tr>
+		<tr>
+			<td>{{invite.team.id}}</td>
+			<td>{{invite.team.event.name}}</td>
+			<td>{{invite.user.username}}</td>
+			<td>
+				{% for ur in invite.team.members.all %}
+					{{ur.user.username}}
+				{% endfor %}
+			</td>
+			<td>
+			<button onclick="deleteRequest({{invite.id}})">Delete</button>
+			</td>
+		</tr>
+	</table>
+	</div>
+	{% endfor %}
+</div>

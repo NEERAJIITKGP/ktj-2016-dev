@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="theme-color" content="#DE3454">
+        <link href="/static/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="http://cdn.transifex.com/live.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type = "text/javascript" >
+		    history.pushState(null, null, 'sourcecodestart6.html');
+		    window.addEventListener('popstate', function(event) {
+		    history.pushState(null, null, 'sourcecodestart6.html');
+		    });
+		    function disableF5(e) { if ((e.which || e.keyCode) == 116 || (e.which || e.keyCode) == 82) e.preventDefault(); };
+
+			$(document).ready(function(){
+			$(document).on("keydown", disableF5);
+			});
+		</script>
+	<style type="text/css">
+	/*.pin{
+		float: right;
+		position: fixed;
+	}
+	#countTime{
+	    position: relative;
+	    right: 3%;
+	    top: 235px;
+	    width: 100px;
+	    background: linear-gradient(#ddd, white, #ddd);
+	    padding: 15px 0px;
+	    border-radius: 5px;
+	    font-weight: bold;
+	    text-align: center;
+	}
+	#countTime2{
+	    position: relative;
+	    right: 3%;
+	    top: 235px;
+	    width: 100px;
+	    background: linear-gradient(#ddd, white, #ddd);
+	    padding: 15px 0px;
+	    border-radius: 5px;
+	    font-weight: bold;
+	    text-align: center;
+	}*/
+	</style>
+	<script type="text/javascript">
+	
+    var countdown = (300-({{ minremain }} * 60+{{ secremain }}))*1000;
+    var timerId = setInterval(function(){
+    countdown -= 1000;
+    var min = Math.floor(countdown / (60 * 1000));
+    var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);
+    if (sec<10) {sec="0"+sec;};
+    if (min<10) {min="0"+min;};
+    if (countdown <= 0) {
+      $("#countTime").html("00 : 00");
+      var frm = $("#upload_data");
+      $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success:function(data){
+                	if ({{start}}==0) {
+                		window.location.replace("/sourcecode");
+                	}
+            	},
+            });
+      return;
+    } else {
+       $("#countTime").html(min + " : " + sec);
+    }
+
+  }, 1000);
+
+    var countdown2 = (1800-({{ minremain }} * 60+{{ secremain }}))*1000;
+    var timerId2 = setInterval(function(){
+    countdown2 -= 1000;
+    var min2 = Math.floor(countdown2 / (60 * 1000));
+    var sec2 = Math.floor((countdown2 - (min2 * 60 * 1000)) / 1000);
+    if (sec2<10) {sec2="0"+sec2;};
+    if (min2<10) {min2="0"+min2;};
+    if (countdown2 <= 0) {
+      $("#countTime2").html("00 : 00");
+      var frm = $("#upload_data");
+      $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success:function(data){window.location.replace("/sourcecode/submit")},
+            });
+      return;
+    } else {
+       $("#countTime2").html(min2 + " : " + sec2);
+    }
+
+  }, 1000);
+
+function validateForm() {
+    var x = document.forms["myForm"]["points"].value;
+    if (parseInt(x) <50) {
+        alert("bid amount should be greater than 50");
+        return false;
+    }
+    else if (parseInt(x)>parseInt({{points}})){
+    	alert("bid amount should be less than Your Points");
+        return false;
+    }
+    return true;
+}
+</script>
+
+</head>
+<body id="bb">
+				<nav>
+				    <div class="nav-wrapper">
+				      <a href="ktj.in" class="brand-logo"><img src="../static/images/YVUoLTk.png" style="width:300px;"></a>
+				      <a href="/sourcecode" class="brand-logo" style="font-size:x-large;margin-left:320px;">Home</a>
+				      
+				      <ul id="nav-mobile" class="right hide-on-med-and-down">
+				      <li><div class="tabs-wrapper pin" id="countTime" style="font-size:-webkit-xxx-large">-- : --</div></li>
+				      <li><div class="tabs-wrapper pin" id="countTime2" style="font-size:-webkit-xxx-large">-- : --</div></li>
+				      
+				      <li><a href="iitkgp.ac.in"><img style="float:right;height:64px;" src="https://ktj.in/static/administrator/media/page/template/logo3.png"></a></li>
+
+				      </ul>
+				      <center><a href="#" style="font-size:50px;margin-left:200px;">Source Code</a></center>
+				    </div>
+				  </nav>
+					<div class="chip" style="float:right;font-size: 50px;padding-top: 20px;padding-bottom: 50px;margin-top: 20px;">
+					    Points:{{points}}
+					  </div>
+					<div class="container">
+					<div class="row">
+					<div class="col s5 offset-s4">
+						<div style="display:flex;margin-top:100px;">
+							<div id="q1"><p style="font-size:x-large;margin-top:0;">Question 6</p></div>
+							<a href="../static/sourcecode/question6.zip" target="_blank"><button class="btn waves-effect waves-light" type="submit" name="action" id="but" style="float:right;margin-left:30px;">Download
+							    <i class="material-icons right">send</i>
+							 </button></a>
+							<div id="q2"><p style="font-size:x-large;">Submit the answer of question 6</p> </div>
+						</div>
+					</div>
+					</div>
+					<div class="row">
+					<div class="col s6 offset-s4">	
+						<form method="post" action="/sourcecode/submit" class="col s12" name="myForm" onsubmit="return validateForm()">
+						{% csrf_token %}
+							<div class="row">
+						        <div class="input-field col s8" id="num">
+						          <input type="number" name="points" id="points" placeholder="Enter bid amount" class="bidnow validate">
+						          <label for="points"></label>
+						        </div>
+						    </div>
+							 
+							<input type="number" value="6" name="number" id="number" hidden>
+							 <input type="submit" id="bid" class="bidnow waves-effect waves-light btn">
+						</form>
+						<div id="submitdiv"></div>
+					</div>	
+					</div>
+					</center>
+					 <script type="text/javascript"> 
+					 if ({{start}}==1) {
+					 	document.getElementById('bid').style.display='none';
+					 	document.getElementById('countTime2').style.display='block';
+					 	document.getElementById('countTime').style.display='none';
+					 	document.getElementById('q1').style.display='none';
+					 	document.getElementById('q2').style.display='block';
+					 	document.getElementById('but').style.display='none';
+					 	document.getElementById('num').style.display='none';
+					 	$('#submitdiv').append('<a class="waves-effect waves-light btn" href="https://www.codechef.com/SOCO2016" target="_blank">Submit</a>');
+					    }else{
+						document.getElementById('bid').value='Bid Now!';
+						document.getElementById('countTime').style.display='block';
+						document.getElementById('countTime2').style.display='none';
+						document.getElementById('q1').style.display='block';
+					 	document.getElementById('q2').style.display='none';
+						}</script>
+</div>
+<div class="container">
+          <div class="row">
+               
+              
+              <div id="home" class="col s12">
+              		
+                
+              </div>
+              <div id="instructions" class="col s12">
+              		
+                
+              </div>
+
+              
+
+              
+              
+            </div>
+      </div>
+
+</body>
+</html>

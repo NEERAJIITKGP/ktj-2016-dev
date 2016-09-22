@@ -1,0 +1,41 @@
+<html>
+<head></head>
+<body>
+<div class="spons-content">
+            <div id="spons-year-index">
+                {% for year in years.all %}
+                <div class="{% if forloop.first %}spons_tab_visible{% else %}spons_tab_invisible{% endif %}" id="spons_tab_{{year.year}}" 
+                    onclick="changeSponsYear({{year.year}})">
+                  <span>{{year.year}}</span>
+                </div>
+                {% endfor %}
+            </div>
+            
+            {% for year in years.all %}
+            <!-- Sponsor page -->
+            <div class="scroll spons-year-page {% if forloop.first %} spons_visible {% else %} spons_invisible {% endif %}" 
+            id="spons-page-{{year}}">
+            {% for post in year.post_set.all|dictsort:"rank" %}
+                <div class="spons-post-group">
+                    <h3>{{post.name}}</h3>
+                    <img src="{% static 'images/spons/line.png' %}" alt="" class="spons-item-line">
+                    <div class="sponsor-container">
+                    {% for sponsor in post.sponsor_set.all|dictsort:"rank" %}
+                        <a class='sponsor-item-single {% if sponsor.special %} sponsorSpecial {% endif %} {% if sponsor.bigger %} sponsorBig {% endif %}' href="{{sponsor.link}}" target="_blank">
+                            <section class='sponsor-img'>
+                            <img src='{{sponsor.image}}' class="spons-item-logo{% if sponsor.bigger %} sponsorBig-img {% endif %}" />
+                            </section>
+                            {% for sponscat in sponsor.sponscat_set.all%}
+                            <div>{{sponscat.cat}}</div>
+                            {%endfor%}
+                        </a>
+                        
+                    {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+</body>
+</html>

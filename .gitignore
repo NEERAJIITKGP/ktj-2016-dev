@@ -1,0 +1,5 @@
+ktj16/settings.py
+*.db
+DS_S*
+*.pyc
+static/*d

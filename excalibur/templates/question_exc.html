@@ -1,0 +1,51 @@
+{% extends "main_exc.html" %}
+{% load static %}
+
+{% block qbox %}
+<div id="qbox">
+	<div id="q_index">
+		{% for u in q_tot %}
+			<a href="/excalibur/ques?q={{u.id}}" style="text-decoration:none;">
+				<div id="qind-box">{{u.id}}</div>
+			</a>
+		{% endfor %}
+	</div>
+	<div id="questions">
+		<br>
+		<p><b><u>Question No. {{ q }}</u></b></p>
+		<br>
+		{% if qstns.imageA != '' %}
+			<img src='{{ qstns.imageA }}' class="q_pic" id="qA">
+		{% endif %}	
+		{% if qstns.imageB != '' %}
+			<img src='{{ qstns.imageB }}' class="q_pic" id="qC">
+		{% endif %}	
+		{% if qstns.imageC != '' %}
+			<img src='{{ qstns.imageC }}' class="q_pic" id="qC">
+		{% endif %}	
+			<div id="qstn{{ qstns.id }}">
+				{{ qstns.question|safe|escape }}
+			</div>
+			<br>
+	<form action="/excalibur/ques?q={{q_no}}" method='POST'></p>
+		{% csrf_token %}
+		<input type="text" name="answer" id="answer"><br>
+		<input type="submit" id="playbutton" value="Submit">
+	</form>
+	</div>
+</div>	
+{% endblock %}
+
+{% block content %}
+	<div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block play %}
+<div id="playbutton" style="display:none;">Continue</div>
+{% endblock %}
+
+{% block back %}
+    <input type="submit" value="Back" id="backbutton">
+{% endblock %}

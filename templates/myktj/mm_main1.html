@@ -1,0 +1,850 @@
+<html>
+<style>
+
+@-webkit-keyframes shine{
+0%{
+    margin-left:10px;
+}
+    100%{
+    margin-left:25px;
+    }
+}
+
+#myktj_container{
+    position: fixed;
+    left: -200%;
+    background: transparent;
+    width: 100%;
+    min-width: 1200px;
+    min-height: 650px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 116;
+    overflow: hidden;
+}
+
+#myktj_super {
+    width: 100%;
+    
+    display: flex;
+    
+    align-items: center;
+}
+
+#header_myktj{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#m_ktj_logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#m_ktj_logo img{
+    width: 80px;
+    height: 80px;
+}
+
+.m_heading{
+    color: white;
+    font-size: 50px;
+}
+
+#main_block{
+    color: white;
+    width: 100%;
+    
+    /*background: rgba(255,255,255);*/
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+#side_navbar{
+    display: block;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /*background: red;*/
+    height: 85%;
+    max-width: 20%;
+    
+}
+
+.m_nav_li{
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8));
+    margin: 3px;
+    border-radius: 2px;
+    width: 80%;
+    height: 50px;
+    overflow: hidden;
+    padding: 30px;
+    text-align: center;
+    border-radius: 1px;
+    box-shadow: 1px 1px 1px #999;
+    cursor: pointer;
+    transition-duration: 0.5s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+}
+.m_nav_li span{
+    padding:30px;
+}
+.m_nav_li img{
+    transition-duration: 0.5s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+    margin-left: 30px;
+    opacity:0.5;
+    display: block;
+    position: absolute;
+    margin-top: -30px;
+}
+
+#content_block{
+    
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /*background: blue;*/
+    
+    height: 100%;
+    
+    overflow-x: hidden;
+    max-width: 100%;
+    padding: 20px;
+    margin-top: 200px;
+}
+
+#m_profile{
+    width: 95%;
+    /*overflow: auto;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form{
+    width: 95%;
+}
+
+.profile_content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5px;
+}
+
+.m_content_title{
+    padding: 5px;
+    width: 15%;
+}
+.profile_content input {
+    width: 60%;
+    padding: 10px;
+    border-radius: 1px;
+}
+
+.m_profile_field{
+    width: 60%;
+    color: black;
+}
+
+#m_gender > select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 1px;
+}
+
+.m_profile_field > select{
+    padding: 10px;
+    border-radius: 1px;
+    max-width: 100%;
+}
+
+#update_password{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#passwordErrMsg{
+    display:none;
+    margin: 15px;
+    padding: 5px 20px;
+    background: brown;
+    color: white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000;
+}
+
+
+#makeTeam_container {
+    width: 95%;
+    overflow: auto;
+}
+
+#makeTeam_container > div {
+    margin: 20px;
+}
+
+#dialogue-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    z-index:1000000;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+}
+
+#dialogue-box {
+    margin: 0px auto;
+    margin-top:10%;
+    height: 40%;
+    width: 35%;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;  
+    font-size: 0.9em;
+    padding:10px;
+    color: black;
+    outline: 10px solid rgba(255,255,255,0.5);
+}
+
+#dialogue-box div {
+    margin:20px 10px;
+}
+
+#eventReg_form{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.m_genre_name{
+    background: #555;
+    color: white;
+    text-align: center;
+}
+
+.reg_done{
+    background: rgb(53, 215, 67);
+    color: white;
+}
+
+#makeTeam_container select{
+    width: 50%;
+    padding: 10px;
+    border-radius: 1px;
+}
+
+#event_reg_cont{
+    background: #eee;
+    color: black;
+    width: 90%;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #fff;       
+}
+
+#m_event_reg_button{
+    padding: 10px 15px;
+    font-size: 15px;
+    background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8));
+    color: white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000;
+    cursor: pointer;
+}
+
+#team_reg_cont{
+    background: #eee;
+    color: black;
+    width: 90%;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #fff;
+}
+
+#team_reg_form{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+#team_invite_cont, #team_member_cont,.uploads{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: #eee;
+    color: black;
+    box-shadow: 1px 1px 1px #fff;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.m_title{
+    font-size: 28px;
+    margin: 10px 0px;
+}
+
+#m_team_block{
+    background: #999;
+    box-shadow: 1px 1px 1px #000;
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+}
+
+.team{
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.team td{
+    text-align: center;
+    width: 20%
+}
+
+#team_member_cont td{
+    width: 16%
+}
+
+.search_members{
+    margin: 10px;
+}
+
+.search_members input{
+    padding: 5px;
+}
+
+.add_member{
+    border-radius: 1px;
+    background:linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8)) ;
+    box-shadow: 1px 1px 1px #000;
+    color: white;
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+}
+
+#upload_data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#file_upload_button{
+    padding: 10px 30px;
+    font-size: 18px;
+    background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8));
+    color: white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000;
+    cursor: pointer;
+}
+
+#upload{
+    background:#999;
+    box-shadow: 1px 1px 1px #000;
+    border-radius: 1px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#upload>*{
+    margin: 5px;
+}
+#upload_data>*{
+    margin: 5px;
+}
+
+#upload select{
+    padding: 10px;
+}
+
+#uploadMessage{
+    display:none;
+    margin-top: -15px;
+    padding: 5px 20px;
+    background: black;
+    color: white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #000;
+}
+
+#myktj_instruction{
+    display: block;
+    flex-direction: column;
+    /*justify-content: space-around;
+    align-items: center;*/
+    color: white;
+    font-weight: bold;
+}
+
+#bkg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    z-index: -10000;
+}
+
+ *::-webkit-scrollbar
+        {
+        width:5px;
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+        cursor:pointer;
+        }
+      *::-webkit-scrollbar : hover{
+        width:15px;
+        }
+      *::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        background:rgba(255, 248, 248, 0.4);
+        }
+      *::-webkit-scrollbar-track
+        {
+        background:rgba(255, 255, 255, 0.1);
+        }
+</style>
+<script src ="http://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script>
+<body onload="mFillProfile();">
+    <img src="http://ktj.in/static/images/bg.png" id="bkg-img">
+<div id="myktj_super">
+
+    
+
+    <div id="main_block">
+        
+        <div id="side_navbar">
+            <div class="m_nav_li" onclick="mFillProfile();"><span>My Profile</span></div>
+            <div class="m_nav_li" onclick="mFillPass();"><span>Change Password</span></div>
+            <div class="m_nav_li" onclick="mFillTeam();"><span>Manage Teams</span></div>
+            <div class="m_nav_li" onclick="mFillInvites();"><span>Manage Invitations</span></div>
+            <div class="m_nav_li" onclick="mFillUpload();"><span>Submissions</span></div>
+            <div class="m_nav_li" onclick="mFillInstructions();"><span>Instructions</span></div>
+        </div>
+        
+        <div id="content_block">
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        mFillProfile();
+    </script>
+    <script>
+    
+        var ajax_loader_myktj = '<img src="http://ktj.in/static/images/loading/loading.gif" style="padding:10%"/>';
+
+function openMyKtj () {
+        updateAjax();
+        $("#myktj_container").animate({left:"0%"},700);
+        $(".section-container").animate({opacity:"0"},700);
+}
+
+function closeMyKtj () {
+        $("#myktj_container").animate({left:"-200%"},700);
+        $(".section-container").animate({opacity:"1"},700);
+}
+
+
+function mFillProfile () {
+    $('#content_block').html(ajax_loader_myktj);
+    $('#content_block').load('/accounts/myktjprofile');
+}
+
+function mFillPass () {
+    $('#content_block').html(ajax_loader_myktj);
+    $('#content_block').load('/accounts/myktjpassword');
+}
+
+function mFillTeam () {
+    $('#content_block').html(ajax_loader_myktj);
+    $('#content_block').load('/accounts/myktjteam');
+}
+
+function mFillInvites () {
+    $('#content_block').html(ajax_loader_myktj);
+    $('#content_block').load(URLS.ACCOUNTS + 'myktjteam/invites');
+}
+
+function mFillInstructions () {
+    $('#content_block').html(ajax_loader_myktj);
+    $('#content_block').load(URLS.ACCOUNTS + 'myktjinstructions');
+}
+
+
+
+function mFillUpload () {
+    $('#content_block').html(ajax_loader_myktj);
+    $('#content_block').load('/accounts/fileupload');
+}
+
+function update_profile() {
+    var token = $('input[name="csrfmiddlewaretoken"]').prop('value');
+    var values = $('#update_profile').serialize();
+    $('#content_block').html(ajax_loader_myktj);
+    $.ajax({
+        url: '/accounts/myktjprofilesave',
+        type: 'POST',
+        data: values,
+        success: function (data) {
+            $('#content_block').load('/accounts/myktjprofile');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {},
+    }).done(function(){
+        $('#content_block').load('/accounts/myktjprofile');
+    });
+}
+
+
+function update_password() {
+    var token = $('input[name="csrfmiddlewaretoken"]').prop('value');
+    var values = $('#update_password').serialize();
+    $('#content_block').html(ajax_loader_myktj);
+    $.ajax({
+        url: '/accounts/myktjpassword/',
+        type: 'POST',
+        data: values,
+        success: function (errorMsg) {
+            $('#content_block').load('/accounts/myktjpassword');
+            setTimeout( function(){
+                $("span#passwordErrMsg").html(errorMsg);
+                $("span#passwordErrMsg").fadeIn();
+            }, 1000);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {},
+    });
+}
+
+
+// $('#id_institution').html("<option disabled>Choose a state first...</option>");
+
+$(document).on('change', '#id_state', function() {
+    console.log($("#id_state>option:selected").attr('value'));
+    url = '/accounts/minstitutes/' + encodeURIComponent($("#id_state>option:selected").attr('value'));
+    $.ajax({
+        url: url,
+    }).done(function(data) {
+        $('#id_institution').html("");
+        for (i in data) {
+            $('#id_institution').append(
+                '<option value="' + i + '">' +
+                i + '</option>');
+        }
+    });
+});
+
+var URLS={ACCOUNTS:'/accounts/'};
+var ajax_loader_myktj = '<img src="/static/images/loading/mktjload.gif" style="padding:10%"/>';
+
+function create_team() {
+    var values = $('#team_reg_form').serialize();
+    if(confirm('Are you sure you want to form the team for this event?')){
+        $('#makeTeam_container').html(ajax_loader_myktj);
+        $.ajax({
+            url: URLS.ACCOUNTS + 'saveteam',
+            type: 'POST',
+            data: values,
+            success: function (data) {
+                $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {},
+        }).done(function(){
+            $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+        });
+    }
+}
+
+function register_event() {
+    var values = $('#eventReg_form').serialize();
+    $('#makeTeam_container').html(ajax_loader_myktj);
+    $.ajax({
+        url: URLS.ACCOUNTS + 'saveEvReg',
+        type: 'POST',
+        data: values,
+        success: function (data) {
+            $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {},
+    }).done(function(){
+        $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+    });
+}
+
+function display_invites() {
+    $('#dispay_team').removeClass('team_cont_tab_select').addClass('team_cont_tab');
+    $('#dispay_invites').removeClass('team_cont_tab').addClass('team_cont_tab_select');
+    $('#content_block').load(URLS.ACCOUNTS + 'myktjteam/invites');
+}
+
+function showDialogue(content, header) {
+    if (content != undefined) $('#dialogue-content').html(content);
+    if (header != undefined) $('#dialogue-header').html(header);
+    $('#dialogue-wrapper').fadeIn();
+}
+
+function removeTeam(team_id) {        
+    var invite={team_id:team_id}
+    if(confirm('Are you sure you want to remove the team?'))
+    {
+    $.ajax({
+                url:'/accounts/removeTeam',
+                type:'POST',
+                data:invite,
+                success:function(data){
+                    showDialogue(data, "<h4>Exit Team</h4>");
+                    $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+                },
+                error:function(data){
+                    showDialogue(data.responseText, "<h4>Exit Team</h4>");
+                    console.log(data);
+                }
+            });
+   }
+}
+
+function exitTeam(team_id) {        
+    var invite={team_id:team_id}
+    if(confirm('Are you sure you want to exit the team?'))
+    {
+    $.ajax({
+                url:'/accounts/exitTeam',
+                type:'POST',
+                data:invite,
+                success:function(data){
+                    showDialogue(data, "<h4>Exit Team</h4>");
+                    $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+                },
+                error:function(data){
+                    showDialogue(data.responseText, "<h4>Exit Team</h4>");
+                    console.log(data);
+                }
+            });
+   }
+}
+
+
+function invite(team_id,user_id) {
+
+    var invite={team_id:team_id,user_id:user_id}
+    $.ajax({
+                url:'/accounts/invite',
+                type:'POST',
+                data:invite,
+                success:function(data){
+                    showDialogue(data, "<h4>Invite Members</h4>");
+                    setTimeout(function(){
+                        $('#content_block').load(URLS.ACCOUNTS + 'myktjteam');
+                    }, 1000);
+                },
+                error:function(data){
+                    showDialogue(data.responseText, "<h4>Invite Members</h4>");
+                    console.log(data);
+                }
+            });
+}
+
+function search(team_id) {
+
+    var qry = $('#query'+team_id).val();
+    console.log($('#query'+team_id).val());
+    var team = {search:qry, tid:team_id}
+    $.ajax({
+                url:'/accounts/search',
+                type:'GET',
+                data:team,
+                success:function(data){
+                    $('#search'+team_id).html(data);
+                },
+                error:function(data){
+                    $('#search'+team_id).html('No Results Found');
+                }
+            });
+}
+
+function deleteRequest(invite_id) {
+    if(confirm('Are you sure you want to delete this inviation?')) {
+        var inv={id:invite_id}
+        $.ajax({
+                    url:'/accounts/deleteInvite',
+                    type:'POST',
+                    data:inv,
+                    success:function(data){
+                        showDialogue(data, "<h4>Team Request</h4>");
+                        $('#content_block').load(URLS.ACCOUNTS + 'myktjteam/invites');
+                    },
+                    error:function(data){
+                        showDialogue(data.responseText, "<h4>Team Request</h4>"); 
+                        console.log(data);
+                    }
+                });
+    }
+}
+
+function accept(invite_id) {
+    if(confirm('Are you sure you want to accept this inviation?')) {
+        var inv={id:invite_id}
+        $.ajax({
+                    url:'/accounts/acceptInvite',
+                    type:'POST',
+                    data:inv,
+                    success:function(data){
+                        showDialogue(data, "<h4>Team Request</h4>");
+                        $('#content_block').load(URLS.ACCOUNTS + 'myktjteam/invites');
+                    },
+                    error:function(data){
+                        showDialogue(data.responseText, "<h4>Team Request</h4>"); 
+                        console.log(data);
+                    }
+                });
+    }
+}
+
+
+$('#dialogue-close').click(function() {
+    $('#dialogue-wrapper').fadeOut();
+});
+
+file = null;
+progress = null;
+eventz = null;
+filetype = null
+
+$(document).on('change', "select#upload_event", function() {
+    eventz = this.value;
+});
+
+function fileUpload(filez) {
+    if (filez.type == "application/pdf" || filez.name.toLowerCase().slice("-5") == ".docx" || filez.type =="application/zip") {
+        if (filez.type == "application/pdf") {
+            filetype = ".pdf"
+        }
+        else if(filez.name.toLowerCase().slice("-5") == ".docx"){
+            filetype = ".docx"
+        }
+        else if(filez.type =="application/zip") {
+            filetype = ".zip"
+        }
+
+        $("span#uploadMessage").html("<b>File Name:</b> " + filez.name + "<br/><b>File Size:</b> " + (filez.size / 1024).toFixed(2) + "Kb");
+        $("span#uploadMessage").fadeIn();
+        file = filez;
+    } 
+    else {
+        $("span#uploadMessage").html("PDF or DOCX file needed");
+        $("span#uploadMessage").fadeIn();
+    }
+}
+
+$(document).on('change', "div#upload input", function() {
+    var filez = this.files[0];
+    fileUpload(filez);
+});
+
+$(document).on('click', "#file_upload_button", function() {
+    
+    if (file == null){
+        $("span#uploadMessage").html("Please select a file to upload!");
+        $("span#uploadMessage").fadeIn();
+        return;
+    }
+
+    if ((file.size/1024) > 2048){
+        $("span#uploadMessage").html("File size is more than 5 Mb!<br/>Kindly sent it to submissions@ktj.in, with file name as <event_name>_<team_id>.");
+        $("span#uploadMessage").fadeIn();
+        return;
+    }
+
+    if (eventz == null || eventz == "") {
+        $("span#uploadMessage").html("Choose a valid event!");
+        $("span#uploadMessage").fadeIn();
+        return;
+    }
+    
+    formData = new FormData($("#upload_data"));
+    formData.append("sub_file", file);
+    formData.append("sub_event", eventz);
+    formData.append("sub_filetype", filetype);    
+    
+    $.ajax({
+        url: '/accounts/fileupload',
+        type: "POST",
+        success:function(data){
+            showDialogue(data, "<h4>Team Request</h4>");
+            $('#content_block').html(ajax_loader_myktj);
+            $('#content_block').load(URLS.ACCOUNTS + 'fileupload');
+            setTimeout( function(){
+                $("span#uploadMessage").html("File upload successful!");
+                $("span#uploadMessage").fadeIn();
+            }, 1000);
+        },
+        error:function(data){
+            $('#content_block').html(ajax_loader_myktj);
+            $('#content_block').load(URLS.ACCOUNTS + 'fileupload');
+            $("span#uploadMessage").html("File upload encountered some error! Please try again later.");
+            $("span#uploadMessage").fadeIn();
+
+        },
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+});
+    
+    </script>
+
+</div>
+    </body>
+</html>

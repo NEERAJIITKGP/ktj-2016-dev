@@ -1,0 +1,23 @@
+{% extends "pass_reset.html" %}
+{% load i18n %}
+{% load static %}
+{% block passreset %}
+
+	{% block content %}
+
+	<h1>{% trans "Password reset" %}</h1>
+	<br><br>
+	<img style="width: 400px;" src="/static/images/ktj2016.png">
+
+	<br><br>
+	<p>{% trans "Forgotten your password?" %}</p>
+	<p>{% trans "Enter your email address below, and we'll email instructions for setting a new one." %}</p>
+	<br><br>
+	<form action="" method="post">{% csrf_token %}
+	{{ form.email.errors }}
+	<p><label for="id_email">{% trans 'Email address:' %}</label><br>{{ form.email }}<br><input type="submit" value="{% trans 'Reset my password' %}" /></p>
+	</form>
+
+	{% endblock %}
+
+{% endblock %}

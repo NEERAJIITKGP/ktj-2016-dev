@@ -1,0 +1,28 @@
+{% extends "main_math.html" %}
+{% load static %}
+
+{% block qbox %}
+<div id="qbox">
+	<p id='finalktj'>Sorry, it has been more than 30 minutes since you started playing. Game Over.</p>
+	
+</div>
+{% endblock %}
+
+{% block content %}
+	<div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block play %}
+{% endblock %}
+
+{% block back %}
+    <input type="submit" value="Back" id="backbutton">
+{% endblock %}
+
+{% block logout %}
+	<div id="logout">
+  <a href="../logout/"><img src="{% static "img/mathCh/main/signout.png" %}" style="width:55px;" /> </a>
+  </div>
+{% endblock %}

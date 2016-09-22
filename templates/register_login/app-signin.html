@@ -1,0 +1,56 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+   
+{% block content %}
+<html>
+<head>
+    <title>Kshitij-2017 Signin</title>
+    <link href='/static/css/msignin.css' rel="stylesheet" type="text/css"/>
+    <script src='/static/js/jquery-1.11.1.min.js'></script>
+</head>
+    
+<body>
+    <div id="signin_container">
+    <div class="heading">
+        Kshitij 2017
+    </div>
+    <header id='context'>Signin</header>
+        
+
+    <form class="signin" id="signin_form" method="post" action="/accounts/mlogin/">
+        {% csrf_token%}
+        <div>
+            <div class='input_element'>
+                <label>{{form.username.label}}*</label>
+                {{form.username}}
+            </div>
+            <div class='input_element'>
+                <label>{{form.password.label}}*</label>
+                {{form.password}}
+            </div>
+            
+            <div class='input_element'>
+                <label>Remember Me:</label>
+                {{form.remember}}
+            </div>
+            <a href="/mailer/password/reset/" style="color:black;font-family:Nexa-Light;color:black;text-align:center;" target="_blank"><span>Reset your Password</span></a><br><br>
+            <input type="hidden" name="next" value="{{ next }}" />
+            <div class="input-element" style="text-align:center;">
+                
+                
+                  
+                    <input type="submit" class="signup_click" value="Signin" style="font-size:20px;">
+                </div><br>
+                <a href="/signup" style="color:black;font-family:Nexa-Light;color:black;text-align:center;" target="_blank"><span>Not a member Yet? SignUp</span></a>
+        </div>
+        
+    </form>
+            {% if form.errors %}
+                <div class="error">{{form.non_field_errors}}</div>
+            {% endif %}
+        </div>
+    {% endblock %}
+        
+    </body>
+</html>

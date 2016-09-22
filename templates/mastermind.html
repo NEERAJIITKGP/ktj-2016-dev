@@ -1,0 +1,208 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <!-- Description -->
+            <title>Mastermind - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur</title>
+            <meta name="description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta name="keywords" content="Kshitij,2016, Kshitij 2016, Asia's largest, Techno-management fest, Online Events, IIT Kharagpur, technology, management, ASME, IEEE, ACM, ASHRAE, IMechE, college fest, university, India, IIT, Indian Institute of technology, Kshitij 2015, technical fest, events, megashows,guests, workshops, c-monopoly, forex, excaliber, cryptex, innovation, Online Competitions, West Bengal, Bombay, Delhi, Science, robotix, robotics, India, Kgp, IIT Kgp" />
+            <base href="" />
+        <!-- -->
+
+<!-- Aplication icons -->
+            <meta name="mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <link rel="shortcut icon" sizes="196x196" href="{% static 'administrator/media/page/app_icon_196.png' %}"  />
+            <link rel="shortcut icon" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+            <link rel="shortcut icon" sizes="24x24" href="{% static 'administrator/media/page/icon.png' %}" />
+            <link rel="apple-touch-icon" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+            <link rel="apple-touch-icon-precomposed" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+            <link rel="apple-touch-startup-image" href="{% static 'administrator/media/page/app_icon_196.png' %}" />
+        <!-- -->
+        <!-- Share -->
+            <meta property="og:title" content="Mastermind - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur" />
+            <meta property="og:description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta property="og:image" content="https://ktj.in/static/images/kolkata.jpg" />
+            <meta property="og:url"           content="https://ktj.in/mastermind" />
+            <meta itemprop="sameas" content="https://en.wikipedia.org/wiki/Kshitij" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+            <link rel="canonical" href="https://ktj.in/mastermind" />
+        <!-- -->
+    <!-- <link href="{% static 'accounts/css/base.css' %}" rel="stylesheet"/> -->
+
+    <!--  Android 5 Chrome Color-->
+        <meta name="theme-color" content="#DE3454">
+    	<link href="/static/css/prism.css" rel="stylesheet">
+        <link href="/static/css/main.css" rel="stylesheet">
+        <link href="/static/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="http://cdn.transifex.com/live.js"></script>
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        
+<script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-66400807-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+        
+
+        
+       
+
+</head>
+<body>
+
+	        <!-- Header Starts -->
+			<header>
+	              <nav class="top-nav fixed">
+	                      <div class="container">
+	                        <div class="nav-wrapper"><a class="page-title">Mastermind</a>
+	                        <ul class="right" style="padding-top:25px;">
+	                              <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="dropdown-more" ><i class="mdi-navigation-more-vert"></i></a>
+	                                <ul id="dropdown-more" class="dropdown-content" style="margin-left: 0px; z-index: 99999; overflow: visible; min-width: 148px !important; width: 68px; position: absolute; top: 0px; left: 928px; opacity: 1; display: none;">
+	                                  
+	                                  <li><a class="waves-effect waves-dark modal-trigger" href="http://m.ktj.in/accounts/profile">Profile</a></li>
+	                                  <!-- <li class="divider"></li> -->
+	                                  <li><a class="waves-effect waves-dark modal-trigger" href="http://m.ktj.in/accounts/logout">Logout</a></li>
+	                                  
+	                               
+	                                </ul>
+	                          </ul></div>
+	                      </div>
+	                    </nav>
+	               <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+	              <ul id="nav-mobile" class="side-nav fixed">
+	                <li class="logo"><a id="logo-container" href="/" class="brand-logo">
+	                    <object id="front-page-logo" type="image/png" data="/static/images/mobile/logo.png">Your browser does not support SVG</object></a></li>
+	                <li class="search">
+	                  <div class="search-wrapper card">
+	                    <input id="search"><i class="material-icons">search</i>
+	                    <div class="search-results"></div>
+	                  </div>
+	                </li>
+	                <li class="bold"><a href="http://m.ktj.in/" class="waves-effect waves-red">Home</a></li>
+	                <li class="no-padding">
+	                  <ul class="collapsible collapsible-accordion">
+	                    <li class="bold"><a class="collapsible-header  waves-effect waves-red">Events</a>
+	                      <div class="collapsible-body">
+	                        <ul>
+	                          <li><a href="http://m.ktj.in/events?genre=1"><img class="genre-icons" src="/static/images/mobile/1.png"></img>Genesis</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=2"><img class="genre-icons" src="/static/images/mobile/2.png">Quizzard</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=3"><img class="genre-icons" src="/static/images/mobile/3.png">Conceptualise</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=4"><img class="genre-icons" src="/static/images/mobile/4.png">Theories N Core</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=5"><img class="genre-icons" src="/static/images/mobile/5.png">Robotix</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=6"><img class="genre-icons" src="/static/images/mobile/6.png">Ab-Initio</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=7"><img class="genre-icons" src="/static/images/mobile/7.png">Strategia</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=8"><img class="genre-icons" src="/static/images/mobile/9.png">Tech4Fun</a></li>
+	                          <li><a href="http://m.ktj.in/events?genre=9"><img class="genre-icons" src="/static/images/mobile/8.png">IDP</a></li>
+	                        </ul>
+	                      </div>
+	                    </li>
+	                  </ul>
+	                </li>
+	                <li class="bold"><a href="http://m.ktj.in/sponsors" class="waves-effect waves-red">Sponsors</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/guests" class="waves-effect waves-red">Guests</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/workshops" class="waves-effect waves-red">Workshops</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/exhibitions" class="waves-effect waves-red">Exhibitions</a></li>
+	                <li class="bold"><a href="http://m.ktj.in/megashows" class="waves-effect waves-red">Megashows</a></li>
+	                <li class="bold "><a href="http://m.ktj.in/contacts" class="waves-effect waves-red">Contacts</a></li>
+	              </ul>
+	            </header>
+	            <!-- Header Ends -->
+
+	            <!-- Main Page Starts -->
+	            <main >
+	           <div class="" style="background-image: url('/static/mastermind/bg.jpg');background-size: 100% 300px;background-repeat: no-repeat;z-index:-10;">
+	           <div class="section" style="width: 70%;margin-left: auto;margin-right: auto;padding-bottom: 41px;background-color: transparent;z-index:0;display:block;">
+	             <div class="" style="margin-top: 100px;padding-top: 20px;background-color: #FFFFFF;height: auto; box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);padding-bottom: 20px;">
+	             <div class="row container">
+	               <h2 class="header center-align">Mastermind</h2>
+	               <!-- <p style="text-align:center;"><b>Thank you for making our Workshop successful.</b></p> -->
+	               <p class="grey-text text-darken-3 lighten-3">Online Prelims for Mastermind.<br><b>Note:</b> All answers will be submitted once you click on "Submit" button. No further requests are allowed.<br><br>
+	               	
+					<p><strong><b> Instructions:</b></strong></p>
+					<ol>
+					  <li>The event will be held in between <strong>4pm to 7 pm</strong>. The team leader needs to  login with his/her <strong>registered Username  and Password</strong> and can take part in online quiz between <strong>4pm – 7pm</strong> <strong>only.</strong> Once  started, the team gets time for <strong>30  minutes</strong> to submit answers.</li>
+					  <li>The  questions will be of multiple choice with <strong>one/more  than one correct answers.</strong></li>
+					  <li>There is <strong>NEGATIVE MARKING</strong> for all the questions.  Each Correct Answer will be awarded <strong>4  marks</strong> and each wrong answer will be awarded <strong>-1 marks.</strong> Questions not attempted will result in <strong>zero mark</strong>.</li>
+					  <li>The Answer column needs to be filled up with the  options specified (in capital letters), separated by commas.</li>
+					  <li><strong>ONCE THE  TEAM LEADER CLICKS THE START BUTTON, LINK IS ACCESSIBLE ONLY ONCE AND FOR 30  MINUTES ONLY. IN THE MEANTIME, THE TEAM LEADER CAN&rsquo;T LOGOUT OF THE PORTAL OR EVEN RELOAD/CLOSE THE PAGE.  HENCE, CARE NEEDS TO BE TAKEN AND PROPER ARRANGEMENTS HAVE TO BE MADE  ACCORDINGLY. WE ARE NOT RESPONSIBLE WHATSOEVER THE REASON MIGHT BE.</strong></li>
+					  <li>Participating Teams, if found adopting unfair  means, will be disqualified immediately.
+					  </li>
+					</ol>
+					<p>For any queries related to the event, you may contact:</p>
+					<ul>
+					  <li>Sunil Tatipelly<br />
+					    <a href="mailto:sunil.tatipelly@ktj.in" target="_blank">sunil.tatipelly@ktj.in</a><br />
+					    +91 –&nbsp;9800116113<br />
+					  </li><br>
+<li>Tanveer Shaikh<br><a href="mailto:tanveer.shaikh@ktj.in" >tanveer.shaikh@ktj.in</a><br>+917063599188</li>
+					  <li>Karthikeya&nbsp;Racharla<br />
+					    <a href="mailto:karthikeya.racharla@ktj.in" target="_blank">karthikeya.racharla@ktj.in</a><br />
+					    +91 -&nbsp;8372979935</li>
+					</ul>
+	               
+	               <br><br>
+					 <b>Event is now ended</b>
+					 <!-- <a class="waves-effect waves-light btn" style="" href="/mastermind/start">Start</a> -->
+
+					
+					
+	           </div>
+	         </div>
+	       </main>
+
+	       <footer class="page-footer" style="background-color:#ee6e73;padding-top:0px;margin-top:0px;">
+	             
+	             <div class="footer-copyright">
+	               <div class="container">
+	               © 2015-2016 Kshitij
+	               <div class="social-buttons col s12 right" style="margin:12px;">
+	                         <a href="https://www.facebook.com/ktj.iitkgp" target="_blank"><img src="/static/images/mobile/02_facebook.png" style="margin-top:-12px;"></a>
+	                         <a href="https://twitter.com/ktj_iitkgp" target="_blank"><img src="/static/images/mobile/01_twitter.png" style="margin-top:-12px;"></a>
+	                         <a href="https://www.youtube.com/user/ktjiitkgp?sub_confirmation=1" target="_blank"><img src="/static/images/mobile/03_youtube.png" style="margin-top:-12px;"></a>
+	                         <a href="https://instagram.com/ktj.iitkgp/" target="_blank" ==""><img src="/static/images/mobile/10_instagram.png" style="margin-top:-12px;"></a>
+	                     </div>
+	               </div>
+	             </div>
+	           </footer>
+	     
+
+
+	<!--  Scripts-->
+	            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	            <script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); }
+	            </script>
+	            <script src="/static/js/jquery.timeago.min.js"></script>
+	            <script src="/static/js/prism.js"></script>
+	            <script src="/static/js/lunr.min.js"></script>
+	            <script src="/static/js/search.js"></script>
+	            <script src="/static/js/materialize.js"></script>
+	            <script src="/static/js/init.js"></script>
+
+	    <style type="text/css">
+	    .card:hover{
+	      transition: box-shadow .25s;
+	          box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	    }
+	    </style>
+	    <script type="text/javascript">
+	    function event_reg(id)
+	    {
+	        $("#event_1000_06_01").load('/eventreg/register_w');
+	        Materialize.toast($("#event_1000_06_01"), 5000);
+	    }
+	    </script>
+
+</body>
+</html>

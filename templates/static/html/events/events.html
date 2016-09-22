@@ -1,0 +1,153 @@
+<html>
+<head></head>
+<body>
+    
+{% for genre in genres %}
+        {% if forloop.first %}
+        <div class="mid_container_genre_selected" id="genre_{{genre.id}}">
+        {% else %}
+        <div class="mid_container_genre" id="genre_{{genre.id}}">
+        {% endif %}
+            {% for event in genre.event_set.all %}
+                {% if forloop.first %}
+                <div id="event_info_{{event.id}}" class="event_container_selected">
+                {% else %}
+                <div id="event_info_{{event.id}}" class="event_container">
+                {% endif %}
+
+                    <div id="center_pane">
+                        <div id="event_name">
+                            <div id="ev_title">{{event.name}}</div>
+                            <div id="ev_oneliner">{{event.onliner}}</div>
+                        </div>
+                        <div class="top_pane_events">
+                            {% if event.introduction != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_1" class="logo_container_right_select" onclick="changeEventInfo(1,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg" id="ev_intro" onclick="changeEventInfo(1,{{event.id}});">INTRODUCTION</span>
+                            </div>
+                            {% endif %}
+                            {% if event.rules != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_2" class="logo_container_right" onclick="changeEventInfo(2,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_rules" onclick="changeEventInfo(2,{{event.id}});">RULES & REGULATIONS</span>
+                            </div>
+                            {% endif %}
+                            {% if event.judging != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_3" class="logo_container_right" onclick="changeEventInfo(3,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_rules" onclick="changeEventInfo(3,{{event.id}});">JUDGING PARAMETERS</span>
+                            </div>
+                            {% endif %}
+                            {% if event.prizes != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_4" class="logo_container_right" onclick="changeEventInfo(4,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_prize" onclick="changeEventInfo(4,{{event.id}});">PRIZES</span>
+                            </div>
+                            {% endif %}
+                            {% if event.problemStatement != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_5" class="logo_container_right" onclick="changeEventInfo(5,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_ps" onclick="changeEventInfo(5,{{event.id}});">PROBLEM STATEMENT</span>
+                            </div>
+                            {% endif %}
+                            {% if event.register != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_6" class="logo_container_right" onclick="changeEventInfo(6,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_register" onclick="changeEventInfo(6,{{event.id}});">REGISTER</span>
+                            </div>
+                            {% endif %}
+                            {% if event.contact != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_7" class="logo_container_right" onclick="changeEventInfo(7,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_contact" onclick="changeEventInfo(7,{{event.id}});">CONTACT</span>
+                            </div>         
+                            {% endif %}
+                            {% if event.results != '' %}
+                            <div class="nav_li_right">
+                                <div id="info_cont_8" class="logo_container_right" onclick="changeEventInfo(8,{{event.id}});">
+                                    <img src="{% static 'images/events/genre/points.png' %}" class="logo_img_right">
+                                </div>
+                                <span class="ev_togg"  id="ev_results" onclick="changeEventInfo(8,{{event.id}});">RESULT</span>
+                            </div>         
+                            {% endif %}
+                        </div>
+                        <div id="event_details">
+                            <div id="ev_topbar">
+                                <div id="logo_spons">
+                                    <img src="{{event.sponsor}}" class="spons_img_ev" />
+                                </div>
+                                <div id="ev_quote"><i>{{event.quote|safe|escape}}</i></div>
+                            </div>
+                        {% if event.introduction != '' %}
+                            <div id='event_{{event.id}}_01' class='event-matter-selected scroll'>{{event.introduction|safe|escape}}</div>
+                        {% endif %}
+                        {% if event.rules != '' %}
+                            <div id='event_{{event.id}}_02' class='scroll event-matter'>{{event.rules|safe|escape}}</div>
+                        {% endif %}
+                        {% if event.judging != '' %}
+                            <div id='event_{{event.id}}_03' class='scroll event-matter'>{{event.judging|safe|escape}}</div>
+                        {% endif %}
+                        {% if event.prizes != '' %}
+                            <div id='event_{{event.id}}_04' class='scroll event-matter'>{{event.prizes|safe|escape}}</div>
+                        {% endif %}
+                        {% if event.problemStatement != '' %}
+                            <div id='event_{{event.id}}_05' class='scroll event-matter'>{{event.problemStatement|safe|escape}}</div>
+                        {% endif %}
+                        {% if event.register != '' %}
+                            <div id='event_{{event.id}}_06' class='scroll event-matter event_reg_reset'><span class="event_reg" onclick="event_reg({{event.id}})">Click Here</span> to Register for this event.<div id='event_{{event.id}}_06_01'></div></div>
+                        {% endif %}
+                        {% if event.contacts != '' %}
+                            <div id='event_{{event.id}}_07' class='scroll event-matter'>{{event.contacts|safe|escape}}</div>
+                        {% endif %}
+                        {% if event.results != '' %}
+                            <div id='event_{{event.id}}_08' class='scroll event-matter'>{{event.results|safe|escape}}</div>
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+                <div id="ev_tile_group">
+                    {% for event in genre.event_set.all %}
+                        <div class="ev_tile" id="ev_{{event.id}}" onclick="changeEvent({{event.id}});">
+                    {% if forloop.first %}
+                        <span class="overlay_tile_ev_select">{{event.name}}</span>
+                    {% else %}
+                            <span class="overlay_tile_ev">{{event.name}}</span>
+                    {% endif %}
+                            <img src="{{event.image}}" class="tile_img" />
+                        </div>
+                    {% endfor %}              
+                </div>
+        </div>    
+        {% endfor %}
+
+        <div class="icon_genre_holder">
+            {% for genre in genres %}
+                {% if forloop.first %}
+                <div class="select_genre_container" id="cont_genre_{{genre.id}}" onclick="changeGenre({{genre.id}});">
+                {% else %}
+                <div class="genre_container" id="cont_genre_{{genre.id}}" onclick="changeGenre({{genre.id}});">
+                {% endif %}
+                    <span id="ev_{{genre.id}}" class="ev_button" onclick="changeGenre({{genre.id}});">{{genre.name}}</span>
+                    <img src="{{genre.image}}" class="genre_img">
+                </div>
+            {% endfor%}
+        </div> 
+</body>
+</html>

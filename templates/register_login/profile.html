@@ -1,0 +1,82 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+
+{% block content %}
+<style>
+.btn_close3{ transition: 0.2s background-color ; cursor: pointer; position: absolute; right: 30px; border-radius: 50px; width: 48px; height: 48px; background: rgba(255,255,255,0) url(/static/administrator/js/cuppa/images/close_white.png) center no-repeat; }
+.btn_close3:hover{ background-color: rgba(255,255,255,0.05); }
+
+</style>
+<div class="reg_heading">
+    <div id="logout" class="user-logout-box" style=" cursor:pointer;left:40px;" onclick="logout();">Logout</div>
+    <span style="font-size: 20px;font-family:Nexa-Bold;">You are logged in.</span>
+    <div class="btn_close3"  onclick="closeLogin();"></div>
+</div>
+<div id="profile_display" class="scroll1">
+<div class="profile-section">
+    <div class="profile-wrap">
+        <div class="label">Username</div>
+        <div class="profile-element">{{user.username}}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Email</div>
+        <div class="profile-element">{{user.email}}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Password</div>
+        <div class="profile-element">*****</div>
+    </div>
+</div>
+<div class="profile-section">
+    <div class="profile-wrap">
+        <div class="label">Name</div>
+        <div class="profile-element">{{ user.first_name }}{{ user.last_name }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Gender</div>
+        <div class="profile-element">{{ profile.gender }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Date Of Birth</div>
+        <div class="profile-element">{{ profile.dateOfBirth }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Contact</div>
+        <div class="profile-element">{{ profile.contact }}</div>
+    </div>
+</div>
+<div class="profile-section">
+    <div class="profile-wrap">
+        <div class="label">Country</div>
+        <div class="profile-element">{{ profile.country }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">State</div>
+        <div class="profile-element">{{ profile.state }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Department</div>
+        <div class="profile-element">{{ profile.department }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label"><label for="id_firstname">Year</label></div>
+        <div class="profile-element">{{ profile.year }}</div>
+    </div>
+</div>
+
+<div class="profile-section">
+    <div class="profile-wrap">
+        <div class="label">Institution</div>
+        <div class="profile-element">{{ profile.institute }}</div>
+    </div>
+    <div class="profile-wrap">
+        <div class="label">Address</div>
+        <div class="profile-element">{{ profile.address }}</div>
+    </div>
+    <div class="profile-wrap">
+    </div>
+</div>
+</div>
+
+{% endblock %}

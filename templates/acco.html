@@ -1,0 +1,573 @@
+<!DOCTYPE HTML>
+{%load static %}
+{% load lowertrim %}
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+        <!-- Description -->
+            <title>Accommodation - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur</title>
+            <meta name="description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta name="keywords" content="Kshitij,2016, Kshitij 2016, Asia's largest, Techno-management fest, Online Events, IIT Kharagpur, technology, management, ASME, IEEE, ACM, ASHRAE, IMechE, college fest, university, India, IIT, Indian Institute of technology, Kshitij 2015, technical fest, events, megashows,guests, workshops, c-monopoly, forex, excaliber, cryptex, innovation, Online Competitions, West Bengal, Bombay, Delhi, Science, robotix, robotics, India, Kgp, IIT Kgp" />
+            <base href="" />
+        <!-- -->
+        <!-- Responsive -->
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- Share -->
+            <meta property="og:title" content="Accommodation - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur" />
+            <meta property="og:description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta property="og:image" content="http://m.ktj.in/static/fb.jpg" />
+            <meta itemprop="sameas" content="https://en.wikipedia.org/wiki/Kshitij" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+        <!-- -->
+
+        <!-- Aplication icons -->
+            <meta name="mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <link rel="shortcut icon" sizes="196x196" href="http://ktj.in/static/administrator/media/page/app_icon_196.png"  />
+            <link rel="shortcut icon" sizes="128x128" href="http://ktj.in/static/administrator/media/page/app_icon_128.png" />
+            <link rel="shortcut icon" sizes="24x24" href="http://ktj.in/static/administrator/media/page/icon.png" />
+            <link rel="apple-touch-icon" sizes="128x128" href="http://ktj.in/static/administrator/media/page/app_icon_128.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="128x128" href="http://ktj.in/static/administrator/media/page/app_icon_128.png" />
+            <link rel="apple-touch-startup-image" href="http://ktj.in/static/administrator/media/page/app_icon_196.png" />
+        <!-- -->
+
+        <!--  Android 5 Chrome Color-->
+        <meta name="theme-color" content="#DE3454">
+
+       
+        <link href="/static/css/prism.css" rel="stylesheet">
+        <link href="/static/css/main.css" rel="stylesheet">
+        <link href="/static/css/sponsors.css" rel="stylesheet">
+        <link href="/static/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        
+
+       
+        <script src="https://cdn.transifex.com/live.js"></script>
+    </head>
+    <body>
+    	
+        <!-- Header Starts -->
+		<header >
+              <nav class="top-nav fixed">
+                      <div class="container">
+                        <div class="nav-wrapper"><a class="page-title">Accommodation</a>
+                        <ul class="right" style="padding-top:25px;">
+                              <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="dropdown-more" ><i class="mdi-navigation-more-vert"></i></a>
+                                <ul id="dropdown-more" class="dropdown-content" style="margin-left: 0px; z-index: 99999; overflow: visible; min-width: 148px !important; width: 68px; position: absolute; top: 0px; left: 928px; opacity: 1; display: none;">
+                                  {% if user.is_authenticated %}
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="http://ktj.in/myktj">MYKTJ</a></li>
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/profile">Profile</a></li>
+                                  <!-- <li class="divider"></li> -->
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/logout">Logout</a></li>
+                                  
+                                  {% else %}
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/login">Login</a></li>
+                                  <!-- <li class="divider"></li> -->
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/signup">SignUp</a></li>
+                                  {% endif %}
+                                </ul>
+                          </ul></div>
+                      </div>
+                    </nav>
+               <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+              <ul id="nav-mobile" class="side-nav fixed">
+                <li class="logo"><a id="logo-container" href="/" class="brand-logo">
+                    <object id="front-page-logo" type="image/png" data="/static/images/logo.png">Your browser does not support SVG</object></a></li>
+                <li class="bold"><a href="/" class="waves-effect waves-red">Home</a></li>
+                <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-red">Events</a>
+                      <div class="collapsible-body">
+                        <ul>
+                          <li><a href="/events?genre=1"><img class="genre-icons" src="/static/images/1.png"></img>Genesis</a></li>
+                          <li><a href="/events?genre=2"><img class="genre-icons" src="/static/images/2.png">Quizzard</a></li>
+                          <li><a href="/events?genre=3"><img class="genre-icons" src="/static/images/3.png">Conceptualise</a></li>
+                          <li><a href="/events?genre=4"><img class="genre-icons" src="/static/images/4.png">Code Conclave</a></li>
+                          <li><a href="/events?genre=5"><img class="genre-icons" src="/static/images/5.png">Robotics</a></li>
+                          <li><a href="/events?genre=6"><img class="genre-icons" src="/static/images/6.png">Mechanize</a></li>
+                          <li><a href="/events?genre=7"><img class="genre-icons" src="/static/images/7.png">Strategia</a></li>
+                          <li><a href="/events?genre=8"><img class="genre-icons" src="/static/images/9.png">Tech4Fun</a></li>
+                          <li><a href="/events?genre=9"><img class="genre-icons" src="/static/images/8.png">Industrial Architecture</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-red">Initiatives</a>
+                      <div class="collapsible-body">
+                        <ul>
+                              <li><a href="/initiatives/digitalindia">Digital India Summit</a></li>
+                              <li><a href="/sankalp">Sankalp</a></li>
+                            </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="bold"><a href="/sponsors" class="waves-effect waves-red">Sponsors</a></li>
+                <li class="bold"><a href="/guests" class="waves-effect waves-red">Guests</a></li>
+                <li class="bold"><a href="/workshops" class="waves-effect waves-red">Workshops</a></li>
+                <li class="bold"><a href="/exhibitions" class="waves-effect waves-red">Exhibitions</a></li>
+                <li class="bold"><a href="/megashows" class="waves-effect waves-red">Megashows</a></li>
+                <li class="bold"><a href="/contacts" class="waves-effect waves-red">Contacts</a></li>
+              </ul>
+            </header>
+            <!-- Header Ends -->
+
+         <main style="padding-bottom: 75px;">   
+        <div class="container">
+          <div class="row">
+              <div class="col s12">
+                <ul class="tabs">
+                  
+                  <li class="tab col s3"><a href="#home">Home</a></li>
+                  <li class="tab col s3"><a href="#instructions">Instructions</a></li>
+                  <li class="tab col s3"><a href="#faq">FAQ</a></li>
+                  <li class="tab col s3"><a href="#contacts">Contacts</a></li>
+                  
+                </ul>
+              </div>
+              
+              <div id="home" class="col s12">
+              		<div>
+                        <h5 style="text-align:center;"><b><u>Accommodation Portal</b></u></h5>
+                        <div class="col s12">
+                          <ul class="tabs">
+                            
+                            <li class="tab col s6"><a href="#online">Online Payment</a></li>
+                            <li class="tab col s6"><a href="#draft">Demand Draft</a></li>
+                            
+                            
+                          </ul>
+                        </div>
+                  <div id="online" class="col s12">
+                        <div style="font-size:14px;padding-bottom:20px;" id="acco_status"><br/>
+                              <!-- <b>Accommodation Approval Status</b> : --> 
+                              {% if new == True %}
+                                <!-- You have not filled the Accommodation form as yet. -->
+                              {% elif new == False and acco.status == 0 and acco.payment_status == 1 %}
+                                  <span style="padding:3px;background-color:#f4fb3c">Approval Pending</span>
+
+                              {% elif new == False and acco.status == 2 %}
+                                  <span style="padding:3px;background-color:#ff4545">Rejected</span>
+                              {% elif new == False and acco.status == 1 and acco.payment_status == 1 %}
+                                  <span style="padding:3px;background-color:#b9ff8e">Approved</span>To print the Accommodation letter, click the below button.
+                                  <form action="http://print.ktj.in/out.php" method="post" target="_blank">
+                                      <input name="userid" value="{{userid.id}}" hidden/>
+                                      <input type="submit" value="Download"/>
+                                  </form>
+                              {% endif %}
+                                  
+                        </div>
+                        <div class="" style="text-align:left;">
+                        {% if error != "" %}
+                          <span style="padding:3px;background-color:#f4fb3c">{{error}}</span>
+                        {% endif %}
+                        <form class="signup"  id="upload_data" method="post" action="/acco/save" enctype="multipart/form-data">
+                          <div class="row">
+                                      <div id="id_first_name_container" class="input-field col s12">
+                                          <input type="text" value="{{acco.name}}" name="name" max-length="50" id="name"><label for="name" class="">Name</label>
+                                      </div>
+                          </div>
+                          <div class="row">
+                                      <div id="id_first_name_container" class="input-field col s12">
+                                          <input type="text" value="{{acco.institution}}" name="institution" max-length="50" id="institution"><label for="institution" class="">Institution/University</label>
+                                      </div>
+                          </div>
+                          <div class="row">
+                                      <div id="id_first_name_container" class="input-field col s12">
+                                          <input type="text" value="{{acco.year}}" name="year" max-length="50" id="year"><label for="year" class="">Year</label>
+                                      </div>
+                          </div>
+                          <div class="row">
+                                      <div id="id_first_name_container" class="input-field col s12">
+                                          <input type="text" value="{{acco.mobile}}" name="mobile" max-length="50" id="mobile"><label for="mobile" class="">Mobile No. (To be used in Kharagpur)</label>
+                                      </div>
+                          </div>
+                          <div class="layout-row row"><div class="col s12 m6">
+                          <div class="row">
+                                      <div id="id_first_name_container" class="input-field col s6">
+                                          <input type="text" value="{{acco.train}}" name="train" max-length="50" id="train"><label for="train" class="">Train No.</label>
+                                      </div>
+                          </div></div><div class="col s12 m6">
+                          <div class="row">
+                                      <div id="id_first_name_container" class="input-field col s6">
+                                          <input type="text" value="{{acco.pnr}}" name="pnr" max-length="50" id="pnr"><label for="pnr" class="">PNR No.</label>
+                                      </div>
+                          </div>
+                          </div></div>
+                          
+                          <div class="input-field col s6">
+                              <select id="arrivaldate" name="arrivaldate">
+                                <!-- <option value="" disabled selected>Choose your option</option> -->
+                                <option value='2016-01-21' {% if acco.arrival == '2016-01-21' %} selected {% endif %}>21 Jan</option>
+                                <option value='2016-01-22' {% if acco.arrival == '2016-01-22' %} selected {% endif %}>22 Jan</option>
+                                <option value='2016-01-23' {% if acco.arrival == '2016-01-23' %} selected {% endif %}>23 Jan</option>
+                                <!-- <option value='2016-01-24' {% if acco.arrival == '2016-01-24' %} selected {% endif %}>24 Jan</option>
+                                <option value='2016-01-25' {% if acco.arrival == '2016-01-25' %} selected {% endif %}>25 Jan</option> -->
+                              </select>
+                              <label>Date of Arrival at Kharagpur</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <select id="departuredate" name="departuredate">
+                                <!-- <option value="" disabled selected>Choose your option</option> -->
+                                <!-- <option value='2016-01-21' {% if acco.departure == '2016-01-21' %} selected {% endif %}>21 Jan</option> -->
+                                <option value='2016-01-22' {% if acco.departure == '2016-01-22' %} selected {% endif %}>22 Jan</option>
+                                <option value='2016-01-23' {% if acco.departure == '2016-01-23' %} selected {% endif %}>23 Jan</option>
+                                <option value='2016-01-24' {% if acco.departure == '2016-01-24' %} selected {% endif %}>24 Jan</option>
+                                <option value='2016-01-25' {% if acco.departure == '2016-01-25' %} selected {% endif %}>25 Jan</option>
+                              </select>
+                              <label>Date of Departure from Kharagpur</label>
+                            </div>
+                           
+                            {% if acco.payment_status == 1 %}
+                            <div class="card-action">
+                                <div class="center-align">
+                                    <button class="waves-effect waves-light btn" type="submit" id="file_upload_button">Save</button>
+                                </div>
+                                
+                            </div>
+                            {% else %}
+                            <div class="card-action" style="margin-top: 150px;">
+                                <div class="center-align">
+                                    <button class="waves-effect waves-light btn" type="submit" id="file_upload_button">Pay Now</button>
+                                </div>
+                                
+                            </div>
+                            {% endif %}
+                        </form>
+                            
+                        </div>
+                      </div>
+
+                      <div id="draft" class="col s12">
+                            <div style="font-size:14px;padding-bottom:20px;" id="acco_status"><br/>
+                                  <!-- <b>Accommodation Approval Status</b> : --> 
+                                  {% if dnew == True %}
+                                    <!-- You have not filled the Accommodation form as yet. -->
+                                  {% elif dnew == False and dacco.status == 0  %}
+                                      <span style="padding:3px;background-color:#f4fb3c">Approval Pending</span>
+
+                                  {% elif dnew == False and dacco.status == 2 %}
+                                      <span style="padding:3px;background-color:#ff4545">Rejected</span>
+                                  {% elif dnew == False and dacco.status == 1  %}
+                                      <span style="padding:3px;background-color:#b9ff8e">Approved</span>To print the Accommodation letter, click the below button.
+                                      <form action="http://print.ktj.in/out1.php" method="post" target="_blank">
+                                          <input name="userid" value="{{userid.id}}" hidden/>
+                                          <input type="submit" value="Download"/>
+                                      </form>
+                                  {% endif %}
+                                      
+                            </div>
+                            <div class="" style="text-align:left;">
+                            {% if error1 != "" %}
+                              <span style="padding:3px;background-color:#f4fb3c">{{error1}}</span>
+                            {% endif %}
+                            <form class="signup"  id="upload_data" method="post" action="/acco/draftsave" enctype="multipart/form-data">
+                              <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s12">
+                                              <input type="text" value="{{dacco.name}}" name="name" max-length="50" id="name"><label for="name" class="">Name</label>
+                                          </div>
+                              </div>
+                              <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s12">
+                                              <input type="text" value="{{dacco.institution}}" name="institution" max-length="50" id="institution"><label for="institution" class="">Institution/University</label>
+                                          </div>
+                              </div>
+                              <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s12">
+                                              <input type="text" value="{{dacco.year}}" name="year" max-length="50" id="year"><label for="year" class="">Year</label>
+                                          </div>
+                              </div>
+                              <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s12">
+                                              <input type="text" value="{{dacco.mobile}}" name="mobile" max-length="50" id="mobile"><label for="mobile" class="">Mobile No. (To be used in Kharagpur)</label>
+                                          </div>
+                              </div>
+                              <div class="layout-row row"><div class="col s12 m6">
+                              <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s6">
+                                              <input type="text" value="{{dacco.train}}" name="train" max-length="50" id="train"><label for="train" class="">Train No.</label>
+                                          </div>
+                              </div></div><div class="col s12 m6">
+                              <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s6">
+                                              <input type="text" value="{{dacco.pnr}}" name="pnr" max-length="50" id="pnr"><label for="pnr" class="">PNR No.</label>
+                                          </div>
+                              </div>
+                              </div></div>
+                              
+                              <div class="input-field col s6">
+                                  <select id="arrivaldate" name="arrivaldate">
+                                    <!-- <option value="" disabled selected>Choose your option</option> -->
+                                    <option value='2016-01-21' {% if dacco.arrival == '2016-01-21' %} selected {% endif %}>21 Jan</option>
+                                    <option value='2016-01-22' {% if dacco.arrival == '2016-01-22' %} selected {% endif %}>22 Jan</option>
+                                    <option value='2016-01-23' {% if dacco.arrival == '2016-01-23' %} selected {% endif %}>23 Jan</option>
+                                    <!-- <option value='2016-01-24' {% if acco.arrival == '2016-01-24' %} selected {% endif %}>24 Jan</option>
+                                    <option value='2016-01-25' {% if acco.arrival == '2016-01-25' %} selected {% endif %}>25 Jan</option> -->
+                                  </select>
+                                  <label>Date of Arrival at Kharagpur</label>
+                                </div>
+                                <div class="input-field col s6">
+                                  <select id="departuredate" name="departuredate">
+                                    <!-- <option value="" disabled selected>Choose your option</option> -->
+                                    <!-- <option value='2016-01-21' {% if acco.departure == '2016-01-21' %} selected {% endif %}>21 Jan</option> -->
+                                    <option value='2016-01-22' {% if dacco.departure == '2016-01-22' %} selected {% endif %}>22 Jan</option>
+                                    <option value='2016-01-23' {% if dacco.departure == '2016-01-23' %} selected {% endif %}>23 Jan</option>
+                                    <option value='2016-01-24' {% if dacco.departure == '2016-01-24' %} selected {% endif %}>24 Jan</option>
+                                    <option value='2016-01-25' {% if dacco.departure == '2016-01-25' %} selected {% endif %}>25 Jan</option>
+                                  </select>
+                                  <label>Date of Departure from Kharagpur</label>
+                                </div>
+                                
+                                <div class="section row">
+                                    <div class="col s12">
+                                        <h5>Demand Draft Information </h5>
+                                        <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s6">
+                                              <input type="text" value="{{dacco.bank}}" name="bank" max-length="50" id="bank"><label for="bank" class="">Bank Name.</label>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s6">
+                                              <input type="text" value="{{dacco.draft}}" name="draft" max-length="50" id="draft"><label for="draft" class="">Draft No.</label>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div id="id_first_name_container" class="input-field col s6">
+                                              <input type="text" value="{{dacco.draftdate}}" name="draftdate" max-length="50" id="draftdate"><label for="draftdate" class="">Draft Date.</label>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                {% if dnew == False %}
+                                <div class="card-action">
+                                    <div class="center-align">
+                                        <button class="waves-effect waves-light btn" type="submit" id="file_upload_button">Save</button>
+                                    </div>
+                                    
+                                </div>
+                                {% else %}
+                                <div class="card-action" style="margin-top: 150px;">
+                                    <div class="center-align">
+                                        <button class="waves-effect waves-light btn" type="submit" id="file_upload_button">Submit</button>
+                                    </div>
+                                    
+                                </div>
+                                {% endif %}
+                            </form>
+                                
+                            </div>
+                          </div>
+
+
+
+                    </div>
+                
+              </div>
+              <div id="instructions" class="col s12">
+              		<div>
+                        <h5 style="text-align:center;"><b><u>Instructions</b></u></h5>
+                        <div class="" style="text-align:left;">
+                        <p><b>Payment through Online Payment System:</b><br>Participants will have to make online  payment of Rs. 1100 (Rs. 100/- is as a caution money for all the accommodation  materials provided which will be refunded during the fest  ).  If  you  are coming in a team (say 5 membered  team), payment must be done separately from all the 5 accounts.<br />
+                          <br />
+                          <b>Payment through Demand Draft:</b><br>
+                          Participants will have to make and bring along with them a <font color='red'>draft of Rs. 1100/- </font>(Rs. 100/- is as a caution money for all the accommodation materials provided which will be <font color='red'>refunded</font> after the fest .  ) in favour of <b>"KSHITIJ"</b>, payable at <b>Kharagpur</b> (0202) [SBI Bank Code]. If you are coming in a team (say 5 membered team), a single draft can be drawn for the whole amount (5 x 1100 = Rs. 5500).<br>
+                          However, all team members are required to fill the form separately. If they have a common DD then the same DD number is to be entered in all the forms. If you dont want to avail accommodation facility, then also you need to provide a draft of Rs. 1100/- in order to participate in any of the event.<br>
+                          <br />
+                          If you don&rsquo;t want to avail accommodation facility, then also you need to make  an online payment of Rs. 1100/- in order to participate in any of the event. Payment can be made either through Demand Draft or Online.<br />
+                          <br />
+                          <b>Money is non-refundable.</b><br>
+                          Accommodation will ONLY be provided to those, who provide the online payment  details in the Accommodation form.&nbsp;<br />
+                          <br />
+                          Participants won&rsquo;t be allowed to attend any Events,Guest Lectures, Workshops  and Megashows without registering in the finance tent, but accommodation will  only be provided to the ones whose accommodation request has been approved  online.&nbsp;<br />
+                          <br />
+                          Accommodation  will be provided in a first come, first serve basis. Participants are required  to update their accommodation forms with the PNR number of their travelling  ticket.&nbsp;<br />
+                          <br />
+                          <strong>Checklist of items that must be brought during the registration at IIT  Kharagpur:</strong><br />
+                          1.College Identity Card<br />
+                          2.Accommodation Form Printout&nbsp;<br />
+                          3.Ticket received from TownScript <br />
+                          <br />
+                          <br />
+                          <b><u>What Not To Do</u></b>
+                          <ul><li>
+                          <font color='red'>The Demand Draft should be made in favour of 'KSHITIJ' and not IIT KHARAGPUR or KSHITIJ 16 or any other entity</font>.
+                          </li></ul>
+                          <strong>Instructions</strong></p>
+                        <ol start="1" type="1">
+                          <li>Accommodation for Kshitij Participants in IIT Kharagpur       will start from 21st January. Participants coming before that will have to       arrange accommodation on their own.</li>
+                          <li>After registering for accommodation, Kshitij team will       take three days to process your request for accommodation.</li>
+                          <li>He/She must fill the actual details in the form as in       the college identity card.</li>
+                          <li>Participants are requested to get their accommodation       forms printed after their accommodation status is approved.</li>
+                          <li>Accommodation will be provided to students on first       come first serve basis. All the finalists must register for Accommodation.       They will be granted Accommodation as soon as they register.</li>
+                          <li>If students from a particular college are coming in a       group then one letter with the names of all students in it will suffice.</li>
+                           <li><b>Accommodation Fees once Paid is non-Refundable.</b></li>
+                        </ol>
+                        <p><br />
+                        </p>
+                        </div>
+                    </div>
+                
+              </div>
+
+              <div id="faq" class="col s12">
+              		<div>
+                        <h5 style="text-align:center;"><b><u>FAQ</b></u></h5>
+                        <div class="" style="text-align:left;">
+                          <p><b>Q. HOW DO I REACH  KHARAGPUR?&nbsp;<br />
+                            <br />
+                            </b><em>The KGP station is  connected to all major cities of the country by train. Just hop on! If your  city does not have a direct rail route to Kharagpur, then catch a train to the  City of Joy- Kolkata. KGP is situated 120 Kms off Kolkata which is well  connected to all the cities of India by rail and air. Train from Kolkata to  Kharagpur are available round the clock. The list of local trains from Kolkata  to KGP can be obtained from&nbsp;</em><a href="http://www.iitkgp.ac.in/train/" target="_blank"><em>here</em></a><em>&nbsp;</em><em>.&nbsp;<br />
+                            <br />
+                            </em><b>Q. HOW TO REACH THE IIT  CAMPUS ON ARRIVAL AT KHARAGPUR?&nbsp;<br />
+                            <br />
+                            </b><em>The first thing that you  will notice on coming out of the KGP station will be the Participant's  Reception (PR) team. (We believe in Atihi Devo Bhava, besides there isn't  anything else worth noting about the KGP station) We will be there 24x7 from  1800 hrs, 21st of January. Periodic announcements will be made at the station  addressing the participants. IIT KGP buses and the volunteers will be available  to bring you to the campus. The volunteers will guide you to the Kshitij arena-  The Vikramshila Complex. Moreover you can also take a cab to the IIT Campus.  The fare from station to the IIT campus is Rs. 120 to Rs 150 (depends on your  negotiation skills) and it is a 10 minutes ride.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHAT AFTER REACHING THE  KSHITIJ ARENA?&nbsp;<br />
+                            <br />
+                            </b><em>You will be taken to the  Control Tent where you and your team/ contingent will have to register. For the  registration you will have to bring the printout of the accommodation form that  has been put up on the website. After that you will be provided accommodation  in the campus. There will be nominal registration fee. There will also be fully  refundable security deposit.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHAT DOCUMENTS DO I  HAVE TO BRING IN ORDER TO PARTICIPATE OR TO AVAIL ACCOMMODATION?&nbsp;<br />
+                            <br />
+                            </b><em>You have to bring the  printout of the accommodation form in order to avail the accommodation during  Kshitij. It is of absolute importance that you carry your Institute Identity  Card with you. Apart from this, participants may be required to bring a few validating  documents for some events if the Event rules require them to do so. Please read  the rules of the events very carefully.&nbsp;<br />
+                            <br />
+                            </em><b>Q. ALRIGHT, I AM  REGISTERED AT THE CONTROL TENT. WHAT NEXT? WHERE DO I STAY?&nbsp;<br />
+                            <br />
+                            </b><em>Participant will be  accommodated in the Hostels of IIT. We have 18 Boy's Hostels and 6 Girl's  Hostels and a number of Bachelor Flats. The boys and Girls will be accommodated  separately in a dormitory sort of arrangement.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHAT SHOULD I BRING  WITH ME?&nbsp;<br />
+                            <br />
+                            </b><em>The participants will be  provided with mattresses and blankets so you need not stuff your backpack with  these items. You MUST carry your institute Id card with you. Participants of  various events should bring anything that is required for their respective events.  Regarding this, you can contact the respective coordinators of the events.&nbsp;<br />
+                            <br />
+                            </em><b>Q. I AM REALLY EXCITED TO  COME DOWN FOR KSHITIJ. WHEN CAN I COME AT THE EARLIEST?&nbsp;<br />
+                            <br />
+                            </b><em>Accommodation shall be  provided to participants reaching Kharagpur after 1800 hrs on 21st January  2015. We advise you to stick with this scheme. However, if you cannot help it  and have a genuine problem, get in touch with Team Kshitij and we shall take  care of it.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHERE DO I EAT?&nbsp;<br />
+                            <br />
+                            </b><em>The Kshitij arena will  have a lot of food stalls that will take care of your appetite. Of course, you  will have to pay for that but they will be subsidized. There are a lot of  eating joints in the campus - CCD, Tikka, Sahara, Veggies, Billoo's etc. which  go pretty easy on your pocket. There are some restaurants outside the campus as  well. Besides, all the hostels (or halls as we call them) have Nescafe outlets.&nbsp;<br />
+                            <br />
+                            </em><b>Q. I HAVE A GOOD FRIEND AT  KGP. IS THERE A CHANCE I CAN PUT UP WITH MY FRIEND?&nbsp;<br />
+                            <br />
+                            </b><em>Of course! If you have a  good friend we won't play spoilsport. You can always put up with your friends  and indulge in the camaraderie. But registration in the site and for  accommodation is mandatory.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHAT CONDUCT DO YOU  EXPECT OF ME?&nbsp;<br />
+                            <br />
+                            </b><em>During Kshitij, the  otherwise serene campus is transformed into a vibrant hub with students from  more than 1300 colleges coming together. However, it is required that you  follow a proper code of conduct. Any instance of hooliganism, indecent behavior  and rowdiness will not be tolerated. If found indulging in any misconduct, the  participant shall be asked to leave immediately along with his team/  contingent.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHAT ABOUT THE SECURITY  OF MY BELONGINGS INSIDE THE CAMPUS?&nbsp;<br />
+                            <br />
+                            </b><em>IIT KGP has round the  clock security everywhere in the campus. Additional guards will be posted at  the hostels to safeguard your belongings. Volunteers will also be present at  the accommodation venues. All said and done, we request you to avoid carrying  expensive item.&nbsp;<br />
+                            <br />
+                            </em><b>Q. IN CASE OF ANY HEALTH  PROBLEM, WHERE SHOULD I GO?&nbsp;<br />
+                            <br />
+                            </b><em>We have a medical  hospital- the BC ROY Hospital inside the campus that will take care of your  medical problems, if any. In case of any illness, you or your team members can  contact the control tent and we shall ensure immediate action.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHEN WILL I GET MY  PRIZES AND CERTIFICATES?&nbsp;<br />
+                            <br />
+                            </b><em>The winners will get their  prizes and certificates on the last day of Kshitij during the Prize  distribution ceremony. Those who need to leave early can collect it from  control tent at the end of the day.&nbsp;<br />
+                            <br />
+                            </em><b>Q. HOW DO I CHECK OUT?&nbsp;<br />
+                            <br />
+                            </b><em>For checking out, you need  to go to control tent and inform them. Accommodation volunteers will be present  at various halls at preassigned times who will collect the blankets, mattresses  etc. issued against your name. Only after that you can collect your security  deposits from the control tent.&nbsp;<br />
+                            <br />
+                            </em><b>Q. WHEN DO I CHECK OUT?&nbsp;<br />
+                            <br />
+                            </b><em>The last slot for  collection of accommodation materials by accommodation volunteers is 24th  January 2016, 18:00hrs. Accommodation volunteers will not be available after  this time. Those leaving next morning can only wrap up the formalities at 7am.&nbsp;<br />
+                            <br />
+                            </em><b>Q. I STILL HAVE A FEW  UNANSWERED QUESTIONS, WHERE CAN I LOOK FOR ANSWERS?<br />
+                            <br />
+                            </b><em>You can always use the  forum for any queries you have. You can use the private queries section as  well. Or else, you can also contact team Kshitij for any queries . The contacts  are available on the contacts page. You can mail your queries to  sidhant.agarwal@ktj.in.<br />
+                            <br />
+                            </em><b>Q. I HAVE WITH ME MY  HARDWARE DESIGNS WHICH WOULD NEED REGULAR POWER SUPPLY TO WORK WITH. DO I GET  PROVISIONS OF POWER PLUGS?&nbsp;<br />
+                            <br />
+                          </b><em>Power Plugs are not much  in number and hence all the work related to power, if possible should be  completed before you come over here to Kgp.&nbsp;</em></p>
+                        
+                            
+                        
+                            
+                        </div>
+                    </div>
+                
+              </div>
+
+              <div id="contacts" class="col s12">
+              		<div>
+                        <h5 style="text-align:center;"><b><u>Contacts</b></u></h5>
+                        <div class="" style="text-align:left;">
+
+                        <p><b>Parimal Bhalerao<br>
+                        Email:</b> parimal.bhalerao@ktj.in <br>
+                        <b>Ph: </b>+91 9933907851</p>
+
+                         <p><b>Sidhant Agarwal<br>
+                        Email:</b> sidhant.agarwal@ktj.in <br>
+                        <b>Ph: </b>+91 9933940944</p>     
+
+                        <p><b>Amisha Garg<br>
+                        Email:</b> amisha.garg@ktj.in <br>
+                        <b>Ph: </b>+91 7501301812</p>
+
+
+                        
+                            
+
+                            
+                        <p>
+                        <b>Harsh Bhardwaj</b><br>
+                        <b>Email:</b> harsh.bhardwaj@ktj.in<br>
+                        <b>Ph: </b>+91 8145801125</p>
+                            
+                        </div>
+                    </div>
+                
+              </div>
+              
+            </div>
+      </div>
+  </main>
+
+  <footer class="page-footer" style="background-color:#ee6e73;padding-top:0px;margin-top:0px;">
+        
+        <div class="footer-copyright">
+          <div class="container">
+          © 2015-2016 Kshitij
+          <div class="social-buttons col s12 right" style="margin:12px;">
+                    <a href="https://www.facebook.com/ktj.iitkgp" target="_blank"><img src="/static/images/02_facebook.png" style="margin-top:-12px;"></a>
+                    <a href="https://twitter.com/ktj_iitkgp" target="_blank"><img src="/static/images/01_twitter.png" style="margin-top:-12px;"></a>
+                    <a href="https://www.youtube.com/user/ktjiitkgp?sub_confirmation=1" target="_blank"><img src="/static/images/03_youtube.png" style="margin-top:-12px;"></a>
+                    <a href="https://instagram.com/ktj.iitkgp/" target="_blank" ==""><img src="/static/images/10_instagram.png" style="margin-top:-12px;"></a>
+                </div>
+          </div>
+        </div>
+      </footer>
+
+
+<!--  Scripts-->
+            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); }
+            </script>
+            <script src="/static/js/jquery.timeago.min.js"></script>
+            <script src="/static/js/prism.js"></script>
+            <script src="/static/jade/lunr.min.js"></script>
+            <script src="/static/jade/search.js"></script>
+            <script src="/static/js/materialize.js"></script>
+            <script src="/static/js/init.js"></script>
+
+    
+
+    	
+    		  
+    </body>
+    </html>

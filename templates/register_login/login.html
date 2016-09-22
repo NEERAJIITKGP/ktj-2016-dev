@@ -1,0 +1,50 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+
+{% block content %}
+<style>
+.btn_close1{ transition: 0.2s background-color ; cursor: pointer; position: absolute; top: 30px; right: 30px; border-radius: 50px; width: 48px; height: 48px; background: rgba(255,255,255,0) url(/static/administrator/js/cuppa/images/close_white.png) center no-repeat; }
+.btn_close1:hover{ background-color: rgba(255,255,255,0.05); }
+
+</style>
+<div id="login_ktj_logo">
+    <!-- <img src="{% static 'images/menu/ktj_logo.png' %}"> -->
+</div>
+<div id="login-center">
+    <div id="login_circle">
+        <!-- <img src="{% static 'images/menu/user_icon.png' %}"> -->
+        <form id="login_form">
+        {% csrf_token%}
+            <div class="login-line" id="login-line-user">
+                <span class="login-labels">{{ form.username.label }}</span>
+                {{ form.username }}
+            </div>
+            <div class="login-line" id="login-line-pass">
+                <span class="login-labels">{{ form.password.label }}</span>
+                {{ form.password }}
+            </div>
+            <div class="login-line" id="login-line-pass">
+                <span class="login-labels">{{ form.remember.label }}</span>
+                {{ form.remember }}
+            </div>
+            <a href="/mailer/password/reset/" style="color:black;font-family:Nexa-Light;color:white;" target="_blank"><span>Reset your Password</span></a>
+
+            <div class="login-line">
+                <div onclick="login()" name="login-submit" class="login-submit" style="cursor:pointer;">SIGN-IN</div>
+            </div>
+        </form>
+    </div>
+    {% if form.errors %}
+        <div class="error" style="color:white; font-family:Nexa-Bold; font-size:16px;">Please provide valid credentials.</div>
+    {% endif %}
+    <div id="register-login">
+        <div class="register-login-box" onclick="openRegfromLogin();">
+            SIGNUP
+        </div>
+    </div>
+</div>
+<div id="login_kgp_logo">
+  <div class="btn_close1"  onclick="closeLogin();"></div>
+</div>
+{% endblock %}

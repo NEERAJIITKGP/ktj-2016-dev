@@ -1,0 +1,46 @@
+<html>
+<head></head>
+<body>
+<div class="contact-content">
+
+            <!-- Contacts item -->
+            <div class="scroll contact-item">
+                <p class="contact-item-title">
+                    Technology Students' Gymkhana
+                </p>
+                <img src="{% static 'images/spons/line.png' %}" alt="" class="spons-item-line">
+                
+                <div class="contact-category">
+                    <div class="contact-item-single">
+                        <p class="contact-name">Indian Institute of Technology, Kharagpur</p>
+                        <p class="contact-number">Fax: +91-3222 281187</p>
+                        <a href="mailto:admin@ktj.in" target="_blank"><i class="contact-email">admin@ktj.in</i></a>
+                    </div>
+                </div>
+
+
+            {% for post in contactPost|dictsort:"rank" %}
+                <p class="contact-item-title">
+                    {{post.name}}
+                </p>
+                <img src="{% static 'images/spons/line.png' %}" alt="" class="spons-item-line">
+                
+                <div class="contact-category">
+
+                {% for p in post.contact_set.all %}
+
+                <!-- Contact single item -->
+                    <div class="contact-item-single">
+                        <a href="{{p.social_link}}" target="_blank"><p class="contact-name">{{p.name}}</p></a>
+                        <p class="contact-number">+91{{p.phone}}</p>
+                        <a href="mailto:{{p.email}}" target="_blank"><i class="contact-email">{{p.email}}</i></a>
+                    </div>
+
+                {% endfor %}
+                </div>
+            {% endfor %}
+            </div>
+            
+        </div>
+</body>
+</html>

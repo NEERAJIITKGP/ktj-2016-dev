@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+{%load static %}
+{% load lowertrim %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kshitij 14th Edition - Regional workshop</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/blockchain/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/static/blockchain/css/agency.css" rel="stylesheet">
+<link href="/static/blockchain/css/style.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="/static/blockchain/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link href="/static/css/prism.css" rel="stylesheet">
+        <link href="/static/css/main.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+#withalign{
+    position: absolute;
+    top:115px;
+    left: 560px;
+    font-size: 35px;
+
+}
+
+#salign{
+    position: absolute;
+    top:115px;
+    left:930px;
+    font-size: 35px;}
+
+   h1{
+  font-size: 30px;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: #00acc1;
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+
+    </style>
+
+<script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-66400807-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+
+<script>
+
+
+    $(window).on("load resize ", function() {
+  var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+}).resize();
+</script>
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"style="padding:0px 0px;"><img src="/static/blockchain/img/ktj17.png" ></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1 nav1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#feature">Topics</a>
+                    </li>
+
+
+
+                    <li>
+                        <a class="page-scroll" href="#register" >DETAILS</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="#regions" >REGISTER</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container" style="height:800px;">
+            <div class="intro-text">
+
+            <div class="containeralign">
+                <div class="ktj"><a target="_blank" href="http://ktj.in"><img src="/static/blockchain/img/logos/ktjlogo.png" width=130 height=130> </a></div>
+                <div class="btcx"><a target="_blank" href="http://robotechlabs.com/"><img src="/static/blockchain/img/logos/robotech.png"></a> </div>
+
+
+                <div id="withalign" class="intro-heading cng">&</div>
+
+                 </div>
+                <div class="intro-lead-in cng" style="position:relative; top:-60px;left:-120px;">Present</div>
+                <div class="intro-heading cng" style="position:absolute; top:500px;left:150px;">Robotics Workshop</div>
+
+                <a href="#about" class="page-scroll btn btn-xl cng3" style="position:relative; top:220px;" >Tell Me More</a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="about" class="bg-darkest-gray" style="height:700px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">ABOUT</h2>
+                    <p>The workshop is oriented towards the idea of bestowing students the opportunity to inculcate the
+
+acuity of technical know-how of robotics and how image processing changes things in a flash. Robotics
+
+and image processing are the recent and most enthralling realms in the field of science. Students will
+
+have time to explore our kits themselves with guided activities throughout the workshop which will
+
+succour them in learning the basics and apply them in vicissitudes. After having this workshop session,
+
+students will undeniably descry their morale to wrangle in robotics competitions- image processing,
+
+machine control or aerial robotics. The workshop will be conducted by the trailblazers of robotics and
+
+image processing having plethora of expertise in this field at countless international platforms.
+
+The workshop is a secure platform for students to imbue into the field of robotics and exertion on image
+
+processing. The workshop helps the students to learn all the basics and apply them in actuality using our
+
+kits.
+
+The workshop helps the students to emulate all the competitions related to robotics, Image processing,
+
+Aerial Robotics etc.
+
+Concede the fact that Practical knowledge is better than speculative, this is a fully hands-on workshop
+
+which provide better learning confront to participants.
+
+This is a workshop which has components parts as basic coding to program a board, programming a ball
+
+following bot and control power point presentation and VLC media player by just waving your hand with
+
+the use of sixth sense technology.
+
+</p>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="features" id="feature">
+       <div class="container">
+			     <div class="inner-w3 w3l">
+					<h3 class="title two">Topics to be covered during the workshop<span class="two"></span></h3>
+					</div>
+	           <div class="col-md-5 features-left">
+						     <div class="trainer-gent-inner">
+					 <div class="features-text">
+					<p> Introduction to Robotics and Combination of Robotics with Sixth Sense</p>
+                        <p> Microcontroller Programming</p>
+                        <p> Machine Control</p>
+                        <p> Introduction to Computer vision</p>
+                        <p> Digital Image Processing in Matlab</p>
+                        <p> Image Manipulation in Matlab</p>
+                        <p> Video acquisition and Manipulation</p>
+					 </div>
+				 </div>
+			   </div>
+			   <div class="col-md-7 features-right">
+                   <h3>The final aim is to build various vision based machines</h3>
+			    <ul class="workout-exercises">
+					<li>
+                     <h4>Robots that will be covered on this day include (apart from discussing any ideas from the participants) </h4><p> LED and Motor Control</p></li>
+					<li>
+                      <h4>Students Learn the basic code to program the board. They learn how to glow the LED’s and make
+patterns on them , secondly they learn how to control the motors. </h4><p> Computer Controlled Robot</p>
+				    </li>
+					<li>
+                      <h4>The Students make a Robot which shall be able to follow a ball using the camera attached. The
+programming and concept are taught in detail. </h4><p> Change a PowerPoint Presentation with your hands</p><p> Control Media Player with Hand Movements.</p>
+				    </li>
+                    <li>
+                      <h4>Students Learn to control the Robot by sending commands through the Keyboard. It is same like
+playing a racing game and control your car using ASWDX </h4><p> Ball Following Robot</p>
+				    </li>
+
+					 </ul>
+			   </div>
+			    <div class="clearfix"></div>
+			</div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+
+    <!---prize section---->
+
+
+    <!-- About Section -->
+
+
+    <!-- Team Section -->
+<section id="register" class="bg-light-gray" style="height:800px;">
+        <div class="container"  >
+
+            <div class="row">
+                    <div class="col-lg-12 text-center" >
+
+                <h2 class="section-heading">Duration & Charges </h2>
+
+ <p>workshops will be conducted in one day. It will have an eight hours session. This is properly divided
+into theory and hands-on sessions.<br>
+In the end we organize a small competition among the participants of the workshop so
+that they get real feel of competitive environment.<br></p>
+                        <h2>Charges</h2>
+                        <p>The charges are Rs 400 per student.<br>
+                            Fee is non refundable<br>
+The Charges includes:<br>
+Training fee of the 1 day workshop<br>
+Handouts and training material<br>
+Participation certificate<br>
+Additionally, a detailed manual will also be provided to each participant in soft copy<br>
+                       Kits will be takeway after paying a price of INR 2000</p>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+<section id="regions" style="height:700px">
+        <div class="container"   >
+            <div class="row">
+             {% if user.is_authenticated %}
+             <div class="col-lg-12 text-center" style="position:relative; top:460px;">
+             <div class="ev_sub_data"><h3><div id='blockchain_3_03'></div></h3>
+                   <div class="col-lg-12 text-center" >
+                </div>
+
+                 <div class="col-lg-12 text-center"  >
+                <button onclick="logout()" class="btn btn-xl" >Logout</button>
+
+
+                 </div>
+ <div class="col-lg-12 text-center" >
+
+
+                       <p>Please register for one region only</p>
+     <p>Charges  ₹ 400 per Student</p>
+                </div>
+                            </div>
+
+                {% else %}
+                 <div class="row">
+                    <div class="col-lg-12 text-center" style="position:relative; top: 460px;">
+
+                <h3 class="section-heading">You are not logged in!!</h3>
+                <div class="col-xs-6"  >
+                 <button class="btn btn-xl" ><a href="/accounts/msignin">Login</a></button></div>
+               <div class="col-xs-6"  >
+                <button class="btn btn-xl" ><a href="/msignup">signup</a></button></div>
+            </div>              {% endif %}
+
+
+            </div> </div>
+
+
+
+
+
+
+
+            <div class="row">
+                <div class="col-lg-12 text-center" style="margin-top: -80px;">
+                    <h1>Regions For Workshop</h1>
+<div  class="tbl-header">
+<table cellpadding="0" cellspacing="0" border="0">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Register</th>
+
+    </tr>
+  </thead>
+</table>
+</div>
+<div  class="tbl-content">
+<table cellpadding="0" cellspacing="0" border="0">
+  <tbody>
+    <tr >
+      <td>Kolkata</td>
+      <td>24th Sept 2016</td>
+      <td>Seacom Engineering College</td>
+      <td style ="cursor: pointer;" id="reg_1"><a href="/roboticsworkshop/kolkata"  >Register</a></td>
+
+    </tr>
+    <tr>
+      <td>Bhubneswar</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+      <td style ="cursor: pointer;" id="reg_2" ><a  href="/roboticsworkshop/bhubneswar">Register</a></td>
+
+    </tr>
+    <tr>
+      <td>Indore</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+     <td  style ="cursor: pointer;"id="reg_3" ><a  href="/roboticsworkshop/indore">Register</a></td>
+
+    </tr>
+   <tr>
+      <td>Allahabad</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+      <td style ="cursor: pointer;" id="reg_4" ><a  href="/roboticsworkshop/allahabad">Register</a></td>
+
+    </tr>
+   <tr>
+      <td>Hyderabad</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+      <td  style ="cursor: pointer;"id="reg_5"><a  href="/roboticsworkshop/hyderabad">Register</a></td>
+
+    </tr>
+   <tr>
+      <td>Kanpur</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+      <td  style ="cursor: pointer;"id="reg_6"><a  href="/roboticsworkshop/kanpur" >Register</a></td>
+
+    </tr>
+    <tr>
+      <td>Lucknow</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+     <td style ="cursor: pointer;" id="reg_7" ><a href="/roboticsworkshop/lucknow">Register</a></td>
+
+    </tr>
+    <tr>
+      <td>Raipur</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+      <td  style ="cursor: pointer;" id="reg_8" ><a  href="/roboticsworkshop/raipur">Register</a></td>
+
+    </tr>
+    <tr>
+      <td>Rourkela</td>
+      <td>Coming soon</td>
+      <td>Coming soon</td>
+     <td style ="cursor: pointer;"id="reg_9" ><a  href="/roboticsworkshop/rourkela">Register</a></td>
+
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div></section>
+
+
+
+    <!-- Clients Aside -->
+
+    <!-- Contact Section -->
+       <section id="contact" style="height:600px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Contact</h2>
+                    <p class="col-xs-6" style="color:#ffd"><b>Neeraj Giri</b><br>
+                        <b>neeraj.giri@ktj.in</b><br>
+                            <b>+91 8768792833</b><br><br><br>
+
+
+                    </p>
+                     <p class="col-xs-6" style="color:#ffd">
+                            <b>Rahul Yadav</b><br>
+                        <b>rahul.yadav@ktj.in</b><br>
+                            <b>+91 9933893231</b><br>
+                    </p>
+                </div>
+                <div class="col-lg-12 text-center" style="color:#fff;" >
+
+
+                       <p>Want to organise the workshop in your college?</p>
+     <p>Contact us</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Kshitij 14th Edition</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a target="_blank" href="https://twitter.com/ktj_iitkgp"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a target="_blank" href="https://www.facebook.com/ktj.iitkgp/?fref=ts"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a target="_blank" href="https://www.linkedin.com/company/3301309?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A3301309%2Cidx%3A2-1-9%2CtarId%3A1451575317973%2Ctas%3Akshitij%20"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); }
+            </script>
+            <script src="/static/js/jquery.timeago.min.js"></script>
+            <script src="/static/js/prism.js"></script>
+            <script src="/static/jade/lunr.min.js"></script>
+            <script src="/static/jade/search.js"></script>
+            <script src="/static/js/materialize.js"></script>
+            <script src="/static/js/init.js"></script>
+
+    <!-- jQuery -->
+    <script src="/static/blockchain/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/blockchain/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="/static/blockchain/js/classie.js"></script>
+    <script src="/static/blockchain/js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="/static/blockchain/js/jqBootstrapValidation.js"></script>
+    <script src="/static/blockchain/js/contact_me.js"></script>
+    <script src="/static/blockchain/js/login_reg.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/static/blockchain/js/agency.js"></script>
+
+</body>
+
+</html>

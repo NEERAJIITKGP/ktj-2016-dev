@@ -1,0 +1,345 @@
+<html>
+<head>
+	<title>Kshtij 2015 - Accommodation Admin</title>
+	<style type="text/css">	
+		th{
+			padding: 10px;
+			color: white;
+			background: cadetblue;
+			box-shadow: 2px 2px 2px black;
+			border-radius: 2px;
+		}
+
+		table{
+			border-spacing:10px;
+			width: 100%;
+		}
+		body{
+			background:#222;
+			color: white;
+			font-family: "Trebuchet MS";
+			text-align: center;
+		}
+		tr{
+			valign: top;
+		}
+		h3{
+			font-size:30px; 
+			text-shadow: 2px 2px 2px black;
+		}
+		#users, #finalist{
+			padding: 5px 10px;
+			background: rgb(96, 96, 236);
+			color: white;
+			text-decoration: none;
+			margin: 3px;
+			box-shadow: 2px 2px 2px black;
+			border-radius: 5px;
+		}
+  		#logout{
+  			padding: 5px 10px;
+			background: rgb(247, 70, 70);
+			color: white;
+			text-decoration: none;
+			margin: 3px;
+			box-shadow: 2px 2px 2px black;
+			border-radius: 5px;
+  		}
+  		.delete{
+  			padding: 5px 10px;
+			border-radius: 25px;
+			background: rgb(213, 4, 4);
+			box-shadow: 1px 1px 1px black;
+  		}
+  		.app{
+  			padding: 10px;
+			background: yellow;
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px black;
+			text-align: center;
+			font-weight: bold;
+			color: black;
+  		}
+  		.disapp{
+  			padding: 10px;
+			background: green;
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px black;
+			text-align: center;
+			font-weight: bold;
+  		}
+  		#validateFinal{
+  			padding: 5px 10px;
+			background: rgb(15, 153, 37);
+			color: white;
+			text-decoration: none;
+			margin: 3px;
+			box-shadow: 2px 2px 2px black;
+			border-radius: 5px;
+  		}
+  		.evselector{
+  			padding: 15px;
+			background: rgb(33, 122, 182);
+			font-size: 20px;
+			text-decoration: none;
+			margin: 3px;
+			width: 15%;
+			display: block;
+			box-shadow: 2px 2px 2px black;
+			border-radius: 5px;
+  		}
+  		#pagecnt{
+  			text-align: left;
+  		}
+  		#pageindex{
+  			padding: 5px 10px;
+			background: black;
+			border: 2px solid orange;
+			color: white;
+			text-decoration: none;
+  		}
+  		#actionlist{
+  			height: 30px;
+			width: 200px;
+			border-radius: 7px;
+			box-shadow: inset -1px -1px 5px #222;
+  		}
+  		#aprovebutton{
+  			background: black;
+			color: white;
+			font-weight: bold;
+			padding: 5px 30px;
+			border-radius: 10px;
+  		}
+</style>
+</head>
+
+<body>
+	{% load splitevent %}
+
+	<!--General Buttons-->
+	<a id="validateFinal" style="background: orange; color:white;" href="/accoAdmin?view=robocount">Robotics</a>
+	<a id="validateFinal" href="/accoAdmin/validate">Validate</a>
+	<a id="finalist" href="/accoAdmin?view=final">Event Finalists</a>
+	<a id="finalist" style="background: yellow; color:black;" href="/accoAdmin?view=count&t=1">Count</a>
+	<a id="users" href="/accoAdmin?view=user&p=1">General</a>
+	<a href="/accoLogout" id="logout">Log Out</a>
+
+	<!--The general page with all accomodations-->
+	{% if view == 'user' %}
+		<div id='event' style='position:relative;margin:0px auto;'>
+			<h3><u>Accommodation Administration</u></h3>
+			<table>
+				<form action="/accoAdmin/action?p={{p_no}}" method="POST">
+					{% csrf_token %}
+				<tr>
+					<select name='actionacco' id="actionlist">
+						<option value="a">Approve</option>
+						<option value="d">Disapprove</option>
+					</select>
+					<input type="submit" value="Continue" id="aprovebutton" />
+				</tr>
+				<tr>
+					<th>Select</th>
+					<th>S.No</th>
+					<th>Status</th>
+					<th>Name</th>
+					<th>Events</th>
+					<th>Email</th>
+					<th>Contact</th>
+					<th>Institution</th>
+					<th>Bank</th>
+					<th>Draft No.</th>
+					<th>Draft Date</th>
+				</tr>
+				{% for item in accoObj %}
+					<tr>
+						<td><input type="checkbox" name="accolist" value="{{item.id}}"></td>
+						<td>{{forloop.counter}}{{ry}}</td>
+						{% if item.status == 0 %}
+						<td><a href="/accoAdmin/approve?id={{item.id}}&p={{p_no}}" style="text-decoration:none;color:black;"><div class="app">Pending</div></a></td>
+						{% endif %}
+						{% if item.status == 1 %}
+						<td><a href="/accoAdmin/disapprove?id={{item.id}}&p={{p_no}}" style="text-decoration:none; color:white;"><div class="disapp">Approved</div></a></td>
+						{% endif %}
+						<td>{{item.name}}</td>
+						<td>
+							{% for key, value in evt.items %}
+								{% if key == item.user %}
+									{% for t in value %}
+									{{t.Name|splitevent:'name'}},
+									{% endfor %}
+								{% endif %}
+							{% endfor %}
+						</td>
+						<td>{{item.user.email}}</td>
+						<td>{{item.mobile}}</td>
+						<td>{{item.institution}}</td>
+						<td>{{item.bank}}</td>
+						<td>{{item.draft}}</td>
+						<td>{{item.draft_date}}</td>
+					</tr>
+				{% endfor %}
+				</form>
+			</table>
+			<div id="pagecnt">
+				Page:
+				{% for i in accopg %}
+				{% if forloop.counter == p_no %}
+					<b id="pageindex" style="background:white; color:black; width: 12px;">{{forloop.counter}}</b>
+				{% else %}
+					<a id="pageindex" href="/accoAdmin?view=user&p={{forloop.counter}}">
+						{{forloop.counter}}
+					</a>
+					{% endif %}
+				{% endfor %}
+				<div style="text-align: right; float: right; background: rgba(255, 255, 255, 0.5); padding: 10px; border: 3px solid green; color: black; font-weight: bold;">Total : {{totacc}}</div>
+			</div>
+		</div>
+	{% endif %}
+
+	<!--Here is the code that gives the Event Name and no. of finalists and their registered no.-->
+
+
+	{% if view == 'final' %}
+
+		<div id='event' style='position:relative;margin:0px auto;'>
+			<h3><u>Accommodation Administration</u></h3>
+			<table>
+				<tr><th>Event</th><th>Total</th><th>Registered</th></tr>
+				{% for i in evtcnt %}
+				<tr>
+					<td>
+						<a href="/accoAdmin?view=event&e={{i.Name|splitevent:'name'}}" class="evselector" style="color:white;"><div>{{i.Name|splitevent:'name'}}</div></a>
+					</td>
+					{% for key, value in regcnt.items %}
+						{% if key == i.Name %}
+						<td style="text-align:center;">
+							{{ value.count }}
+						</td>
+						{% endif %}
+					{% endfor %}
+					{% for key, value in ac_cnt.items %}
+						{% if key == i.Name %}
+						<td style="text-align:center;">
+							{{value}}
+						</td>
+						{% endif %}
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+
+	<!--And the view inside each event-->
+
+	{% if view == 'event' %}
+		<div id='event' style='position:relative;margin:0px auto;'>
+			<h3><u>Accommodation Administration</u></h3>
+			<table>
+				<tr><th>S.No</th><th>Status</th><th>Name</th><th>Email</th><th>Contact</th><th>Institution</th><th>Event</th></tr>
+				{% for item in ctx %}
+					<tr>
+						<td>{{forloop.counter}}</td>
+						{% if item.userapp == 0 %}
+						<td><div class="app">Not registered</div></td>
+						{% endif %}
+						{% if item.userapp == 1 %}
+						<td><div class="disapp">Registered</div></td>
+						{% endif %}
+						<td>{{item.ac_user.first_name}} {{item.ac_user.last_name}}</td>
+						<td>{{item.ac_user.email}}</td>
+						<td>{{item.contact}}</td>
+						<td>{{item.insti}}</td>
+						<td>{{item.event}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+
+	<!--And the count in each event-->
+
+	{% if view == 'count' %}
+		<div id='event' style='position:relative;margin:0px auto;'>
+			<h3><u>Accommodation Administration</u></h3>
+			<table>
+				<tr><th>Event</th><th>Count</th></tr>
+				{% for key, value in eventcount.items %}
+					<tr>
+						<td style="text-align:center;">{{key|splitevent:'name'}}</td>
+						<td style="text-align:center;">{{value}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+
+	{% if view == 'roboover' %}
+
+		<div id='event' style='position:relative;margin:0px auto;'>
+			<h3><u>Accommodation Administration</u></h3>
+			<table>
+				<tr><th>Event</th><th>Total</th><th>Registered</th></tr>
+				{% for i in roboevtcnt %}
+				<tr>
+					<td>
+						<a href="/accoAdmin?view=event&e={{i.Name|splitevent:'name'}}" class="evselector" style="color:white;"><div>{{i.Name|splitevent:'name'}}</div></a>
+					</td>
+					{% for key, value in roboregcnt.items %}
+						{% if key == i.Name %}
+						<td style="text-align:center;">
+							{{ value.count }}
+						</td>
+						{% endif %}
+					{% endfor %}
+					{% for key, value in roboac_cnt.items %}
+						{% if key == i.Name %}
+						<td style="text-align:center;">
+							{{value}}
+						</td>
+						{% endif %}
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+
+
+	{% if view == 'robocount' %}
+
+		<div id='event' style='position:relative;margin:0px auto;'>
+			<h3><u>Accommodation Administration</u></h3>
+			Total count (non-repetitive): {{robocnt}}
+			<table>
+				<tr><th>No</th><th>Name</th><th>Email</th><th>Event</th><th>Contact</th><th>Institution</th></tr>
+				{% for rc in roboarray %}
+				<tr>
+					<td>
+						{{forloop.counter}}
+					</td>
+					<td>
+						{{rc.fname}} {{rc.lname}}
+					</td>
+					<td>
+						{{rc.email}}
+					</td>
+					<td>
+						{{rc.event}}
+					</td>
+					<td>
+						{{rc.contact}}
+					</td>
+					<td>
+						{{rc.insti}}
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endif %}
+</body>
+
+</html>

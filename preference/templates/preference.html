@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	
+	</title>
+	<style type="text/css">
+	
+.contain{
+        clear:both;
+        margin:auto;
+        width:900px;
+      }
+
+
+      body {
+    
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
+
+.table1 {
+    border: solid #ccc 1px;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+.table1 tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.table1 td, .table1 th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;   
+    text-align: center; 
+}
+
+.table1 th {
+    background-color: #dce9f9;
+     
+}
+
+.sub{
+	width:100px;height:40px;
+	background-color:#4CAF50;
+	color:white;border:0px solid #4CAF50;
+	border-radius:5px;font-size:17px;
+	cursor:pointer;
+}
+.sub:hover{
+	background-color: #5EC061;
+	}
+select{
+	height:30px;
+	border:1px solid #A4A4A4;
+	border-radius:5px;
+	padding-left: 10px;	
+	background-color: #F9FCFC;
+	}
+
+	</style>
+</head>
+
+
+
+<body>
+<form action="/preference/save" method="POST">
+{% csrf_token %}
+<div class="contain">
+<center><h2>Workshop Preference</h2></center>
+
+<center><div id="error1"></div></center><br>
+
+<script type="text/javascript">
+	var error1={{error1}};
+	if(error1==0){
+}else if(error1==1){
+	document.getElementById('error1').innerHTML='<p style="color:red;">You have already given preference</p>';	
+}else if(error1==2){
+	document.getElementById('error1').innerHTML="<p style='color:red;'>Two preference can't be same</p>";	
+}else if(error1==3){
+	document.getElementById('error1').innerHTML='<p style="color:green;">Your Preference has been successfully recorded</p>';	
+}else if(error1==4){
+	document.getElementById('error1').innerHTML='<p style="color:red;">Something wrong happen</p>';	
+}
+</script>
+
+	<table class="table1">
+    <thead>
+
+    <tr>
+			<th>Preferance No.</th>
+			<th>Workshop Name</th>
+			
+	</tr>
+	</thead>
+		
+		<tr>
+		<td>1</td>
+		<td><select id="pref_1" name="pref_1">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+		</select></td>
+		</tr> 
+
+
+
+		<tr>
+		<td>2</td>
+		<td><select id="pref_2" name="pref_2">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>3</td>
+		<td><select id="pref_3" name="pref_3">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>4</td>
+		<td><select id="pref_4" name="pref_4">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>5</td>
+		<td><select id="pref_5" name="pref_5">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>6</td>
+		<td><select id="pref_6" name="pref_6">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>7</td>
+		<td><select id="pref_7" name="pref_7">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>8</td>
+		<td><select id="pref_8" name="pref_8">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>9</td>
+		<td><select id="pref_9" name="pref_9">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>10</td>
+		<td><select id="pref_10" name="pref_10">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr> 
+
+
+		<tr>
+		<td>11</td>
+		<td><select id="pref_11" name="pref_11">
+			<option value="2">Deloitte - Building Recommendation Engines in R</option>
+			<option value="9" >Texas Instruments Webench Power Supply Design</option>
+			<option value="5" >Xilinx	Audio Application in Software Defined SoC</option>
+			<option value="1" >VFX Architecture by Mr. Srinivas Mohan</option>
+			<option value="7" >NASSCOM - Exploring the Entrepreneurial Stratum</option>
+			<option value="6"  >Riskpro - Enterprise Risk Management & Corporate Governance</option>
+			<option value="10" >Cyber Warfare: Current and Future Scenarios</option>
+			<option value="3" >Johnson Controls - Intelligent Green building design</option>
+			<option value="11" >Bajaj Capital - Financial Intermediaries in Emerging India</option>
+			<option value="4" >IBM	Watson Cognitive Computing</option>
+			<option value="12" >Computational Advertising By Microsoft</option>
+
+		</select></td>
+		</tr>
+
+</table>
+<br><br>
+<center><input type="submit" value="submit" class="sub"></center>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+.inputField{
+    display: flex;
+    flex-direction: column;
+    margin-top:10px;
+    margin-bottom:10px;
+
+}
+.errorlist{
+    background-color: rgba(255,0,0,0.1);
+    color: rgba(200, 0, 0, 0.8);
+    padding:5px;
+    margin-top:10px;
+    margin-bottom:2px;
+}
+p.errorlist::before{
+    float:left;
+    border-right:5px solid transparent;
+    border-left:5px solid transparent;
+    border-bottom:5px solid rgba(255,0,0,0.2);
+}
+.LoginForm{
+    margin:20px;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type=text], input[type=password]{
+    padding:7px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 2px;
+    border:none;
+    font-family:"Arial", "Helvetica", sans-serif;
+    font-size: 14px;
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1) ;
+    -moz-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1) ;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+    outline: none;
+}
+input[type=text]:focus, input[type=password]:focus{
+    -webkit-box-shadow: 1px 1px 1px 3px rgba(0,0,0,0.1) ;
+    -moz-box-shadow: 1px 1px 1px 3px rgba(0,0,0,0.1) ;
+    box-shadow: 1px 1px 1px 3px rgba(0,0,0,0.1);
+    outline: none;
+}
+.label{
+    padding:5px;
+    padding-left: 0px;
+}

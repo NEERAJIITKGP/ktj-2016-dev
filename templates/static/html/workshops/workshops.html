@@ -1,0 +1,60 @@
+<html>
+<head></head>
+<body>
+<div id="wheading">
+            Workshops of 2014
+        </div>
+
+
+        {% for ws in workshops %}
+
+        <div id="click_content_{{forloop.counter}}">
+            <div id="close_box" onclick="closeWork({{forloop.counter}});">
+                X
+            </div>
+
+            <div id="heading_work" style="margin-bottom:50px; text-align:left;">
+                <h1 style="width:600px;">{{ws.name}}</h1>
+                <img src="{{ws.company_img}}" style="margin-left: -5px; float: right; margin-top: -80px; margin-right: 50px; height: 100px;"/>
+            </div>
+            
+            <div id="click_main">
+            {{ws.introduction}}
+            </div>
+
+            <div id="click_img">
+            <img src="{{ws.image}}">
+            </div>
+            <br>
+        </div>
+        
+        {% endfor %}
+
+        <div id="workshop_mid_container">
+            {% for ws in workshops %}
+                <div id="boxcont{{forloop.counter}}" class="ws_cont">
+                    <div class="boxlogo" id="boxl{{forloop.counter}}" onclick="dispWork({{forloop.counter}});">
+                        <h2 class="headings">
+                            <img src="{{ws.company_img}}" id="ws_img_{{forloop.counter}}" class="logows"/>
+                        </h2>
+                    </div>
+        
+                    <div class="boxtext" id="boxt{{forloop.counter}}" onclick="dispWork({{forloop.counter}});">
+                        <h2 class="headings">{{ws.name}}</h2>
+                    </div>
+                </div>
+            {% endfor %}
+        
+        
+                <div id="workshop_logo">
+                    <h2 class="headings" style="text-shadow: 1px 1px 1px black;">
+                    <img src="{% static 'images/workshops/2014/WS.png' %}" style="width:150px; height:120px; margin-top: -45px;" />
+                    </h2>
+                </div>
+        
+                <div id="desc_workshop">
+                    <p></p>
+                </div>
+        </div>
+</body>
+</html>

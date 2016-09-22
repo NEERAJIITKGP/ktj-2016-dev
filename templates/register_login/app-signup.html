@@ -1,0 +1,165 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+   
+{% block content %}
+<html>
+<head>
+    <!-- Description -->
+                <title>Signup - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur</title>
+                <meta name="description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+                <meta name="keywords" content="Kshitij,2016, Kshitij 2016, Asia's largest, Techno-management fest, Online Events, IIT Kharagpur, technology, management, ASME, IEEE, ACM, ASHRAE, IMechE, college fest, university, India, IIT, Indian Institute of technology, Kshitij 2015, technical fest, events, megashows,guests, workshops, c-monopoly, forex, excaliber, cryptex, innovation, Online Competitions, West Bengal, Bombay, Delhi, Science, robotix, robotics, India, Kgp, IIT Kgp" />
+                <base href="" />
+            <!-- -->
+
+    <!-- Aplication icons -->
+                <meta name="mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+                <link rel="shortcut icon" sizes="196x196" href="{% static 'administrator/media/page/app_icon_196.png' %}"  />
+                <link rel="shortcut icon" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+                <link rel="shortcut icon" sizes="24x24" href="{% static 'administrator/media/page/icon.png' %}" />
+                <link rel="apple-touch-icon" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+                <link rel="apple-touch-icon-precomposed" sizes="128x128" href="{% static 'administrator/media/page/app_icon_128.png' %}" />
+                <link rel="apple-touch-startup-image" href="{% static 'administrator/media/page/app_icon_196.png' %}" />
+            <!-- -->
+            <!-- Share -->
+                <meta property="og:title" content="Signup - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur" />
+                <meta property="og:description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+                <meta property="og:image" content="http://ktj.in/static/images/kolkata.jpg" />
+                <meta property="og:url"           content="http://ktj.in/signup" />
+                <meta itemprop="sameas" content="https://en.wikipedia.org/wiki/Kshitij" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <link rel="canonical" href="http://ktj.in/signup" />
+            <!-- -->
+        <!-- <link href="{% static 'accounts/css/base.css' %}" rel="stylesheet"/> -->
+
+        <!--  Android 5 Chrome Color-->
+            <meta name="theme-color" content="#DE3454">
+
+
+
+
+    <link href='/static/css/mreg.css' rel="stylesheet" type="text/css"/>
+    <script src='/static/js/vendor/jquery-1.11.1.min.js'></script>
+    <script> 
+        var URLS={ACCOUNTS:'/accounts/'};
+        function changeInstis() {
+        url = URLS.ACCOUNTS + 'institutes/' + encodeURIComponent($("#id_state>option:selected").attr('value'));
+        console.log($("#id_state>option:selected").attr('value'));
+        console.log("Hello ID State Change" + url);
+        $.ajax({
+            url: url,
+        }).done(function(data) {
+            $('#id_institution').html("");
+            for (i in data) {
+                $('#id_institution').append(
+                    '<option value="' + i + '">' +
+                    i + '</option>');
+            }
+        });
+                }
+        
+        $(document).on('change', '#id_state', changeInstis);
+        
+    </script>
+</head>
+    
+<body>
+    <div id="registration_container">
+    <div class="reg_heading">
+        Kshitij 2017
+    </div>
+    <header id='context'>Registration</header>
+        {% if form.errors %}
+                <div class="error">{{form.non_field_errors}}</div>
+            {% endif %}
+
+    <form class="signup" id="signup_form" method="post" action="/signup">
+        {% csrf_token%}
+        <div class="register-section">
+            <div class="register-wrap">
+                <div class="label">First Name</div> 
+                <div class="input-element">{{ form.firstname }}</div>
+            </div>
+            <div class="register-wrap">
+                <div class="label">Last Name</div> 
+                <div class="input-element">{{ form.lastname }}</div>
+            </div>
+            <div class="register-wrap">
+                <div class="label">{{ form.username.label }}</div> 
+                <div class="input-element" id="username-input">{{ form.username }}</div>
+            </div>
+
+            <div class="register-wrap">
+                <div class="label">{{ form.password1.label }}</div> 
+                <div class="input-element">{{ form.password1 }}</div>
+            </div>
+            <div class="register-wrap">
+                <div class="label">{{ form.password2.label }}</div> 
+                <div class="input-element">{{ form.password2 }}</div>
+            </div>
+            <div class="register-wrap">
+                <div class="label">{{ form.email.label }}</div> 
+                <div class="input-element" id="email-input">{{ form.email }}</div>
+            </div>
+            <div class="register-wrap">
+                <div class="label">{{ form.contact.label }}</div> 
+                <div class="input-element">{{ form.contact }}</div>
+            </div>
+        </div>
+
+        <div class="register-section">    
+        <div class="register-wrap">
+            <div class="label">{{ form.gender.label }}</div> 
+            <div class="input-element">{{ form.gender }}</div>
+        </div>
+        <div class="register-wrap">
+            <div class="label">{{ form.dateOfBirth.label }}</div> 
+            <div class="input-element">{{ form.dateOfBirth}}</div>
+        </div>
+        <div class="register-wrap">
+            <div class="label">{{ form.country.label }}</div> 
+            <div class="input-element">{{ form.country }}</div>
+        </div>
+        <div class="register-wrap">
+            <div class="label">{{ form.state.label }}</div> 
+            <div class="scroll input-element">{{ form.state }}</div>
+        </div>
+        <div class="register-wrap">
+            <div class="label">{{ form.department.label }}</div> 
+            <div class="scroll input-element" style="width:90%;">{{ form.department }}</div>
+        </div>
+        <div class="register-wrap">
+            <div class="label"><label for="id_firstname">{{ form.year.label }}</label></div> 
+            <div class="scroll input-element">{{ form.year }}</div>
+        </div>
+        </div>  
+
+        <div class="register-section">
+            <div class="register-wrap" style="width:100%;">
+                <div class="label">{{ form.institution.label }}</div> 
+                <div class="scroll input-element">{{ form.institution }}</div>
+            </div>
+            <div class="register-wrap">
+                <div class="label">{{ form.address.label }}</div> 
+                <div class="input-element">{{ form.address }}</div>
+            </div>
+            <div class="register-wrap errors">
+        
+            Note: If your Institute name is not in the list please mail us at <a style="text-decoration:underline;"href="mailto:kshitij@ktj.in?Subject=Add%20Institute" target="_top">kshitij@ktj.in</a> to add it to list.
+        
+        </div>
+            <div class="register-wrap">
+                <div class="input-element">
+                    <input type="submit" class="signup_click" value="Signup">
+                </div>
+            </div>
+        </div>
+    </form>
+        </div>
+    {% endblock %}
+        
+    </body>
+</html>

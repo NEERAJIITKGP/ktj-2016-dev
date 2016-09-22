@@ -1,0 +1,146 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+{% block content %}
+
+<style type="text/css">
+	.acco_table>td{
+		padding:0px 5px 0px 5px;
+	}
+	#home-wrapper, #instructions-wrapper, #faqs-wrapper, #contact-wrapper{
+		position: relative;
+		height: 300px;
+		
+	}
+    #accobox{
+        position:relative;
+        display: block;
+        overflow-y: scroll;
+        height:100%;
+    }
+	#menu-bar-acco>div{
+		display: inline-block;
+		padding: 5px 60px;
+		
+		background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8)) !important;
+		color: white;
+		cursor: pointer;
+		box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+		border-radius: 3px;
+        margin-top: 10px;
+	}
+    #button{
+        background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8));
+        color: white;
+        cursor: pointer;
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+		border-radius: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 50px;
+    }
+    
+    *::-webkit-scrollbar
+        {
+        width:5px;
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+        cursor:pointer;
+        }
+      *::-webkit-scrollbar : hover{
+        width:15px;
+        }
+      *::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        background:rgba(0,0,0,0.4);
+        }
+      *::-webkit-scrollbar-track
+        {
+        background:rgba(0,0,0,0.1);
+        }
+</style>
+<script src ="http://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+
+
+</script>
+<script src ="http://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script>
+<body>
+    <div id="accobox" class="scroll">
+
+
+
+
+
+    
+<div id="guide-wrapper">
+    <br>
+    <div><strong>Guidelines :</strong></div>
+    <div><strong><u><em>For Outstation Participants:</em></u></strong></div>
+<div>
+  <p>1. All participants are required to produce their valid institute Identity cards at the time of registration at the finance desk. KTJ ID will be issued only after the same.<br />
+  </p>
+  <p>2. All participants are required to carry both their institute ID card as well as their KTJ IDs at all times. Official authorities can demand to see the ID card at any time.</p>
+  <p>3. Any person found in possession of, or under the influence of alcohol or narcotic substances will have their KTJ IDs confiscated on the spot and will be expelled from the premises. They will further be reported to their concerned college authorities.</p>
+  <p>4. Any person in indecent clothing or involved in obscene behavior will have their KTJ IDs confiscated on the spot. The decision of the authorities will be final in this regard.</p>
+  <p>5. Participants are solely  responsible for their belongings. KTJ team does not bear any responsibility for the same.
+    </p>
+    </li>
+  </ol>
+  </p>
+  <p>6. No food items/eatables are permitted within event venue premises.</p>
+  <p>7. No participant is allowed to leave IIT Campus between 11 pm to 3 am without valid reason. Exception can be made for outstation bound participants.</p>
+  <p>8. Loitering around at untimely hours is not allowed.</p>
+  <p>9. Security helpline No. -03222-281001 Hospital Helpline No. - 03222-282630</p>
+  <p>10. Violation of any of the above would lead to immediate expulsion from the institute campus.</li>
+  </ol>
+    </li>
+  </ol>
+    </li>
+  </ol>
+    </li>
+  </ol>
+    </li>
+  </ol>
+  <div><br />
+</div>
+</div>
+<div>
+  <p><strong><u><em>For In-house Participants:</em></u></strong></p>
+  <p>1. All in house participants will have to produce their Institute ID cards to participate in events and for entry to Megashows. If your ID card is missing, you will have to produce the FIR reporting the loss (filed on or after 1/12/2014) along with your BC Roy Hospital medical book, with your photo attached.</p>
+</div>
+    
+</div>
+
+    <script>
+
+var ajax_loader = '<img src="http://ktj.in/static/images/loading/loading.gif" style="padding:10%"/>';
+
+
+function loadDialogue(link,header)
+{
+ $('#load-dialogue-content').load(link);
+  $('#load-dialogue-wrapper').fadeIn();
+}    
+    
+$('#acco_btn').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+
+$('#acco_btn-center').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+
+$('#acco_ws').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+  
+
+
+
+$(document).ready(updateAjax);
+    </script>
+   </body>     
+        
+{% endblock %}

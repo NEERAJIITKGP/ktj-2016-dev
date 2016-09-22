@@ -1,0 +1,209 @@
+			@font-face {
+			font-family: Nexa-Bold;
+			src: url("Nexa-Bold.otf") format("opentype");
+			}
+			@font-face {
+			font-family: Nexa-Light;
+			src: url("Nexa-Light.otf") format("opentype");
+			}
+			.bodySpons{
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				font-family: 'Nexa-Light';
+				text-align: center;
+			}
+			.spons-images-conatiner{
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+			}
+			.sponsimage{
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				margin-left: 90px;
+				margin-right: 90px;
+				margin-bottom: 50px;
+			}
+			.picSpons{
+				width:135px;
+			    height:135px;
+			    /*border-radius:50%;*/
+			    overflow:hidden;
+			    margin-bottom: 15px;
+			}
+			.mainSpons{
+				font-family: 'Nexa-Bold';
+				margin-top: 40px;
+				color: black;
+				margin-bottom: 20px;
+				font-size: 220%;
+				font-weight: normal;
+				letter-spacing: 7px;
+				text-align:center;
+			}
+			.sponstype{
+				font-family: 'Nexa-Bold';
+				color: black;
+				font-size: 120%;
+				margin: 20px;
+				font-weight: normal;
+				letter-spacing: 3.5px;
+				/*margin-top: 50px;
+				margin-bottom: 50px;*/
+			}
+			.years{
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				margin-top: 20px;
+			}
+			.pspons{
+				margin-right: 60px;
+				margin-left: 60px;
+				color: #CF3540;
+				padding-left: 10px;
+				padding-right: 10px;
+				cursor: pointer;
+				font-family: 'Nexa-Bold';
+				font-size: 90%;
+				margin: 6px;
+				font-weight: normal;
+				letter-spacing: 1.5px;
+			}
+			.scrollview{
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				width: 100%;
+				height: 500px;
+				overflow-y: scroll;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-start;
+			}
+			spons-page-2016{
+				display: none;
+			}
+			spons-page-2015{
+				display: none;
+			}
+			spons-page-2014{
+				display: none;
+			}
+			spons-page-2013{
+				display:none;
+			}
+			spons-page-2012{
+				display:none;
+			}
+			spons-page-2011{
+				display:none;
+			}
+			spons_tab_2015{
+				border-bottom: 4px black solid;
+			}
+			.sponsor-container{
+			    display:flex;
+			    flex-flow:row wrap;
+			    justify-content: center;
+			}
+			.sponsor-container a {
+			    text-decoration:none
+			}
+			.sponsor-item-single {
+			    display:flex;
+			    height: 200px;
+			    align-items:center;
+			    flex-flow: column nowrap;
+			    justify-content:space-around;
+			    flex-basis:220px;
+
+			}
+			.sponsor-item-single div{
+			    position: relative;
+			    display: block;
+			    color:black;
+			    height:20px;
+			    margin-bottom:0px;
+			    top:-30px;
+			    font-family: 'Lato', sans-serif;
+			    font-size: 14px;
+			    width:100%;
+			}
+			.sponsorSpecial img {
+			    width:80%;
+			    margin: 50px 80px;
+			    max-height: 300px;
+			}
+			.sponsorBig img {
+			    /*max-width:260px;
+			    max-height: 180px;*/
+			    margin: 50px 50px;
+			    position: relative;
+			    max-width:240px;
+			    max-height: 160px;
+			    vertical-align: middle;
+			    display: inline-block;
+			}
+			.sponsorBig-img{
+
+			}
+			.sponsorBig{
+			    height:300;
+			    flex-basis:340px;
+			}
+			.spons-item-logo {
+
+			    /*width:15%;*/
+			    /*min-width:150px;*/
+			    /*width:100%;*/
+			    margin: 20px 30px;
+			    margin-bottom:0px;
+			    max-width:140px;
+			    font-family: 'Lato', sans-serif;
+			    max-height: 100px;
+			    position: relative;
+			    vertical-align: middle;
+			    display: block;
+			}
+			.sponsor-img{
+			    flex:1;
+			    display: flex;
+			    justify-content: center;
+			    width: 100%;
+			    align-items: center;
+			}
+			.spons-content {
+			    display:flex;
+			    flex-direction:column;
+			    justify-content:space-between;
+			    align-items:center;
+			    margin-top:35px;
+			    width: 85%;
+			    padding:0 4%;
+			    height: 95%;
+			}

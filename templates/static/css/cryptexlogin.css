@@ -1,0 +1,135 @@
+*{
+    font-family:monospace;
+    font-weight: 400;
+    color:#fff;
+}
+body{
+    background-image:url('/static/images/cryptex/cryptexbg.png');
+    background-repeat: no-repeat;
+    margin:0px;
+    display: flex;
+    flex-direction: column;
+}
+#main_header{
+    position:relative;
+    height:100px;  
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#main_header div a{
+    text-align: right;
+}
+#main_header div img{
+    height:80px;
+    margin:10px;
+}
+#main_header img{
+    padding:5px;
+}
+#main_header #ktj_logo{
+    padding:10px;
+    padding-bottom: 20px;
+}
+
+#main_section{
+    flex:1;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#login{
+    height:400px;
+    padding:50px;
+    background:white;
+    background:url('/static/images/crypt_login_back.png');
+    background-size: contain;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#login *{
+    font-size: 25px;
+}
+#login h2{
+    font-size:40px;
+    text-align: center;
+    flex:1;
+}
+
+#login_container{
+    width:500px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    top: 20%;
+    left:30%;
+}
+form{
+    flex:5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+form *{
+    text-align: center;
+}
+input{
+    border:none;
+    margin-left: 100px;
+    background:#123d45;
+    border-radius: 10px;
+    height:30px;
+    padding:10px;
+    width:200px;
+    color:#fff;
+}
+#buttons{
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#buttons a{
+    background:#123d45;
+    border-radius:10px;
+    padding:5px;
+    color:#fff;
+    text-decoration: none;
+    width:100px;
+    cursor: pointer;
+    height:30px;
+    margin-right: 70px;
+}
+#buttons input{
+     background:#123d45;
+    border-radius:10px;
+    padding:5px;
+    color:#fff;
+    text-decoration: none;
+    width:100px;
+    cursor: pointer;
+    height:30px;
+    height:40px;
+    margin-left:70px;
+}
+.error{
+    position: absolute;
+    display:block;
+/*    margin-left:25px;*/
+    text-align: center;
+    color:red;
+    font-weight: 300;
+    text-align: center;
+    top:290px;
+    width:350px;
+}
+.error *{
+    color:red;
+    text-indent: 0px;
+    list-style: none;
+    font-size: 20px !important;
+    text-align: center;
+}

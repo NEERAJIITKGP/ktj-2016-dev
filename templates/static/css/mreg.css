@@ -1,0 +1,380 @@
+/*Registration page*/
+body{
+    height:auto;
+    width:350px;
+    margin:0px;
+    padding:0px;
+    min-width:300px;
+    background: rgba(0,0,0,0.8);    
+}
+
+
+.register-section{
+	display:flex;
+    flex-direction: row;
+    flex-basis: 300px;
+    flex-wrap: wrap;
+    margin:15px;
+	}
+#registration_container{
+	position: absolute;
+	background: transparent;
+	min-width: 300px;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content:flex-start;
+	align-items: center;
+	z-index: 115;
+	border-right: black 5px solid;
+    text-align: left;
+}
+
+.reg_heading{
+    position: relative;
+    top:0px;
+    left:0px;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+	align-items: center;
+    flex-basis:80px;
+	width: 100%;	
+	color: white;
+    background:#DE3454; 
+    font-size: 50px;
+	flex-grow:1;
+	text-align: center;
+    font-family: Trebuchet MS;
+}
+.error{
+    color:rgba(255,255,255,0.8);
+    margin-top:15px;
+    text-align: left;
+    left:0px;
+}
+
+
+.reg_heading span{
+    font-size: 50px;
+	flex-grow:1;
+	text-align: center;
+    font-family: Trebuchet MS;
+}
+#context{
+    font-size: 30px;
+    margin-top:10px;
+    color:rgba(255,255,255,0.8);
+    margin-left: 10px;
+}
+
+.home-register{
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+#registration_container form{
+	font-family: Trebuchet MS;
+	width: 90%;
+	display: flex;
+	flex-direction: row ;
+    margin-top:10px;
+    flex-wrap: wrap;
+}
+
+.register-section{
+	display: flex;
+	flex-flow: row wrap;
+	flex-grow: 1;
+	flex-basis: 350px;
+	margin-right: 5px;
+}
+
+.register-wrap{
+	display: flex;
+	flex-direction: column;
+	flex-grow:1;
+    margin-top:20px;
+}
+
+
+.register-wrap .label{
+	color: grey;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+
+.input-element select{
+	border: rgba(0,0,0,0.5) 1px solid;
+	background: linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(225, 225, 225, 0));
+}
+
+.input-element input[type=text]{
+	height: 25px;
+	outline: none;
+	padding: 5px;
+	margin-right: 10px;
+	border: rgba(0,0,0,0.5) 1px solid;
+	background: linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(225, 225, 225, 0));
+	color: rgba(255,255,255,0.8);
+}
+
+.input-element input[type=email]{
+	height: 25px;
+	outline: none;
+	padding: 5px;
+	margin-right: 10px;
+	border: rgba(0,0,0,0.5) 1px solid;
+	background: linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(225, 225, 225, 0));
+	color: rgba(255,255,255,0.8);
+}
+.input-element input[type=password]{
+	height: 25px;
+	outline: none;
+	padding: 5px;
+	border: rgba(0,0,0,0.5) 1px solid;
+	background: linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(225, 225, 225, 0));
+	color: rgba(255,255,255,0.8);
+}
+
+.input-element select{
+	height: 40px;
+	min-width: 80px;
+	padding: 5px;
+	margin-right: 10px;
+	border: rgba(0,0,0,0.5) 1px solid;
+	background: linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(225, 225, 225, 0));
+	color: rgba(255,255,255,0.8);
+	outline: none;
+	max-width: 100%;
+}
+.input-element select option{
+    background:black;
+} 
+
+.input-element textarea{
+	padding: 10px;
+	border: rgba(0,0,0,0.5) 1px solid;
+	background: linear-gradient(180deg, rgba(0,0,0, 0.1), rgba(225, 225, 225, 0));
+	color: rgba(255,255,255,0.8);
+	outline: none;
+}
+
+.input-element .signup_click{
+	width: 150px;
+	height: 40px;
+	border-radius: 3px;
+	border: none;
+	background: #CF3540;
+	color: #fff;
+	font-size: 20px;
+}
+
+
+.error{
+	font-weight: bold;
+	font-family: Trebuchet MS;
+	width: 90%;
+}
+/*Registration page ends*/
+
+/*Login Page*/
+#login_container{
+	position: fixed;
+	left: 100%;
+	/*background: black;*/
+	width: 100%;
+	min-width: 1200px;
+	min-height: 650px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 120;
+	border-right: black 5px solid;
+}
+
+#login_ktj_logo, #login_kgp_logo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+}
+
+#login_kgp_logo .home-login{
+	height: 60px;
+	width: 60px;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+
+#login-center{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 80%;
+}
+
+#login_circle{
+	height: 400px;
+    width: 400px;
+    border-radius: 200px;
+    border: solid rgba(0,0,0,1) 4px;
+    box-shadow: rgba(50, 100, 148, 0.8) 0px 0px 0px 2px;
+    background: linear-gradient(180deg, rgba(50, 100, 148, 0.75), rgba(72, 136, 199, 0.5));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#login_circle img{
+	height:200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#login_circle form{
+	height: 50%;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-labels{
+	font-family: Trebuchet MS;
+	margin-right: 15px;
+}
+
+.login-line input[type=text]{
+	height: 20px;
+	padding: 5px;
+	margin-right: 5px;
+	outline: none;
+	border: none;
+	min-width: 200px;
+}
+
+.login-line input[type=password]{
+	height: 20px;
+	border: none;
+	padding: 5px;
+	outline: none;
+	min-width: 200px;
+}
+
+.login-line .login-submit{
+	padding: 5px;
+	width: 120px;
+	font-family: Trebuchet MS;
+	font-weight: bold;
+	font-size: 24px;
+	border: 2px solid rgba(50, 100, 148, 1);
+	text-align: center;
+	color: rgba(50, 100, 148, 1);
+	margin-bottom: 15px;
+	background: #000;
+}
+
+#register-login{
+	display: flex;
+}
+
+.register-login-box{
+	height: 50px;
+	width: 200px;
+	font-family: Trebuchet MS;
+	font-weight: bold;
+	font-size: 30px;
+	color: #000;
+	background: linear-gradient(180deg, rgba(50, 100, 148, 0.75), rgba(72, 136, 199, 0.5));
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+#register-success-gohome{
+	border-radius: 3px;
+	border: none;
+	background: linear-gradient(180deg, rgba(50, 100, 148, 0.75), rgba(72, 136, 199, 0.5));
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 15px 60px;
+}
+#profile_display{
+	color: rgba(255,255,255,0.8);
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row wrap ;
+	width: 90%;
+	margin: 1% 5%;
+	height: 80%;
+	overflow: auto;
+}
+
+#profile_display .profile-section{
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 0px 50px;
+	/*align-items: center;*/
+}
+
+#profile_display .profile-wrap{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-grow: 1;
+}
+
+#profile_display .profile-wrap .label{
+	margin-right: 15px;
+	font-weight: bold;
+	background: linear-gradient(180deg, rgba(50, 100, 148, 0.75), rgba(72, 136, 199, 0.5));
+	min-width: 150px;
+	padding: 10px 5px;
+	text-align: center;
+	border-radius: 1px;
+}
+
+.profile-element{
+	min-width: 240px;
+	padding: 10px 5px;
+	background: #fefefe;
+	color: rgba(255,255,255,0.8);
+	width: 100%;
+}
+
+.user-logout-box{
+	height: 30px;
+	width: 120px;
+	font-family: Trebuchet MS;
+	font-weight: bold;
+	font-size: 18px;
+	color: #000;
+	background: linear-gradient(180deg, rgba(50, 100, 148, 0.75), rgba(72, 136, 199, 0.5));
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+	border-radius: 1px;
+}
+
+.errorlist{
+	list-style: circle;
+}

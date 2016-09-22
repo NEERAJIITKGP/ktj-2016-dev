@@ -1,0 +1,766 @@
+{% load url from future %}
+{% load i18n %}
+{% load static%}
+{% block content %}
+<html>
+<head>
+<style type="text/css">
+	.acco_table>td{
+		padding:0px 5px 0px 5px;
+	}
+	#home-wrapper, #instructions-wrapper, #faqs-wrapper, #contact-wrapper{
+		position: relative;
+		height: 300px;
+	}
+
+	#disable{
+		display: none;
+	}
+    #accobox{
+        position:relative;
+        display: block;
+        overflow-y: scroll;
+        height:100%;
+    }
+	#menu-bar-acco>div{
+		display: inline-block;
+		padding: 5px 60px;
+		
+		background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8)) !important;
+		color: white;
+		cursor: pointer;
+		box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+		border-radius: 3px;
+        margin-top: 10px;
+	}
+    #button{
+        background: linear-gradient(180deg, rgba(50, 100, 148, 0.8), rgba(72, 136, 199, 0.8));
+        color: white;
+        cursor: pointer;
+        box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+		border-radius: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 50px;
+    }
+    
+    *::-webkit-scrollbar
+        {
+        width:5px;
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+        cursor:pointer;
+        }
+      *::-webkit-scrollbar : hover{
+        width:15px;
+        }
+      *::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        background:rgba(0,0,0,0.4);
+        }
+      *::-webkit-scrollbar-track
+        {
+        background:rgba(0,0,0,0.1);
+        }
+</style>
+<script src ="http://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+$('#home-wrapper').show();
+$('#home-acco').css('background','rgb(85, 79, 83)');
+$('#instructions-wrapper').hide();
+$('#faqs-wrapper').hide();
+$('#contact-wrapper').hide();
+$('#guide-wrapper').hide();
+
+function showDialogue(content,header){
+  if(content != undefined)
+    $('#dialogue-content').html(content);
+  if(header != undefined)
+    $('#dialogue-header').html(header);
+  $('#dialogue-wrapper').fadeIn();
+}
+
+function loadDialogue(link,header)
+{
+ $('#load-dialogue-content').load(link);
+  $('#load-dialogue-wrapper').fadeIn();
+}    
+    
+$('#acco_btn').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+
+$('#acco_btn-center').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+
+$('#acco_ws').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+    
+    
+$('#home-acco').click( function(){
+	$('#instructions-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').hide();
+    $('#guide-wrapper').hide();
+	$('#home-wrapper').show();
+	$('#home-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#contact-acco').css('background','rgb(28, 117, 151)');
+});
+
+$('#instructions-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').hide();
+    $('#guide-wrapper').hide();
+	$('#instructions-wrapper').show();
+	$('#instructions-acco').css('background','rgb(85, 79, 83)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#contact-acco').css('background','rgb(28, 117, 151)');
+});
+
+$('#faq-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#instructions-wrapper').hide();
+	$('#contact-wrapper').hide();
+    $('#guide-wrapper').hide();
+	$('#faqs-wrapper').show();
+	$('#faq-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+	$('#contact-acco').css('background','rgb(28, 117, 151)');
+});
+
+$('#contact-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#instructions-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').show();
+    $('#guide-wrapper').hide();
+	$('#contact-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+});
+    
+$('#guide-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#instructions-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').hide();
+    $('#guide-wrapper').show();
+	$('#guide-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+    $('#contact-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+});
+    
+    function sprint (){
+        $.ajax({
+        url: 'http://print.ktj.in/out.php',
+        data:{
+            'userid' : '{{userid.id}}',
+        },
+        method:'GET',
+            success: function(data){print(data);},
+        
+        });
+    }
+
+</script>
+<script src ="http://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script></head>
+<body>
+    <div id="accobox" class="scroll">
+{% if error != "" %}
+	<span style="padding:3px;background-color:#f4fb3c">{{error}}</span>
+{% endif %}
+
+<div id="menu-bar-acco">
+	<div id="home-acco">Home</div>
+	<div id="instructions-acco">Instructions</div>
+	<div id="faq-acco">FAQs</div>
+	<div id="contact-acco">CONTACT</div>
+    <div id="guide-acco">Guidelines</div>
+</div>
+
+<div style="font-size:14px;padding-bottom:20px;" id="acco_status" align="center">
+	<b>Accomodation Portal has been closed.</b>
+	<span>We are not responsible for accomodation of participants who have not yet registered.</span>
+</div>
+
+<div style="font-size:14px;padding-bottom:20px;" id="acco_status"><br/>
+			<!-- <b>Accommodation Approval Status</b> : --> 
+			{% if new == True %}
+				<!-- You have not filled the Accommodation form as yet. -->
+			{% elif new == False and acco.status == 0 %}
+					<span style="padding:3px;background-color:#f4fb3c">Approval Pending</span>
+
+			{% elif new == False and acco.status == 2 %}
+					<span style="padding:3px;background-color:#ff4545">Rejected</span>
+			{% elif new == False and acco.status == 1 %}
+					<span style="padding:3px;background-color:#b9ff8e">Approved</span>To print the Accommodation letter, click the below button.
+				  <form action="http://print.ktj.in/out.php" method="post" target="_blank">
+				      <input name="userid" value="{{userid.id}}" hidden/>
+				      <input type="submit" value="Download"/>
+				  </form>
+			{% endif %}
+			  	
+</div>
+
+<div id="menu-bar-acco">
+	<div id="home-acco">Home</div>
+	<div id="instructions-acco">Instructions</div>
+	<div id="faq-acco">FAQs</div>
+	<div id="contact-acco">CONTACT</div>
+    <div id="guide-acco">Guidelines</div>
+</div>
+<div id="home-wrapper">
+<form class="acco-form" name="acco-form" id="acco-form" >
+<br>(Fields marked * are mandatory.)
+<br/>
+<fieldset style="padding:10px;">
+	<legend><b>Personal Information</b></legend>
+	Enter information here as it appears in your college identity-card.<br/><br/>
+	<table class="acco_table">
+		<tr>
+			<td><b>Name</b><sup>*</sup></td><td style="padding-left:50px"></td><td><input name="name" id="name" size="30" type="text" value="{{acco.name}}" style="padding:3px;"/></td>
+		</tr>
+		<tr>
+			<td><b>Institution</b><sup>*</sup></td><td></td><td><input name="institution" size="30" id="institution" type="text" value="{{acco.institution}}" style="padding:3px;"</td>
+		</tr>
+		<tr>
+			<td><b>Year</b><sup>*</sup></td><td></td><td><input type="text" name="year" size="30" id="year" value="{{acco.year}}" style="padding:3px;"/></td>
+		</tr>
+	</table>
+</fieldset>
+
+<br/><br/>
+
+
+<fieldset style="padding:10px;">
+	<legend><b>Demand Draft Information</b></legend>
+	<table>
+<tr>
+	<td><b>Bank Name</b><sup>*</sup> </td><td style="padding-left:20px"></td>
+<td>			
+<select name="bank" id="bank" style="padding:3px;">
+<option {% if acco.bank == 'SBI' %} SELECTED {% endif %} value="SBI">State Bank</option>
+<option {% if acco.bank == 'PNB' %} SELECTED {% endif %}  value="PNB">Punjab National Bank</option>
+<option {% if acco.bank == 'HSBC' %}  SELECTED {% endif %} value="HSBC">HSBC</option>
+<option {% if acco.bank == 'AXIS' %} SELECTED {% endif %} value="AXIS">AXIS Bank</option>
+<option {% if acco.bank == 'HDFC' %} SELECTED {% endif %} value="HDFC">HDFC</option>
+<option {% if acco.bank == 'Kotak' %}  SELECTED {% endif %} value="Kotak">Kotak</option>
+<option {% if acco.bank == 'ICICI' %}  SELECTED {% endif %} value="ICICI">ICICI</option>
+<option {% if acco.bank == 'SYND' %}  SELECTED {% endif %} value="SYND">Syndicate Bank</option>
+<option {% if acco.bank == 'Union' %}  SELECTED {% endif %} value="Union">Union Bank</option>
+<option {% if acco.bank == 'Canara' %}  SELECTED {% endif %} value="Canara">Canara Bank</option>
+<option {% if acco.bank == 'CBI' %}  SELECTED {% endif %} value="CBI">Central Bank of India</option>
+<option value="Other" {% if acco.bank == 'Other' %} SELECTED {% endif %}>Other</option>
+</select>
+<span id="other_bank">If Other Please specify : <input type="text" name="bank_name_other" value="{{acco.bank}}" id="bank_name_other" size="25" style="width:150px;"/></span>
+</td>
+</tr>
+<tr>
+	<td><b>Draft No.</b><sup>*</sup> </td><td></td><td><input value="{{ acco.draft }}" name="draft" size="30" id="draft" type="text" style="padding:3px;"</td>
+</tr>
+<tr>
+	<td><b>Date of making the draft</b><sup>*</sup> </td><td></td><td>
+	<select name="draft_date" id="draft_date" style="padding:3px;">
+	{% for i in dates %}
+		<option {% if acco.draft_date == i|add:"-12-2014" %} SELECTED {% endif %} value="{{i}}-12-2014">{{i}}-12-2014</option>
+	{% endfor %}
+	{% for i in dates %}
+		<option {% if acco.draft_date == i|add:"-1-2015" %} SELECTED {% endif %} value="{{i}}-1-2015">{{i}}-1-2015</option>
+	{% endfor %}
+							
+	</select>
+</td>
+</tr>
+</table>
+</fieldset>
+
+		<br/><br/>		
+
+<fieldset style="padding:10px;">
+	<legend><b>Contact Information</b></legend>
+	<table>
+	<tr>
+		<td><b>Mobile No.</b> (to be used in Kharagpur) <sup>*</sup></td><td style="padding-left:20px"></td><td>+91 - <input type="text" size="10" maxlength="10" name="mobile" id="mobile" style="padding:3px;" value="{{acco.mobile}}"/></td>
+	</tr>
+	</table>
+</fieldset>
+
+		<br/><br/>
+		
+<fieldset style="padding:10px;">
+
+	<legend><b>Travel and Accommodation Information</b></legend>
+	<table class="acco_table">
+		<tr>
+			<td><b>PNR No.</b></td><td style="padding-left:20px"></td><td><input style="padding:3px;" type="text" name="pnr1" id="pnr1" size="3" value="{{acco.pnr1}}" maxlength="3"/>&nbsp;-&nbsp;<input type="text" id="pnr2" name="pnr2" size="7"  value="{{acco.pnr2}}" maxlength="7"/></td>
+		</tr>
+		<tr>
+			<td><b>Train No.</b></td><td></td><td><input style="padding:3px;" type="text" id="train" name="train" value="{{acco.train}}"/></td>
+		</tr>
+		<tr>
+			<td><b>Date of Arrival at Kharagpur</b><sup></sup></td>
+			<td></td>
+			<td>
+			<select style="padding:3px;" id="arr_date" name="arr_date" >
+				
+				<option value='30' SELECTED>30</option>
+				<option value='31' {% if acco.date.date == 31 %} SELECTED {% endif %}>31</option>
+				<option value='1' {% if acco.date.date == 1 %} SELECTED {% endif %}>01</option>
+				<option value='2' {% if acco.date.date == 2 %} SELECTED {% endif %}>02</option>
+				<option value='3' {% if acco.date.date == 3 %} SELECTED {% endif %}>03</option>
+				
+			</select>
+			<select style="padding:3px;" id="arr_month" name="arr_month" >
+				<option value="1" {% if acco.date.month == 1 %} SELECTED {% endif %} >January</option>
+				<option value="2" {% if acco.date.month == 2 %} SELECTED {% endif %} >February</option>
+			</select>
+
+			<select style="padding:3px;" id="arr_year" name="arr_year" >
+				<option value="2015" selected="selected">2015</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Date of Departure from Kharagpur</b></td>
+			<td></td>
+			<td>
+			<select style="padding:3px;" id="dep_date" name="dep_date" >
+				<option value='31' {% if acco.date.date == 31 %} SELECTED {% endif %}>31</option>
+				<option value='1' {% if acco.date.date == 1 %} SELECTED {% endif %}>01</option>
+				<option value='2' {% if acco.date.date == 2 %} SELECTED {% endif %}>02</option>
+				<option value='3' {% if acco.date.date == 3 %} SELECTED {% endif %}>03</option>
+				<option value='4' {% if acco.date.date == 4 %} SELECTED {% endif %}>04</option>
+			</select>
+			
+			<select style="padding:3px;" id="dep_month" name="dep_month" >
+				<option value="1" {% if acco.date.month == 1 %} SELECTED {% endif %} >January</option>
+				<option value="2" {% if acco.date.month == 2 %} SELECTED {% endif %} >February</option>
+			</select>
+			
+			<select style="padding:3px;" id="dep_year" name="dep_year" >
+				<option value="2015" selected="selected">2015</option>
+			</select>
+			</td>
+		</tr>
+	</table>
+</fieldset>
+<br/>
+<br/>
+<fieldset>
+	{% if new == False %}
+	<div id="button" onclick="save_acco()">Save</div>
+	{% else %}
+	<div id="button disable" onclick="save_acco()">Submit</div> 
+	{% endif %}
+	
+</fieldset>
+</fieldset>
+
+</form>
+</div>
+
+<div id="instructions-wrapper">
+    <br>Participants will have to make and <font color='red'>bring along</font> with them a draft of Rs. 1100/-(<font color='red'>1300/- for participants of the event 'VERDICT'</font>) (Rs. 100/- is as a caution money for all the accommodation materials provided which will be <font color='red'>refunded</font> after the fest .  ) in favour of <font color='red'><b>"KSHITIJ"</b></font>, payable at <b>Kharagpur</b> (0202) [SBI Bank Code]. If you are coming in a team (say 5 membered team), a single draft can be drawn for the whole amount (5 x 1100 = Rs. 5500).<br><br> 
+
+
+However, all team members are required to fill the form separately. If they have a common DD then the same DD number is to be entered in all the forms.<br><br>
+
+If you dont want to avail accommodation facility, then also you need to provide a draft of Rs. 1100/- in order to participate in any of the event.<br>
+<br />
+<font color="red">Accommodation will ONLY be provided to those, who provide the draft details in the Accommodation form.</font>
+<br /><br />
+<!--<b>Participants without approved Accommodation will not be allowed to attend Guest Lectures, Workshops, Megashows or participate in Events of Kshitij 2013.</b>-->
+Participants wont be allowed to attend any Events,Guest Lectures, Workshops and Megashows without registering in the finance tent, but accommodation will only be provided to the ones whose accommodation request has been approved online.
+<br /><br />
+<font color="red">Registrations for Accommodation will end on <b>January 28th.</b></font> Accommodation will be provided in a first come, first serve basis. Participants are required to update their accommodation forms with the PNR number of their travelling ticket.
+<br/><br/>
+<b>Checklist of items that must be brought during the registration at IIT Kharagpur:</b><br/>
+1.College Identity Card<br/>
+2.Accommodation Form Printout <br/>
+3.Demand Draft <br/>
+<br/>
+<br/>
+<b>Instructions</b>
+<ul>
+    <li> Accommodation for Kshitij Participants in IIT Kharagpur will start from 30th January 18:00  onwards. Participants coming before that will have to arrange accommodation on their own.</li>
+    <li> After registering for accommodation, Kshitij team will take three days to process your request for accommodation.</li>
+    <li> He/She must fill the actual details in the form as in the college identity card.</li>
+    <li> Participants are requested to get their accommodation forms printed after their accommodation status is granted.</li>
+    <li> Accommodation will be provided to students on first come first serve basis. All the finalists must register for Accommodation. They will be granted Accommodation as soon as they register .</li>
+    <li> If students from a particular college are coming in a group then one letter with the names of all students in it will suffice.</li>
+</ul>
+
+<br />
+
+<b><u>What Not To Do</u></b>
+<ul><li>
+<font color='red'>The Demand Draft should be made in favour of 'KSHITIJ' and not IIT KHARAGPUR or KSHITIJ 15 or any other entity .</font>
+</li></ul>
+</div>
+
+<div id="faqs-wrapper">
+	<br><b><p font-family: calibri; font-weight: lighter; font-size: 16px;>
+Q. HOW DO I REACH KHARAGPUR?
+<br><BR><i></b>
+Do you know that Kharagpur(KGP) has the longest platform of the world? The KGP station is connected to all major cities of the country by train. Just hop on! 
+If your city does not have a direct rail route to Kharagpur, then catch a train to the City of Joy- Kolkata. KGP is situated 120 Kms off Kolkata which is well connected to all the cities of India by rail and air. Train from Kolkata to Kharagpur are available round the clock. The list of local trains from Kolkata to KGP can be obtained from <a href = 'http://www.iitkgp.ac.in/train/'target=_blank><u>here</u></a> . 
+<br><BR></i><b>
+Q. HOW TO REACH THE IIT CAMPUS ON ARRIVAL AT KHARAGPUR? 
+<br><BR><i></b>
+The first thing that you will notice on coming out of the KGP station will be the Participant's Reception (PR) team. (We believe in Atihi Devo Bhava, besides there isn't any thing else worth noting about the KGP station) 
+We will be there 24x7 from 1800 hrs, 30th of January. Periodic announcements will be made at the station addressing the participants. IIT KGP buses and the volunteers will be available to bring you to the campus. The volunteers will guide you to the Kshitij arena- The Vikramshila Complex. Moreover you can also take a cab to the IIT Campus. The fare from station to the IIT campus is Rs. 120 to Rs 150 (depends on your negotiation skills) and it is a 10 minutes ride.
+<br><BR></i><b>
+Q. WHAT AFTER REACHING THE KSHITIJ ARENA? 
+<br><BR><i></b>
+You will be taken to the Control Tent where you and your team/ contingent will have to register. For the registration you will have to bring the printout of the accommodation form that has been put up on the website. After that you will be provided accommodation in the campus. There will be nominal registration fee . There will also be fully refundable security deposit.
+<br><BR></i><b>
+Q. WHAT DOCUMENTS DO I HAVE TO BRING IN ORDER TO PARTICIPATE OR TO AVAIL ACCOMMODATION?
+<br><BR><i></b>
+You have to bring the printout of the accommodation form in order to avail the accommodation during Kshitij. It is of absolute importance that you carry your Institute Identity Card with you. Apart from this, participants may be required to bring a few validating documents for some events if the Event rules require them to do so. Please read the rules of the events very carefully. 
+<br><BR></i><b>
+Q. ALRIGHT, I AM REGISTERED AT THE CONTROL TENT. WHAT NEXT? WHERE DO I STAY? 
+<br><BR><i></b>
+Participant will be accommodated in the Hostels of IIT. We have 18 Boy's Hostels and 6 Girl's Hostels and a number of Bachelor Flats. The boys and Girls will be accommodated separately in a dormitory sort of arrangement.
+<br><BR></i><b>
+Q. WHAT SHOULD I BRING WITH ME?
+<br><BR><i></b>
+The participants will be provided with mattresses and blankets so you need not stuff your backpack with these items. You MUST carry your institute I card with you. Participants of various events should bring anything that is required for their respective events. Regarding this, you can contact the respective coordinators of the events. 
+<br><BR></i><b>
+Q. I AM REALLY EXCITED TO COME DOWN FOR KSHITIJ. WHEN CAN I COME AT THE EARLIEST?
+<br><BR><i></b>
+Accommodation shall be provided to participants reaching Kharagpur after 1800 hrs on 30th January 2015. We advice you to stick with this scheme. However, if you can not help it and have a genuine problem, get in touch with Team Kshitij and we shall take care of it.
+<br><BR></i><b>
+Q. WHERE DO I EAT?
+<br><BR><i></b>
+The Kshitij arena will have a lot of food stalls that will take care of your appetite. Of course, you will have to pay for that but they will be subsidized. There are a lot of eating joints in the campus - CCD, Tikka, Sahara, Veggies, Billoo's etc. which go pretty easy on your pocket. There are some restaurants outside the campus as well. Besides, all the hostels (or halls as we call them) have Nescafe outlets. 
+<br><BR></i><b>
+Q. I HAVE A GOOD FRIEND AT KGP. IS THERE A CHANCE I CAN PUT UP WITH MY FRIEND?
+<br><BR><i></b>
+Of course! If you have a good friend we won't play spoilsport. You can always put up with your friends and indulge in the camaraderie. But registration in the site and for accommodation is mandatory.
+<br><BR></i><b>
+Q. WHAT CONDUCT DO YOU EXPECT OF ME? 
+<br><BR><i></b>
+During Kshitij, the otherwise serene campus is transformed into a vibrant hub with students from more than 1300 colleges coming together. However, it is required that you follow a proper code of conduct. Any instance of hooliganism, indecent behavior and rowdiness will not be tolerated. If found indulging in any misconduct, the participant shall be asked to leave immediately along with his team/ contingent.
+<br><BR></i><b>
+Q. WHAT ABOUT THE SECURITY OF MY BELONGINGS INSIDE THE CAMPUS? 
+<br><BR><i></b>
+IIT KGP has round the clock security everywhere in the campus. Additional guards will be posted at the hostels to safeguard your belongings. Volunteers will also be present at the accommodation venues. All said and done, we request you to avoid carrying expensive item.
+<br><BR></i><b>
+Q. IN CASE OF ANY HEALTH PROBLEM, WHERE SHOULD I GO? 
+<br><BR><i></b>
+We have a medical hospital- the BC ROY Hospital inside the campus that will take care of your medical problems, if any. In case of any illness, you or your team members can contact the control tent and we shall ensure immediate action. 
+<br><BR></i><b>
+Q. WHEN WILL I GET MY PRIZES AND CERTIFICATES? 
+<br><BR><i></b>
+The winners will get their prizes and certificates on the last day of Kshitij during the Prize distribution ceremony. Those who need to leave early can collect it from control tent at the end of the day. 
+<br><BR></i><b>
+Q. HOW DO I CHECK OUT?
+<br><BR><i></b>
+For checking out, you need to go to control tent and inform them. Accommodation volunteers will be present at various halls at preassigned times who will collect the blankets, mattresses etc. issued against your name. Only after that you can collect your security deposits from the control tent.
+<br><BR></i><b>
+Q. WHEN DO I CHECK OUT?
+<br><BR><i></b>
+The last slot for collection of accommodation materials by accommodation volunteers is 2nd February 2015, 18:00hrs. Accommodation volunteers will not be available after this time.
+Those leaving next morning can only wrap up the formalities at 7am.
+<br><BR></i><b>
+Q. I STILL HAVE A FEW UNANSWERED QUESTIONS, WHERE CAN I LOOK FOR ANSWERS?<br><BR>
+<i></b>
+You can always use the forum for any queries you have. You can use the private queries section as well. Or else, you can also contact team Kshitij for any queries . The contacts are available on the contacts page. You can mail your queries to ankit.choudhary@ktj.in 
+<br><BR></i><b>
+<!--Q. I HAVEN'T FILLED THE ACCOMMODATION FORM AND NOW THE REGISTRATION FOR ACCOMMODATION IS CLOSED. WHAT SHOULD I DO NOW?
+<br><BR><i></b>
+In this case you can come over to Kgp if you have a friend with whom you can put up with or if you have your own accommodation.
+<br><BR></i><b>-->
+Q. I HAVE WITH ME MY HARDWARE DESIGNS WHICH WOULD NEED REGULAR POWER SUPPLY TO WORK WITH. DO I GET PROVISIONS OF POWER PLUGS?
+<br><BR><i></b>
+Power Plugs are not much in number and hence all the work related to power, if possible should be completed before you come over here to Kgp.
+
+<br><BR></i> </p> 
+</div>
+    
+<div id="guide-wrapper">
+    <br>
+    <div><strong><u><em>For Outstation Participants:</em></u></strong></div>
+<div>
+  <p>1. All participants are required to produce their valid institute Identity cards at the time of registration at the finance desk. KTJ ID will be issued only after the same.<br />
+  </p>
+  <p>2. All participants are required to carry both their institute ID card as well as their KTJ IDs at all times. Official authorities can demand to see the ID card at any time.</p>
+  <p>3. Any person found in possession of, or under the influence of alcohol or narcotic substances will have their KTJ IDs confiscated on the spot and will be expelled from the premises. They will further be reported to their concerned college authorities.</p>
+  <p>4. Any person in indecent clothing or involved in obscene behavior will have their KTJ IDs confiscated on the spot. The decision of the authorities will be final in this regard.</p>
+  <p>5. Participants are solely  responsible for their belongings. SF team does not bear any responsibility for the same.
+    </p>
+    </li>
+  </ol>
+  </p>
+  <p>6. No food items/eatables are permitted within event venue premises.</p>
+  <p>7. No participant is allowed to leave IIT Campus between 11 pm to 3 am</span>  without valid reason. Exception can be made for outstation bound participants.</p>
+  <p>8. Loitering around at untimely hours is not allowed.</p>
+  <p>9. Security helpline No. -03222-281001 Hospital Helpline No. - 03222-282630</p>
+  <p>10. Violation of any of the above would lead to immediate expulsion from the institute campus.</li>
+  </ol>
+    </li>
+  </ol>
+    </li>
+  </ol>
+    </li>
+  </ol>
+    </li>
+  </ol>
+  <div><br />
+</div>
+</div>
+<div>
+  <p><strong><u><em>For In-house Participants:</em></u></strong></p>
+  <p>1. All in house participants will have to produce their Institute ID cards to participate in events and for entry to Megashows. If your ID card is missing, you will have to produce the FIR reporting the loss (filed on or after 1/12/2014) along with your BC Roy Hospital medical book, with your photo attached.</p>
+</div>
+    
+</div>
+
+<div id="contact-wrapper">
+	<br><h2 class="main" style="margin-left: 0px;">Contacts</h2>
+
+
+
+ <p><b>Vibhu Agarwal<br>
+Email:</b> bibhu.agarwal@ktj.in <br>
+<b>Ph: </b>+91 9804674524</p>     
+
+<p><b>Namrata Meena<br>
+Email:</b> namrata.meena@ktj.in <br>
+<b>Ph: </b>+91 7063599185</p>
+
+
+<p><b>Vani Sahu<br>
+Email:</b> vani.sahu@ktj.in <br>
+<b>Ph: </b>+91 7872683781</p>
+    
+
+    
+<p>
+<b>Vipul Bhola</b><br>
+<b>Email:</b> vipul.bhola@ktj.in<br>
+<b>Ph: </b>+91 9800120911</p>
+
+</div>
+</div>
+        </div>
+    <script>
+
+var ajax_loader = '<img src="http://ktj.in/static/images/loading/loading.gif" style="padding:10%"/>';
+
+function pass() {}
+
+$('#home-wrapper').show();
+$('#home-acco').css('background','rgb(85, 79, 83)');
+$('#instructions-wrapper').hide();
+$('#faqs-wrapper').hide();
+$('#contact-wrapper').hide();
+
+function showDialogue(content,header){
+  if(content != undefined)
+    $('#dialogue-content').html(content);
+  if(header != undefined)
+    $('#dialogue-header').html(header);
+  $('#dialogue-wrapper').fadeIn();
+}
+
+function save_acco()
+  {
+   var values=$('#acco-form').serialize();
+      $('#acco_content').html(ajax_loader);
+   $.ajax({
+   	url:'/acco/save',	
+   	data:values,
+   	type:'POST',
+   	success:function(data){    		
+        $('#acco_content').html(data);
+//  		$('#acco_content').fadeIn();
+  		}
+   	
+   });
+  }
+
+
+function loadDialogue(link,header)
+{
+ $('#load-dialogue-content').load(link);
+  $('#load-dialogue-wrapper').fadeIn();
+}    
+    
+$('#acco_btn').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+
+$('#acco_btn-center').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+
+$('#acco_ws').click(function(){
+loadDialogue('/acco','Accomodation');
+});
+    
+    
+$('#home-acco').click( function(){
+	$('#instructions-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').hide();
+	$('#home-wrapper').show();
+	$('#home-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#contact-acco').css('background','rgb(28, 117, 151)');
+});
+
+$('#instructions-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').hide();
+	$('#instructions-wrapper').show();
+	$('#instructions-acco').css('background','rgb(85, 79, 83)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#contact-acco').css('background','rgb(28, 117, 151)');
+});
+
+$('#faq-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#instructions-wrapper').hide();
+	$('#contact-wrapper').hide();
+	$('#faqs-wrapper').show();
+	$('#faq-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+	$('#contact-acco').css('background','rgb(28, 117, 151)');
+});
+
+$('#contact-acco').click( function() {
+	$('#home-wrapper').hide();
+	$('#instructions-wrapper').hide();
+	$('#faqs-wrapper').hide();
+	$('#contact-wrapper').show();
+	$('#contact-acco').css('background','rgb(85, 79, 83)');
+	$('#instructions-acco').css('background','rgb(28, 117, 151)');
+	$('#faq-acco').css('background','rgb(28, 117, 151)');
+	$('#home-acco').css('background','rgb(28, 117, 151)');
+});
+
+function check_logged(success, fail) {
+    if (success == undefined)
+        success = pass;
+    if (fail == undefined)
+        fail = pass;
+    var logged = false;
+    $.ajax({
+        url: URLS.ACCOUNTS + 'check_logged',
+        type: 'POST'
+    }).done(function(data) {
+        if (data.logged)
+            success();
+        else
+            fail();
+    });
+}
+
+function login() {
+    var token = $('input[name="csrfmiddlewaretoken"]').prop('value');
+    var values = $('#login_form').serialize();
+    $('#login_container').html(ajax_loader);
+    $.ajax({
+        url: URLS.ACCOUNTS + 'login',
+        type: 'POST',
+        data: values
+    }).done(function (data) {
+        console.log(data);
+        check_logged(function () {
+            $('#login_container').html(ajax_loader);
+            $('#login_container').load(URLS.ACCOUNTS + 'profile');
+            setTimeout(closeLogin, 1000);
+        },
+        $('#login_container').html(data))
+    });
+}
+
+function signup() {
+    var token = $('input[name="csrfmiddlewaretoken"]').prop('value');
+    var values = $('#signup_form').serialize();
+    $('#registration_container').html(ajax_loader);
+    $.ajax({
+        url: URLS.ACCOUNTS + 'signup',
+        type: 'POST',
+        data: values,
+        success: function (data) {
+            check_logged($('#registration_container').html(data))
+                         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {},
+    });
+}
+
+
+function logout() {
+    $.ajax({
+        url: URLS.ACCOUNTS + 'logout',
+        type: 'POST'
+    }).done(function(data) {
+        check_logged(pass, logged_out);
+    });
+    check_logged(pass, logged_out);
+}
+
+function logged_out() {
+    $('#registration_container').html(ajax_loader);
+    $('#login_container').html(ajax_loader);
+    userNotLogged();
+}
+
+
+$(document).on('change', '#id_state', function() {
+        url = URLS.ACCOUNTS + 'institutes/' + encodeURIComponent($("#id_state>option:selected").attr('value'));
+        console.log($("#id_state>option:selected").attr('value'));
+        console.log("Hello ID STate Change" + url);
+        $.ajax({
+            url: url,
+        }).done(function(data) {
+            $('#id_institution').html("");
+            for (i in data) {
+                $('#id_institution').append(
+                    '<option value="' + i + '">' +
+                    i + '</option>');
+            }
+        });
+});
+
+function userLogged(){
+    $('#login_container').load(URLS.ACCOUNTS + 'profile');
+    $('#registration_container').load(URLS.ACCOUNTS + 'success');
+}
+
+function userNotLogged(){
+    $('#registration_container').load(URLS.ACCOUNTS + 'signup');
+    $('#login_container').load(URLS.ACCOUNTS + 'login');
+}
+
+function updateAjax() {
+	$('#registration_container').html(ajax_loader);
+	$('#registration_container').load(URLS.ACCOUNTS + 'signup');
+    $('#myktj_container').load(URLS.ACCOUNTS+'myktj');
+    $('#acco_content').load(URLS.ACCOUNTS+'acco');
+    check_logged(userLogged, userNotLogged);
+}
+
+$(document).ready(updateAjax);
+    </script>
+   </body>     
+        
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "main_math.html" %}
+{% load static %}
+
+{% block qbox %}
+<p id='finalktj1'style="font-family:"";text-decoration:none;color:black;" >You have already submitted answers.</p>
+<div id="qbox">
+	
+	
+</div>
+{% endblock %}
+
+{% block content %}
+	<div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block play %}
+{% endblock %}
+
+{% block back %}
+    <input type="submit" value="Back" id="backbutton">
+{% endblock %}
+
+{% block logout %}
+	<div id="logout">
+  <a href="../logout/"><img src="{% static "img/mathCh/main/signout.png" %}"/> </a>
+  </div>
+{% endblock %}

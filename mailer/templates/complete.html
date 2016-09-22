@@ -1,0 +1,13 @@
+{% extends "pass_reset.html" %}
+{% load i18n %}
+{% load static %}
+{% block passreset %}
+	<h1>{% trans 'Password reset complete' %}</h1>
+	<br><br>
+	<img style="width: 400px;" src="/static/images/ktj2016.png">
+	<br><br>
+	<p>{% trans "Your password has been set." %}
+	   {% trans "You may go ahead and log in now." %}</p>
+	<br><br>
+	<p><a href="http://ktj.in" style="color:white;">{% trans 'Visit site now' %}</a></p>
+{% endblock %}

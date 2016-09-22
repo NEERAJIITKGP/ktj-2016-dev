@@ -1,0 +1,27 @@
+<!doctype html>
+{% load static%}
+{% load bootstrap %}
+<html>
+<head>
+
+<title>Redirecting to PayU for Payment</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="/static/blockchain/css/bootstrap.min.css" rel="stylesheet">
+      <script src="/static/blockchain/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/static/blockchain/js/bootstrap.min.js"></script>
+<script>
+function redirect_for_payment_at_payu() {
+  var payu_form = document.forms.payu_form;
+  payu_form.submit();
+}
+</script>
+</head>
+<body onload="redirect_for_payment_at_payu();">
+<form class="form-horizontal" action="{{ action }}" method="post" name="payu_form">{% csrf_token %}
+ {{ form|bootstrap_horizontal }}
+ {{ hash_form|bootstrap_horizontal }}}
+</form>
+</body>
+</html>

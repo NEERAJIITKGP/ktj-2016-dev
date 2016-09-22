@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+{%load static %}
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+        <!-- Description -->
+            <title>Snappit - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur</title>
+            <meta name="description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta name="keywords" content="Kshitij,2016, Kshitij 2016, Asia's largest, Techno-management fest, Online Events, IIT Kharagpur, technology, management, ASME, IEEE, ACM, ASHRAE, IMechE, college fest, university, India, IIT, Indian Institute of technology, Kshitij 2015, technical fest, events, megashows,guests, workshops, c-monopoly, forex, excaliber, cryptex, innovation, Online Competitions, West Bengal, Bombay, Delhi, Science, robotix, robotics, India, Kgp, IIT Kgp" />
+            <base href="" />
+        <!-- -->
+        <!-- Responsive -->
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <!-- Share -->
+            <meta property="og:title" content="Snappit - Kshitij 2016 - The Annual Techno-management Fest of IIT Kharagpur" />
+            <meta property="og:description" content="The 13th edition of Asia's largest techno-management fest, conducted by IIT Kharagpur." />
+            <meta property="og:image" content="http://m.ktj.in/static/fb.jpg" />
+            <meta itemprop="sameas" content="https://en.wikipedia.org/wiki/Kshitij" />
+            <meta property="og:image:width" content="1200" />
+            <meta property="og:image:height" content="630" />
+        <!-- -->
+
+        <!-- Aplication icons -->
+            <meta name="mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+            <link rel="shortcut icon" sizes="196x196" href="http://ktj.in/static/administrator/media/page/app_icon_196.png"  />
+            <link rel="shortcut icon" sizes="128x128" href="http://ktj.in/static/administrator/media/page/app_icon_128.png" />
+            <link rel="shortcut icon" sizes="24x24" href="http://ktj.in/static/administrator/media/page/icon.png" />
+            <link rel="apple-touch-icon" sizes="128x128" href="http://ktj.in/static/administrator/media/page/app_icon_128.png" />
+            <link rel="apple-touch-icon-precomposed" sizes="128x128" href="http://ktj.in/static/administrator/media/page/app_icon_128.png" />
+            <link rel="apple-touch-startup-image" href="http://ktj.in/static/administrator/media/page/app_icon_196.png" />
+        <!-- -->
+
+        <!--  Android 5 Chrome Color-->
+        <meta name="theme-color" content="#DE3454">
+
+        <!--Import materialize.css-->
+        <!-- <link type="text/css" rel="stylesheet" href="{% static 'materialize/bin/materialize.css' %}"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+        <link href="/static/css/prism.css" rel="stylesheet">
+        <link href="/static/css/main.css" rel="stylesheet">
+        <link href="/static/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        
+
+        <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        // <script type="text/javascript" src="{% static 'materialize/bin/materialize.js' %}"></script>
+        
+        // <script type="text/javascript">
+        // $(".button-collapse").sideNav();
+        // </script>-->
+        <script src="https://cdn.transifex.com/live.js"></script>
+        <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-66400807-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+
+    </head>
+    <body>
+        
+        <!-- Header Starts -->
+    <header >
+              <nav class="top-nav fixed">
+                      <div class="container">
+                        <div class="nav-wrapper">
+                          <a class="page-title">Snappit</a>
+                          <ul class="right" style="padding-top:25px;">
+                                <a class="dropdown-button waves-effect waves-light" href="#!" data-activates="dropdown-more" ><i class="mdi-navigation-more-vert"></i></a>
+                                  <ul id="dropdown-more" class="dropdown-content" style="margin-left: 0px; z-index: 99999; overflow: visible; min-width: 148px !important; width: 68px; position: absolute; top: 0px; left: 928px; opacity: 1; display: none;">
+                                    {% if user.is_authenticated %}
+                                    <li><a class="waves-effect waves-dark modal-trigger" href="http://ktj.in/myktj">MYKTJ</a></li>
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/profile">Profile</a></li>
+                                  <!-- <li class="divider"></li> -->
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/logout">Logout</a></li>
+                                  
+                                  {% else %}
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/login">Login</a></li>
+                                  <!-- <li class="divider"></li> -->
+                                  <li><a class="waves-effect waves-dark modal-trigger" href="/accounts/signup">SignUp</a></li>
+                                  {% endif %}
+                                  </ul>
+                            </ul>
+                        </div>
+                        
+                      </div>
+                    </nav>
+               <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav full hide-on-large-only"><i class="mdi-navigation-menu"></i></a></div>
+              <ul id="nav-mobile" class="side-nav fixed">
+                <li class="logo"><a id="logo-container" href="/" class="brand-logo">
+                    <object id="front-page-logo" type="image/png" data="/static/images/logo.png">Your browser does not support SVG</object></a></li>
+                <!-- <li class="search">
+                  <div class="search-wrapper card">
+                    <input id="search"><i class="material-icons">search</i>
+                    <div class="search-results"></div>
+                  </div>
+                </li> -->
+                <li class="bold"><a href="/" class="waves-effect waves-red">Home</a></li>
+                <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-red">Events</a>
+                      <div class="collapsible-body">
+                        <ul>
+                          <li><a href="/events?genre=1"><img class="genre-icons" src="/static/images/mobile/1.png"></img>Genesis</a></li>
+                          <li><a href="/events?genre=2"><img class="genre-icons" src="/static/images/mobile/2.png">Quizzard</a></li>
+                          <li><a href="/events?genre=3"><img class="genre-icons" src="/static/images/mobile/3.png">Conceptualise</a></li>
+                          <li><a href="/events?genre=4"><img class="genre-icons" src="/static/images/mobile/4.png">Code Conclave</a></li>
+                          <li><a href="/events?genre=5"><img class="genre-icons" src="/static/images/mobile/5.png">Robotics</a></li>
+                          <li><a href="/events?genre=6"><img class="genre-icons" src="/static/images/mobile/6.png">Mechanize</a></li>
+                          <li><a href="/events?genre=7"><img class="genre-icons" src="/static/images/mobile/7.png">Strategia</a></li>
+                          <li><a href="/events?genre=8"><img class="genre-icons" src="/static/images/mobile/9.png">Tech4Fun</a></li>
+                          <li><a href="/events?genre=9"><img class="genre-icons" src="/static/images/mobile/8.png">Industrial Architecture</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                    <li class="bold"><a class="collapsible-header  waves-effect waves-red">Initiatives</a>
+                      <div class="collapsible-body">
+                        <ul>
+                              <li><a href="/initiatives/digitalindia">Digital India Summit</a></li>
+                              <li><a href="/sankalp">Sankalp</a></li>
+                            </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="bold"><a href="/sponsors" class="waves-effect waves-red">Sponsors</a></li>
+                <li class="bold"><a href="/guests" class="waves-effect waves-red">Guests</a></li>
+                <li class="bold"><a href="/workshops" class="waves-effect waves-red">Workshops</a></li>
+                <li class="bold"><a href="/exhibitions" class="waves-effect waves-red">Exhibitions</a></li>
+                <li class="bold"><a href="/megashows" class="waves-effect waves-red">Megashows</a></li>
+                <li class="bold "><a href="/contacts" class="waves-effect waves-red">Contacts</a></li>
+              </ul>
+            </header>
+            <!-- Header Ends -->
+
+
+            <!-- Main Page Starts -->
+            <main >
+           <div class="" style="background-image: url('https://i.imgur.com/EnsVqHE.jpg?1');background-size: 100% 300px;background-repeat: no-repeat;z-index:-10;">
+           <div class="section" style="width: 70%;margin-left: auto;margin-right: auto;padding-bottom: 41px;background-color: transparent;z-index:0;display:block;">
+             <div class="" style="margin-top: 200px;padding-top: 20px;background-color: #FFFFFF;height: auto; box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);padding-bottom: 20px;">
+             <div class="row container center">
+               <h2 class="header center-align">Snappit</h2>
+               <!-- <p class="grey-text text-darken-3 lighten-3">RGV (Raju Gari Vantillu ), Pure South Indian recipe  Breakfast  at your doorstep (NO DELIVERY CHARGES) <br>   Contact : 9547666858</p> -->
+               
+                  
+                   <p>Thank You! We have received your submission.</p>
+                   {% if user.is_authenticated %}
+                   <p>Results will be mailed to you</p>
+                   {% else %}
+                   <p>Register at <a href="https://ktj.in" target="_blank">ktj.in</a> to complete your submission process</p>
+                   {% endif %}
+              
+               
+             </div>
+           </div>
+           </div>
+         </div>
+       </main>
+
+       <footer class="page-footer" style="background-color:#ee6e73;padding-top:0px;margin-top:0px;">
+                
+                <div class="footer-copyright">
+                  <div class="container">
+                  © 2015-2016 Kshitij
+                  <div class="social-buttons col s12 right" style="margin:12px;">
+                            <a href="https://www.facebook.com/ktj.iitkgp" target="_blank"><img src="/static/images/mobile/02_facebook.png" style="margin-top:-12px;"></a>
+                            <a href="https://twitter.com/ktj_iitkgp" target="_blank"><img src="/static/images/mobile/01_twitter.png" style="margin-top:-12px;"></a>
+                            <a href="https://www.youtube.com/user/ktjiitkgp?sub_confirmation=1" target="_blank"><img src="/static/images/mobile/03_youtube.png" style="margin-top:-12px;"></a>
+                            <a href="https://instagram.com/ktj.iitkgp/" target="_blank" ==""><img src="/static/images/mobile/10_instagram.png" style="margin-top:-12px;"></a>
+                        </div>
+                  </div>
+                </div>
+              </footer>
+
+<!--  Scripts-->
+            <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); }
+            </script>
+            <script src="/static/js/jquery.timeago.min.js"></script>
+            <script src="/static/js/prism.js"></script>
+            <script src="/static/jade/lunr.min.js"></script>
+            <script src="/static/jade/search.js"></script>
+            <script src="/static/js/materialize.js"></script>
+            <script src="/static/js/init.js"></script>
+
+    <style type="text/css">
+    .card:hover{
+      transition: box-shadow .25s;
+          box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    </style>
+        
+
+      
+          
+    </body>
+    </html>

@@ -1,0 +1,245 @@
+
+<style>
+    .wrapper{ margin: 0px;  }
+    .portfolio{ font-size: 0px; letter-spacing: normal; text-align: center; padding: 30px; }
+    .portfolio .item{ display: inline-block; width: 100%; height: 300px; margin: 0px 0px 10px; top: 0; opacity: 1;  }
+    .portfolio .item .box1{  position: absolute; top: 30px; left: 30px; right: 30px; bottom: 30px; background: #FFF; }
+    .portfolio .item .box2{ overflow: hidden; cursor: pointer; position: absolute; top: 30px; left: 30px; right: 30px; bottom: 30px;  }
+    .portfolio .item .box2 .image{ opacity: 1; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; background: no-repeat center; background-size: cover; }
+    .portfolio .item_type2{ width: 50%; margin: 0px 0px 10px;  }
+    .portfolio .item .over{ transition: 0.3s; opacity: 0; font-size: 14px; letter-spacing: 1.5px; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; background: linear-gradient(to top, rgba(44,38, 56, 1) 0%, rgba(44,38, 56, 0.8) 20%, rgba(44,38,56,0) 100%);  }
+    .portfolio .item:hover .over{ opacity: 1; }
+    .portfolio_data{ display: none; position: fixed; overflow: hidden; }
+    .portfolio_data .header{ position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; }
+    .portfolio_data .header .image{ position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; background:no-repeat center; background-size: cover; }
+    .portfolio_data .content{ display: none; background: #2C2638; transform: none !important; }
+    
+    .r1100 .portfolio{ padding: 10px !important; }
+    .r1100 .portfolio .item{ transform: none !important; -webkit-transform: none !important; opacity: 1 !important;  }
+    .r1100 .portfolio .item .box1{ top: 0px; bottom: 5px; left: 5px; right: 5px; display: none;  }
+    .r1100 .portfolio .item .box2{ top: 0px; bottom: 5px; left: 5px; right: 5px; }
+    
+    .r1100 .portfolio .item .over{ opacity: 1 !important; }
+    .r1100 .portfolio .item .over *{ top:auto !important; opacity: 1 !important; }
+    .r800 .portfolio .item_type2{ width: 100%; }
+    .r600 .portfolio .item .over .data{ left: 20px !important; bottom: 20px !important; }
+    .r600 .portfolio .item .over .data .t_24{ margin-bottom: -9px !important; }
+    
+</style>
+<script>
+    portfolio = {}
+    portfolio.data = cuppa.jsonDecode("bnVsbA==");
+    //++ openProject
+        portfolio.openProject = function(e){
+            if(cuppa.managerURL.path_array[2] && $(".portfolio_data").get().length ){
+                TweenMax.set(".portfolio_data", {overflow:"hidden"});
+                TweenMax.set("body", {overflow:"hidden"});
+                var old = $(".portfolio_data").get();
+                var item_list = $(".portfolio ."+cuppa.managerURL.path_array[2]);
+                var index = item_list.attr("index"); if(!index) return;
+                var dim = cuppa.dimentions(".next");
+                var item = $($(".portfolio_data_temp")[0]).clone(); 
+                    item.addClass("portfolio_data").removeClass("portfolio_data_temp");
+                    item.attr("ref", cuppa.managerURL.path_array[2]);
+                    item.css({opacity:0, display:"none", left:dim.x3, top:dim.y3, width:dim.width, height:dim.height });
+                    item.css({ backgroundColor:item_list.parent().find(".box1").css("background-color") });
+                    item.find(".header .texts").html(portfolio.data[index].banner_text.replace("media/","administrator/media/"));
+                    $(old).after(item);
+                    //++ Tweenmax
+                        var timeline = new TimelineMax();
+                            timeline.to(".p_content .like_message, .p_content .line", 0.3, {alpha:0});
+                            timeline.set(item.find(".header"), {position:"absolute", top:0, right:0, bottom:0, left:0, height:"auto", zIndex:2});
+                            timeline.set(item.find(".header .texts"), {alpha:0});
+                            timeline.set(item.find(".header .image"), { backgroundImage:"url("+$(item_list).find(".image").attr("ref-img")+")" });
+                            timeline.to(item, 0.5, {alpha:1, display:"block", ease:Cubic.easeIn});
+                            timeline.to(item, 0.5, {left:0, top:0, width:"100%", height:"100%", ease:Expo.easeOut});
+                            timeline.set(item.find(".header .image"), {backgroundAttachment:"fixed"});
+                        // add texts
+                            timeline.set(item.find(".header .texts"), {alpha:1});
+                            timeline.staggerFromTo($(item).find(".header .texts").children(), 0.7, {top:50, alpha:0}, {top:5, alpha:1, ease:Expo.easeOut}, 0.1, "-=0.2");
+                        // content
+                            timeline.set(item.find(".header"), {position:"relative", height:$(window).height()});
+                            timeline.set(item, {overflowY:"auto"});
+                            timeline.set(item.find(".content"), {display:"block"});
+                            timeline.add( function(){ $(old).remove(); });
+                            timeline.add( function(){  
+                                var data = {}
+                                data["id"] = portfolio.data[index].id;
+                                jQuery.ajax({url:"html/portfolio/p_content.php", type:"POST", data:data, success:portfolio.onLoadContent});
+                            });
+                    //--
+            }else if(cuppa.managerURL.path_array[2]){
+                menu.showBack(true, "favicon/portfolio", "");
+                TweenMax.set("body", {overflow:"hidden"});
+                var item_list = $(".portfolio ."+cuppa.managerURL.path_array[2]);
+                var index = item_list.attr("index"); if(!index) return;
+                var dim = cuppa.dimentions(item_list);
+                var item = $(".portfolio_data_temp").clone();
+                    item.addClass("portfolio_data").removeClass("portfolio_data_temp");
+                    item.attr("ref", cuppa.managerURL.path_array[2]);
+                    item.css({opacity:0, display:"none", left:dim.x3, top:dim.y3, width:dim.width, height:dim.height });
+                    item.css({ backgroundColor:item_list.parent().find(".box1").css("background-color") });
+                    item.find(".header .texts").html(portfolio.data[index].banner_text.replace("media/","administrator/media/"));
+                    $(".portfolio").after(item);
+                    //++ Tweenmax
+                        var timeline = new TimelineMax();
+                            timeline.to(item, 0.5, {alpha:1, display:"block", ease:Cubic.easeIn});
+                            timeline.to(item, 0.5, {left:0, top:0, width:"100%", height:"100%", ease:Expo.easeOut});
+                            timeline.fromTo(item.find(".header .image"), 0.6, {opacity:1, backgroundImage:"url("+$(item_list).find(".image").attr("ref-img")+")" }, {alpha:1, ease:Cubic.easeOut});
+                            timeline.set(item.find(".header .image"), {backgroundAttachment:"fixed"});
+                        // add texts
+                            timeline.staggerFromTo($(item).find(".header .texts").children(), 0.7, {top:50, alpha:0}, {top:5, alpha:1, ease:Expo.easeOut}, 0.1, "-=0.2");
+                        // content
+                            timeline.set(item.find(".header"), {position:"relative", height:$(window).height()});
+                            timeline.set(item.find(".content"), {display:"block"});
+                            timeline.to(item, 0.2, {overflowY:"scroll", onComplete:function(){ cuppa.wheelSmooth(".portfolio_data"); }});
+                            if($(window).width() <= 1100){ timeline.set(".portfolio", {display:"none"}); }
+                    //--
+                    var data = {}
+                        data["id"] = portfolio.data[index].id;
+                    jQuery.ajax({url:"html/portfolio/p_content.php", type:"POST", data:data, success:portfolio.onLoadContent});
+            }else if(!cuppa.managerURL.path_array[2] && $(".portfolio_data").get().length){
+                if($(window).width() <= 1100) TweenMax.set(".portfolio", {display:"block"});
+                menu.showBack(false);
+                var item_list = $(".portfolio ."+$(".portfolio_data").attr("ref"));
+                TweenMax.set(".portfolio_data", {overflow:"hidden"});
+                TweenMax.set("body", {overflow:"auto"});
+                //++ Tweenmax
+                    var dim = cuppa.dimentions(item_list);
+                    cuppa.moveContent(".portfolio_data", ".portfolio_data", false, true, 0, 0, 0.4, Cubic.easeInOut);
+                    TweenMax.delayedCall(0.6, function(){
+                        var timeline = new TimelineMax();
+                            timeline.to(".portfolio_data .header", 0, {position:"absolute", bottom:0, height:"auto", zIndex:2});
+                            timeline.to(".portfolio_data .header", 0, {position:"absolute", bottom:0, height:"auto", zIndex:2});
+                            timeline.to(".portfolio_data .header .texts, .portfolio_data .content", 0.4, {opacity:0, ease:Cubic.easeInOut});
+                            timeline.to(".portfolio_data", 0, {position:"fixed", left:0, top:0, width:"100%", height:"100%"});
+                            timeline.to(".portfolio_data", 0.5, { transform:$(item_list).parent().css("transform"), left:dim.x3, top:dim.y3, width:dim.width, height:dim.height, ease:Expo.easeOut});
+                            timeline.to(".portfolio_data", 0.3, {alpha:0}, "-=0.3");
+                            timeline.add( function(){ $(".portfolio_data").remove(); portfolio.resize();  });
+                    });
+                //--
+            }
+        }
+    //--
+    //++
+        portfolio.onLoadContent = function(result){
+            $(".portfolio_data .content").html(result);
+        }
+    //--
+    //++ RollOver / RollOut
+        portfolio.rollOver = function(e){
+            TweenMax.to(jQuery(this).find(".box2 .image"), 30, {scale:1.5, ease:Linear.easeNone });
+        }; cuppa.addEventListener("mouseenter", portfolio.rollOver, ".portfolio .item", "portfolio");
+        
+        portfolio.rollOut = function(e){
+            TweenMax.to(jQuery(this).find(".box2 .image"), 2, {scale:1, ease:Cubic.easeInOut } )
+        }; cuppa.addEventListener("mouseleave", portfolio.rollOut, ".portfolio .item", "portfolio");
+    //--
+     //++ Scroll
+        portfolio.onScroll = function(){
+             $($(".portfolio .item")).each(function(){
+                var dim  = cuppa.dim(this);
+                var percent = cuppa.percent(dim.y, -dim.height, $(window).height(), true );
+                TweenMax.set(this, {
+                            alpha:1*Math.sin(percent*Math.PI), 
+                            z:(-300*Math.sin(percent*Math.PI)+300)*-1,
+                            rotationX:-45*Math.cos(percent*Math.PI),
+                            transformPerspective:1000, transformStyle:"preserve-3d"
+                        });
+             });
+        }
+    //--
+    //++ resize
+        portfolio.resize = function(){
+            $(".portfolio .item_type1").each(function(){
+               $(this).height(cuppa.dimentions(this).width*0.56); 
+            });
+            $(".portfolio .item_type2").each(function(){
+               if($(window).width() <= 800) $(this).height(cuppa.dimentions(this).width*0.56); 
+               else $(this).height(cuppa.dimentions(this).width); 
+            });
+            
+            var dim = cuppa.dim(".portfolio .item");
+            var center = ($(window).height()-dim.height)*0.5;
+            if(center > 0 ){
+                TweenMax.set(".portfolio", {paddingTop:center});
+                TweenMax.set(".portfolio", {paddingBottom:center});
+            }
+            cuppa.wheelSmooth(".wrap2");
+        };
+    //--
+    //++ onRemoved
+        portfolio.end = function(){
+            cuppa.removeEventGroup("portfolio");
+        }
+    //--
+    //++ init
+        portfolio.init = function(){
+            cuppa.addRemoveListener(".portfolio", portfolio.end);
+            cuppa.addEventListener("resize", portfolio.resize, window, "portfolio"); portfolio.resize();
+            cuppa.managerURL.updateLinks(".portfolio .link", true, "portfolio");
+            cuppa.managerURL.addListener(portfolio.openProject, "portfolio"); portfolio.openProject();
+            $(".portfolio .item").bind("mouseenter", function(){
+                TweenMax.killTweensOf($(this).find(".data").children());
+                var timeline = new TimelineMax();
+                    timeline.staggerFromTo($(this).find(".data").children(), 0.3, {top:50, alpha:0}, {top:0, alpha:1, ease:Cubic.easeOut }, 0.1, "+=0.2");
+            });
+            $(".wrap2").scroll(portfolio.onScroll); portfolio.onScroll();
+        }; cuppa.addEventListener("ready",  portfolio.init, document, "portfolio");
+    //--
+</script>
+<div class="portfolio max_width" style="max-width: 1000px;">
+            <div class="item item_type1 ">
+            <div class="box1" style=" background-color: #FF6B51; transform: translate(-10px, 10px);;" ></div>
+            <a index="0" title="Handwrytten web" href="en/portfolio/handwrytten-web" class="box2 link handwrytten-web"  >
+                <span style="display: none;">TVF Megashow</span>
+                <div class="image" style="background-image: url(https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10353636_636228006503938_7170446382077573907_n.jpg?oh=25aaae25e17a18fcc98e234b5a080b2b&oe=56425DE9);" ref-img="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfp1/v/t1.0-9/10353636_636228006503938_7170446382077573907_n.jpg?oh=25aaae25e17a18fcc98e234b5a080b2b&oe=56425DE9" ></div>
+                <div class="over">
+                    <div class="data" style="position: absolute; left: 40px; bottom: 40px; text-align: left;">
+                        <p class="t_24"><span style="font-family: Bryant-Bold; color: #f0f0f0; letter-spacing: 8px;">TVF Megashow</span></p>
+						<!--<p style="color: #dd3254; letter-spacing: 4px;" class="t_14"><span>#Branding&nbsp;. #Design&nbsp;. #UI/UX .&nbsp;#Develpment</span></p>  -->                  
+					</div>
+                </div>
+            </a>
+        </div>
+            <div class="item item_type1 ">
+            <div class="box1" style=" background-color: #FF6B51; transform: translate(-10px, 10px);;" ></div>
+            <a index="1" title="Covinoc Web Platforms" href="en/portfolio/covinoc-web-platforms" class="box2 link covinoc-web-platforms"  >
+                <span style="display: none;">Slacklining</span>
+                <div class="image" style="background-image: url(http://www.ktj.in/static/submissions/Megashows/3.png);" ref-img="http://www.ktj.in/static/submissions/Megashows/3.png" ></div>
+                <div class="over">
+                    <div class="data" style="position: absolute; left: 40px; bottom: 40px; text-align: left;">
+                        <p class="t_24"><span style="font-family: Bryant-Bold; color: #f0f0f0; letter-spacing: 8px;">Slacklining</span></p>
+						<!--<p style="color: #dd3254; letter-spacing: 4px;" class="t_14"><span>#Planing . #Design&nbsp;. #UI/UX&nbsp;</span></p>    -->                
+					</div>
+                </div>
+            </a>
+        </div>
+
+            <div class="item item_type1 ">
+            <div class="box1" style=" background-color: #FF6B51; transform: translate(-10px, 10px);;" ></div>
+            <div index="2" class="box2 link galf-branding-and-app"  >
+                <span style="display: none;">Pyromania</span>
+                <div class="image" style="background-image: url(https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/1044489_358278250965583_524019416_n.jpg?oh=4dda5ef4afcdbdc0b67ab9943a47bd3e&oe=5646E82B&__gda__=1448113752_d2d4123aa9d58ccdb942e8b59f408607);" ref-img="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpa1/v/t1.0-9/1044489_358278250965583_524019416_n.jpg?oh=4dda5ef4afcdbdc0b67ab9943a47bd3e&oe=5646E82B&__gda__=1448113752_d2d4123aa9d58ccdb942e8b59f408607" ></div>
+                <div class="over">
+                    <div class="data" style="position: absolute; left: 40px; bottom: 40px; text-align: left;">
+                        <p class="t_24"><span style="font-family: Bryant-Bold; color: #f0f0f0; letter-spacing: 8px;">Pyromania</span></p>
+                        <!--<p style="color: #dd3254; letter-spacing: 4px;" class="t_14"><span>#Branding&nbsp;. #Design&nbsp;. #UI/UX&nbsp;</span></p> -->                   
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+<div class="portfolio_data_temp">
+    <div class="header">
+        <div class="image">
+            <div class="degrade degrade_style2" style="height: 80%;"></div>
+        </div>
+        <div class="center_align_1" >
+            <div class="center_align_2 texts" style="padding: 10px 20px;">
+            </div>
+        </div>
+    </div>
+    <div class="content"></div>
+</div>

@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <style>
+            body{color:white;}
+            input{border:.1em rgba(71,101,145,1) solid;margin:5px;padding:1px;padding-left:10px;border-radius: 4px;height:30px;width:270px;}
+            a{text-decoration: none;color: white;font-size: 20px;}
+            label{font-size:20px;}
+            .loginbox{
+                width:400px;
+                height:200px;
+                background-color:rgba(0,0,0,0.5);
+                padding:50px;
+                margin: auto;
+            }
+            .sub{
+    width:100px;height:35px;
+    background-color:#26a69a;
+    color:white;border:0px solid #4CAF50;
+    border-radius:5px;font-size:17px;
+    cursor:pointer;
+}
+.sub:hover{
+    background-color:#27C4B4 ;
+    }
+        </style>
+    </head>
+    <body style="background-color:#004c4d;text-align:center;">
+    <div style="clear:both;margin:auto;">
+        <header id="main_header">
+           <center> <a href="http://ktj.in" ><img src="http://i.imgur.com/YVUoLTk.png?1" id="ktj_logo" style="width:300px;height:90px;" /></a></center>
+        </header>
+    <div class="loginbox" style="margin-top:100px;">    
+        <section id="main_section" style="">
+            <section id="login_container">
+                <section id="login">
+                    <h2></h2>
+                    {% if form.errors %}
+                        <div class="error">{{form.non_field_errors}}</div>
+                    {% endif %}
+                    <form method="post" action="/workshop6/login">
+                        {%csrf_token%}
+                        <label>Login&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        {{form.username}}
+                        <br><br><label>Password</label>
+                        {{form.password}}
+                        <br><div id="buttons">
+                            <br><center><input type="submit" value="SignIn" style="cursor:pointer;width:150px;" class="sub"/></center>
+                            
+                        </div>
+                    </form>
+                </section>
+            </section>
+        </section>
+    </div>    
+        <footer id="main_footer"></footer> 
+
+    </div>           
+    </body>
+</html>

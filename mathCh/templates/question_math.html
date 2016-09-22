@@ -1,0 +1,76 @@
+{% extends "main_math.html" %}
+
+{% load static %}
+{% load cache %}
+
+{% block timer %}
+<script type="text/javascript">
+    var countdown = (1800-({{ minremain }} * 60+{{ secremain }}))*1000;
+    var timerId = setInterval(function(){
+    countdown -= 1000;
+    var min = Math.floor(countdown / (60 * 1000));
+    var sec = Math.floor((countdown - (min * 60 * 1000)) / 1000);
+    if (sec<10) {sec="0"+sec;};
+    if (min<10) {min="0"+min;};
+    if (countdown <= 0) {
+      $("#countTime").html("00 : 00");
+      var frm = $("#answersfrm");
+      $.ajax({
+                type: frm.attr('method'),
+                url: frm.attr('action'),
+                data: frm.serialize(),
+                success:function(data){window.location.replace("http://localhost:8000/math/submit/")},
+            });
+      return;
+    } else {
+       $("#countTime").html(min + " : " + sec);
+    }
+
+  }, 1000);
+</script>
+<div id="countTime">-- : --</div>
+{% endblock %}
+
+{% block qbox %}
+<div id="qbox">
+	<form action="../submit/" method='POST' id="answersfrm">
+ 	{% csrf_token %}
+ 	<div id="questions-group">
+		<div id="indexbox">{% for q in qstns %}
+			<div class="qbox" id="{{ q.id }}">
+				{{ q.id }}
+			</div>
+		{% endfor %}
+		</div>
+		<input type="submit" value="Submit Answers" id="submitButton">
+		{% for q in qstns %}
+			<div id="question-{{ q.id }}" class="ques">
+				{{ q.question|safe|escape }}
+			<input type="text" name="answer{{ q.id }}" id="answer">
+			</div>
+		{% endfor %}
+	</div>
+	
+	</form>
+</div>
+{% endblock %}
+
+{% block content %}
+  <div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block play %}
+<div id="playbutton" style="display:none;">Continue</div>
+{% endblock %}
+
+{% block back %}
+    <input type="submit" value="Continue Playing" id="backbutton">
+{% endblock %}
+
+{% block logout %}
+  <div id="logout">
+  <a href="../logout/"><img src="{% static "img/mathCh/main/signout.png" %}" /> </a>
+  </div>
+{% endblock %}

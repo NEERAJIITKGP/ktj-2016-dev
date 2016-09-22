@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Cryptex- Kshitij 2015</title>
+        <link href="/static/css/cryptexlogin.css" rel="stylesheet"/>
+        <script type="text/javascript">
+            
+        </script>
+    </head>
+    <body>
+        <header id="main_header">
+            <a href="http://ktj.in"><img src="/static/images/cryptex/ktjwhite.png" id="ktj_logo"/ width=400 height=100></a>
+            
+            <a href="http://iitkgp.ac.in"><img src="/static/images/menu/kgp_logo.png"/></a>
+        </header>
+        <section id="main_section">
+            <section id="login_container">
+                <section id="login">
+                    
+                    {% if form.errors %}
+                        <div class="error">{{form.non_field_errors}}</div>
+                    {% endif %}
+                    <form method="post" action="/cryptex/login">
+                        {%csrf_token%}
+                        <label>login</label>
+                        {{form.username}}
+                        <label>Password</label>
+                        {{form.password}}
+                        <div id="buttons">
+                            <input type="submit" value="SignIn"/>
+                            <a href="/">SignUp</a>
+                        </div>
+                    </form>
+                </section>
+            </section>
+        </section>
+        <footer id="main_footer"></footer>        
+    </body>
+</html>

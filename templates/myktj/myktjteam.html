@@ -1,0 +1,137 @@
+{% load static %}
+<div id="makeTeam_container">
+	<!--Dialogue Box-->
+	<div id='dialogue-wrapper'>
+		<div id='dialogue-box'>
+			<span id="dialogue-close" style="color:red;font-size:130%;float:right;cursor:pointer;">☢</span>
+		<div id='dialogue-header'></div>
+		<div id='dialogue-content'></div>
+		</div>
+	</div>
+
+	<div id="event_reg_cont">
+		
+		<div class="m_title" style="font-size:16px;font-weight:bold;">Event Registartion</div>
+
+		<form method="POST" id="eventReg_form">
+			
+			<select name="r_event" id="event_reg">
+				
+				{% for genre in genres %}
+					
+					<option disabled class="m_genre_name">----------{{genre.name}}----------</option>
+					
+					{% for event in genre.event_set.all%}	
+						{% if event in regEvents %}
+							<option value="{{event.id}}">{{event.name}}</option>
+						{% else %}	
+							<option value="{{event.id}}" disabled class="reg_done">{{event.name}}</option>
+						{% endif %}
+					{% endfor %}				
+
+				{% endfor %}
+
+			</select>
+			
+			<div onclick="register_event()" id="m_event_reg_button">Register for Event</div>
+		</form>
+	</div>
+
+	<div id="team_reg_cont">
+		
+		<div class="m_title" style="font-size:16px;font-weight:bold;margin:5px;">Team Formation</div>
+
+		<form method="POST" id="team_reg_form">
+			
+			<select name="t_event" id="team_reg">
+				
+				{% for event in teamEv %}
+				{% if event.maxPeople > 1 %}
+					<option value="{{event.id}}">{{event.name}}</option>
+				{% endif %}
+				{% endfor %}
+
+			</select>
+			
+			<div onclick="create_team()" id="m_event_reg_button">Create Team</div>
+		</form>
+	</div>
+
+
+	<div id="team_invite_cont">
+		<div class="m_title" style="font-size:16px;font-weight:bold;">
+			Team Management
+		</div>
+		{% for team in teams %}	
+		<div id="m_team_block">
+			<table class="team">
+				<tr class="first">
+					<th>Team ID</th>
+					<th>Event</th>
+					<th>Max Team Size</th>
+					<th>Members</th>
+					<th>Remove</th>
+				</tr>
+				<tr>
+					<td>{{team.id}}</td>
+					<td>{{team.event.name}}</td>
+					<td>{{team.event.maxPeople}}</td>
+					<td>
+						{% for ur in team.members.all %}
+							{{ur.user.username}}<br>
+						{% endfor %}
+					</td>
+					<td>
+						<button onclick="removeTeam('{{team.id}}')">Dismantle Team</button>
+					</td>
+				</tr>
+			</table>
+			<div class='search_members'>
+				<input type="search" placeholder="Add Users" id="query{{team.id}}"/>
+				<button onclick="search({{team.id}})">Search</button>
+				<div class="search" id="search{{team.id}}"></div>
+			</div>
+		</div>
+
+		{% endfor %}
+	</div>
+
+
+	<div id="team_member_cont">
+		<div class="m_title" style="font-size:16px;font-weight:bold;">
+			Team Membership
+		</div>
+		{% for team in t_groups %}	
+		<div id="m_team_block">
+			<table class="team">
+				<tr class="first">
+					<th>Team ID</th>
+					<th>Event</th>
+					<th>Max Team Size</th>
+					<th>Team Leader</th>
+					<th>Members</th>
+					<th>Leave Team</th>
+				</tr>
+				<tr>
+					<td>{{team.id}}</td>
+					<td>{{team.event.name}}</td>
+					<td>{{team.event.maxPeople}}</td>
+					<td>{{team.leader.user.username}}</td>
+					<td>
+						{% for ur in team.members.all %}
+							{{ur.user.username}}<br>
+						{% endfor %}
+					</td>
+					<td>
+						<button onclick="exitTeam('{{team.id}}')">Leave Team</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		{% endfor %}
+	</div>
+
+	
+
+</div>

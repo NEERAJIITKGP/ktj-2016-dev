@@ -1,0 +1,264 @@
+{% load static %}
+<!DOCTYPE html>
+<html xmlns:fb="https://ogp.me/ns/fb#" charset="utf-8" lang='en' itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Excalibur | Kshitij 2016</title>
+<script src ="https://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script>
+
+<style type="text/css">
+    @charset "utf-8";
+    /* CSS Document */
+    *{
+        border: 0px;
+        margin: 0px;
+    }
+    body{
+
+    }
+    #bkg{
+        width: 100%;
+        height: 100%;
+    }
+    #header{
+        text-align: center;
+    }
+    #ktj{
+        position: absolute;
+        left: 2%;
+        width: 25%;
+        top:3%;
+        float: left;
+        cursor: pointer;
+    }
+    #exc_logo{
+        position: absolute;
+        width: 40%;
+        top: 20%;
+        left: 33%;
+    }
+    #ktj16logo{
+        position: absolute;
+        width: 20%;
+        top: 32%;
+        left: 43%;
+    }
+
+
+    #kgp_logo{
+        position: absolute;
+        right: 1.5%;
+        top:1%;
+        width:7%;
+        float: right;
+        
+    }
+    #home, #about, #rules{
+        display: -webkit-box;
+        display: -moz-box;
+        -webkit-box-flex:1;
+        -moz-box-flex:1;
+        height: 150px;
+        -webkit-box-pack:center;
+        -moz-box-pack:center;
+        cursor: pointer;
+    }
+    #menubar{
+        text-align: justify;
+        display: -webkit-box;
+        display: -moz-box;
+        width:100%;
+    }
+    #midcontent{
+        display: -webkit-box;
+        display: -moz-box;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        width: 100%;
+    }
+    #login{
+        position: absolute;
+        background: rgba(16, 14, 14,0.8);
+        width: 35%;
+        height: 40%;
+        border: 1px solid white;
+        border-radius: 10px;
+        top:55%;
+        left: 2%;
+    }
+    #userlogin{
+        height: 35px;
+        background: rgba(16, 14, 14,0.8);
+        width: 200px;
+        /*margin: 5px 0px;*/
+        color: white;
+        border: 1px solid grey;
+        padding-left: 10px;
+        border-radius: 5px;
+        position: absolute;
+        top:9%;
+        left:43%;
+    }
+    #passlogin{
+        height: 35px;
+        background: rgba(16, 14, 14,0.8);
+        width: 200px;
+        /*margin: 5px 0px;*/
+        color: white;
+        border: 1px solid grey;
+        padding-left: 10px;
+        position: absolute;
+        top:31%;
+        left:43%;
+        border-radius: 5px;
+    }
+    #login-button{
+        background:url({% static "img/excalibur/login-button.png" %});
+        width: 167px;
+        height: 52px;
+        cursor: pointer;
+        position: absolute;
+        left: 7%;
+        top: 60%;
+    }
+    #register-button{
+        background:url({% static "img/excalibur/register-button.png" %});
+        width: 168px;
+        height: 52px;
+        cursor: pointer;
+        position: absolute;
+        left:47% ;
+        top: 60%;
+        
+    }
+    td{
+        width:250px;
+    }
+    table{
+        width: 450px;
+    }
+    #description{
+        position: relative;
+        width: 35%;
+
+        left: 25%;
+        top: 190px;
+        height: 260px;
+        background: rgba(16, 14, 14,0.8);
+        padding: 2%;
+        /*margin-top: 30px;*/
+        border: 1px solid white;
+        color: white;
+        border-radius: 10px;
+        font-family: "trebuchet ms";
+        overflow-y: scroll;
+    }
+
+      body{
+    scrollbar-base-color: #eaeaea;
+    scrollbar-base-color: #eaeaea;
+    scrollbar-3dlight-color: #eaeaea;
+    scrollbar-highlight-color: #eaeaea;
+    scrollbar-track-color: #666;
+    scrollbar-arrow-color: #eaeaea;
+    scrollbar-shadow-color: #eaeaea;
+    scrollbar-dark-shadow-color: #eaeaea;
+  }
+::-webkit-scrollbar { width: 10px; height: 10px; border-radius:10px;}
+::-webkit-scrollbar-button {  background-color: transparent;border-radius:10px;}
+::-webkit-scrollbar-track {  background-color: transparent;}
+::-webkit-scrollbar-track-piece { background-color: transparent;}
+::-webkit-scrollbar-thumb { height: 50px; background-color:#666; border-radius: 10px;}
+::-webkit-scrollbar-corner { background-color: transparent;}}
+::-webkit-resizer { background-color: #666;}
+@-moz-document url-prefix(http://),url-prefix(https://) {
+scrollbar {
+   -moz-appearance: none !important;
+   background: rgb(0,255,0) !important;
+}
+thumb,scrollbarbutton {
+   -moz-appearance: none !important;
+   background-color: rgb(0,0,255) !important;
+}
+thumb:hover,scrollbarbutton:hover {
+   -moz-appearance: none !important;
+   background-color: rgb(255,0,0) !important;
+}
+scrollbarbutton {
+   display: none !important;
+}
+scrollbar[orient="vertical"] {
+  min-width: 15px !important;
+}
+}
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+              var fill = '',
+                  head = '';
+              $('#home-button').click(function () {
+                  fill = "{{matter.introduction|safe|escape}}";
+                  $("#description").hide();
+                  $("#login").show();
+              });
+
+              $('#rules-button').click(function () {
+                  fill = "{{matter.rules|safe|escape}}";
+                  $('#description').html(fill);
+                  $("#login").hide();
+                  $("#description").show();
+              });
+
+              $('#about-button').click(function () {
+                  fill = "{{matter.abouts|safe|escape}}";
+                  $('#description').html(fill);
+                  $("#login").hide();
+                  $("#description").show();
+              });
+          });
+</script>
+</head>
+<body>
+<img id="bkg" src="{% static "img/excalibur/excaliburbg.png" %}" style="position:absolute;z-index:-100;"/>
+<div class="container">
+	<div id="header">
+    	<a href="https://ktj.in/" target="_blank"><img src="{% static "img/excalibur/ktj.png" %}" id="ktj" /></a>
+      <img src="{% static "img/excalibur/exc-logo-login.png" %}" id="exc_logo"/>
+      <img src="{% static "img/excalibur/ktj16.png" %}" id="ktj16logo"/>
+      <a href="https://www.iitkgp.ac.in/" target="_blank"><img src="{% static "img/excalibur/kgp-exc-log.png" %}" id="kgp_logo"/></a>
+	</div>
+    <div id="menubar">
+
+  		  <div id="home"><img src="{% static "img/excalibur/home-exc-log.png" %}" style="position:absolute;left:10%;top:41.25%;width:10%;" id="home-button"/></div>
+      	<div id="rules"><img src="{% static "img/excalibur/rules-exc-log.png" %}" style="position:absolute;width:10%;left:45%;top:41.25%;" id="rules-button"/></div>
+      	<div id="about"><img src="{% static "img/excalibur/about-exc-log.png" %}" style="position:absolute;width:10%;left:80%;top:41.25%;" id="about-button"/></div>
+	</div>
+    <div id="midcontent">
+        <div id="login">
+            <form action='excaliburPlay/' method='POST'>
+              {% csrf_token %} 
+                <table cellspacing="20px;">
+                    <tr>
+                        <td><img src="{% static "img/excalibur/username.png" %}" style="width:40%;position:absolute;top:10%;"/></td>
+                        <td><input type="text" name="username" id="userlogin">
+                    </tr>
+                    <tr>
+                        <td><img src="{% static "img/excalibur/password.png" %}" style="width:35%;position:absolute;top:32%;left:6%;"/></td>
+                        <td><input type="password" name="password" id="passlogin"></td>
+                    </tr>
+                    <tr>
+                        <td><div><input type="submit" value="" id="login-button"/></div></td>
+                        <td><a href="http://ktj.in/"><div id="register-button"><img src="{% static "img/excalibur/register-button.png" %}" /></div></a></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div id="description" style="display:none;"></div>
+    </div>    
+    </div>
+</div>
+</body>
+</html>

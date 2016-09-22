@@ -1,0 +1,43 @@
+<html>
+<head></head>
+<body>
+<div id="heading">
+            Exhibitions of 2014
+        </div>
+        <div id="desc_exhi">
+            <div id="desc_exhi_heading">
+                {{exhibitions.0.name}}
+            </div>
+            <div id="exhi_nation" style="padding-top: 10px;">
+                <div id="exhi_flag">
+                            <img src= "{{exhibitions.0.country_flag}}" class="flag">
+                </div>
+                <div id="country" style="padding: 10px; font-size: 25px;">
+                    {{exhibitions.0.country}}
+                </div>
+            </div>
+
+            <div id="desc_exhi_write">
+                {{exhibitions.0.description}}
+            </div>
+        </div>
+
+        <div id="images">
+
+        {% for exh in exhibitions %}
+
+            {% if forloop.first %}
+                <div class="exhi_img_sel" id="ex_img{{exh.id}}" onclick="changeExhibition({{exh.id}});">
+            {% else %}
+                <div class="exhi_img" id="ex_img{{exh.id}}" onclick="changeExhibition({{exh.id}});">
+            {% endif %}
+                <img class="inner-image" src="{{exh.image}}"/>
+                </div>
+                
+        {% endfor %}
+                </div>
+                
+            </div>
+    
+</body>
+</html>

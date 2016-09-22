@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title>Kshtij 2015 - Hall Count</title>
+	<style type="text/css">	
+		th{
+			padding: 10px;
+			color: white;
+			background: brown;
+			box-shadow: 2px 2px 2px black;
+			border-radius: 2px;
+		}
+
+		table{
+			border-spacing:0px;
+			width: 100%;
+		}
+		body{
+			background:#ddd;
+			color: black;
+			font-family: "Trebuchet MS";
+			text-align: center;
+		}
+</style>
+</head>
+
+<body>
+	{% if view = 'overview' %}
+	<table style="width:30%; border-spacing:0px;" border="3px" cellpadding="7px" >
+		<tr>
+			<th>Hall</th>
+			<th>Current Count</th>
+		</tr>
+
+		{% for key, value in hallctx.items %}
+		<tr>
+			<td><a href="/acco/hcnt?view=hall&p={{key}}">{{key}}</a></td>
+			<td>{{value}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+	{% elif view = 'hall' %}
+	<h1>Users allotted {{pp}} for accomodation</h1>
+	<table border="3px" cellpadding="7px">
+		<tr>
+			<th>S No.</th>
+			<th>Userame</th>
+			<th>DD No.</th>
+			<th>DD Date.</th>
+			<th>Phone</th>
+			<th>Institution</th>
+		</tr>
+
+		{% for man in accomem %}
+		<tr>
+			<td style="width:80px;">{{forloop.counter}}</td>
+			<td>{{man.username}}</td>
+			<td>{{man.ddno}}</td>
+			<td>{{man.dddate}}</td>
+			<td>{{man.phone}}</td>
+			<td>{{man.insti}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+</body>
+</html>

@@ -1,0 +1,308 @@
+{% load static %}
+<!DOCTYPE html>
+<html xmlns:fb="https://ogp.me/ns/fb#" charset="utf-8" lang='en' itemscope itemtype="http://schema.org/Organization">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Excalibur | Kshitij 2016</title>
+<script src ="https://ktj.in/static/js/vendor/jquery-1.11.1.min.js"></script>
+
+<style type="text/css">
+    @charset "utf-8";
+    /* CSS Document */
+    *{
+        border: 0px;
+        margin: 0px;
+    }
+    body{
+
+    }
+    #bkg{
+        width: 100%;
+        height: 100%;
+    }
+    #header{
+        text-align: center;
+    }
+    #ktj{
+        position: absolute;
+        left: 2%;
+        width: 25%;
+        top:3%;
+        float: left;
+        cursor: pointer;
+    }
+    #exc_logo{
+        position: absolute;
+        width: 40%;
+        top: 10%;
+        left: 33%;
+    }
+    #kgp_logo{
+        position: absolute;
+        right: 1.5%;
+        top:1%;
+        width:7%;
+        float: right;
+        
+    }
+    #home, #about, #rules{
+        
+        cursor: pointer;
+    }
+    #menubar{
+        display: -webkit-box;
+        display: -moz-box;
+        -webkit-box-flex:1;
+        -moz-box-flex:1;
+        text-align: justify;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        padding-right: 20px;
+        border-right: 5px solid #ddd;
+    }
+    #midcontent{
+        display: -webkit-box;
+        display: -moz-box;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        width: 95%;
+    }
+    #content{
+      display: -webkit-box;
+      display: -moz-box;
+      -webkit-box-flex:1;
+      -moz-box-flex:15;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      width: 70%;
+      background: rgba(0,0,0,0.6);
+      margin-left: 20px;
+      padding: 20px;
+      font-family: "trebuchet ms";
+      color: white;
+      position: absolute;
+      top:49%;
+      left:17.5%;
+      height:38%;
+      overflow: hidden;
+    }
+    #qbox{
+      display: -webkit-box;
+      display: -moz-box;
+      -webkit-box-flex:1;
+      -moz-box-flex:15;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      width: 75%;
+      background: rgba(0,0,0,0.6);
+      margin-left: 20px;
+      padding: 20px;
+      font-family: "trebuchet ms";
+      color: white;
+      position: absolute;
+      top:35%;
+      left:17.5%;
+      height:58%;
+      
+    }
+    *::-webkit-scrollbar
+        {
+        width:5px;
+        transition-property: all;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-out;
+        cursor:pointer;
+        }
+      *::-webkit-scrollbar : hover{
+        width:15px;
+        }
+      *::-webkit-scrollbar-thumb{
+        border-radius: 5px;
+        background:rgba(255, 255, 255,0.8);
+        }
+      *::-webkit-scrollbar-track
+        {
+        background: rgba(173, 171, 171,0.5);
+        }
+    #playbutton {
+      position: absolute;
+      top: 82%;
+      left: 75%;
+      width: 200px;
+      height: 50px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid grey;
+      cursor: pointer;
+      text-align: center;
+    }
+    #mesbutton {
+      position: absolute;
+      top: 84%;
+      left: 70%;
+      height: 50px;
+      background: rgba(34,26,28, 0.9);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border: 3px solid rgb(255, 196, 87);
+      cursor: pointer;
+      text-align: center;
+    }
+    #playbuttonnil a{
+        text-decoration: none;
+        color: #FFF;
+       
+    }
+    #playbuttonnil{
+        position: absolute;
+        top: 80%;
+        left: 75%;
+        width: 200px;
+        height: 37px;
+        background: rgba(34,26,28, 0.9);
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+        border: 3px solid rgb(255, 196, 87);
+        cursor: pointer;
+        text-align: center;
+        padding-top: 9px;
+
+    }
+    #backbutton{
+      position: absolute;
+      top: 80%;
+      left: 79%;
+      width: 150px;
+      height: 50px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid grey;
+      cursor: pointer;
+    }
+    #outbutton{
+      position:absolute;left:82.5%;top:25.25%;
+      /*background:url({% static "img/excalibur/logout.png" %});*/
+      width: 10%;
+      height: 50px;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      
+      font-size: 17px;
+      border: 1px solid grey;
+      cursor: pointer;
+    }
+    .q_pic{
+      max-height: 180px;
+      max-width: 300px;
+      min-height: 180px;
+      margin: 0px 10px 30px 10px;
+      border: 3px solid grey;
+    }
+    #answer{
+      position: relative;
+      top: -55px;
+
+      height: 30px;
+      width: 400px;
+    }
+    #q_index{
+      display: inline-flex;
+      /*display: -moz-box;
+      -moz-box-orient: horizontal;*/
+      padding-bottom: 10px;
+      
+    }
+    #qind-box{
+      position: relative;
+      top: -15px;
+
+      padding: 10px 15px;
+      margin: 0px 10px;
+      background: rgba(0,0,0,0.4);
+      border: 3px solid grey;
+      color: white;
+    }
+</style>
+
+<script type="text/javascript">
+$(document).ready(function () {
+              $('#backbutton').hide();
+              var fill = '',
+                  head = '';
+              $('#home').click(function () {
+                  fill = "{{matter.introduction|safe|escape}}";
+                  $("#qbox").hide();
+                  $('#backbutton').show();
+                  $("#content").html(fill);
+                  $("#content").show();
+
+              });
+
+              $('#rules').click(function () {
+                  fill = "{{matter.rules|safe|escape}}";
+                  $('#content').html(fill);
+                  $('#backbutton').show();
+                  $("#qbox").hide();
+                  $("#content").show();
+
+              });
+
+              $('#about').click(function () {
+                  fill = "{{matter.abouts|safe|escape}}";
+                  $('#content').html(fill);
+                  $('#backbutton').show();
+                  $("#qbox").hide();
+                  $("#content").show();
+              });
+              $('#backbutton').click(function () {
+                  $('#content').hide();
+                  $("#qbox").show();
+                  $('#backbutton').hide();
+              });
+          });
+</script>
+</head>
+<body>
+<img id="bkg" src="{% static "img/excalibur/excaliburbg.png" %}" style="position:absolute;z-index:-100;"/>
+<div class="container">
+	<div id="header">
+      <a href="https://ktj.in/" target="_blank"><img src="{% static "img/excalibur/ktj.png" %}" id="ktj" /></a>
+      <img src="{% static "img/excalibur/exc-logo-login.png" %}" id="exc_logo"/>
+      <a href="https://www.iitkgp.ac.in/" target="_blank"><img src="{% static "img/excalibur/kgp-exc-log.png" %}" id="kgp_logo"/></a>
+      <form action="/excalibur/logout"><input type="submit" value="LOGOUT" id="outbutton"></form>
+	</div>
+  <div id="midcontent">
+    <div id="menubar">
+        <div id="home"><img src="{% static "img/excalibur/home-exc-log.png" %}" style="position:absolute;left:7.5%;top:25.25%;width:10%;" /></div>
+        <div id="rules"><img src="{% static "img/excalibur/rules-exc-log.png" %}" style="position:absolute;width:10%;left:35.5%;top:25.25%;" /></div>
+        <div id="about"><img src="{% static "img/excalibur/about-exc-log.png" %}" style="position:absolute;width:10%;left:60.5%;top:25.25%;" /></div>
+    </div>
+    
+    {% block content %}
+    <div id="content">
+      {{ matter.introduction|safe|escape }}
+    </div>
+    {% endblock %}
+    
+    {% block qbox %}
+    {% endblock %}
+    
+
+    {% block play %}
+    <form action="ques?q=1" method="POST">
+        {% csrf_token %} 
+        <input type="submit" value="Play" id="playbutton">
+    </form>
+    {% endblock %}
+    {% block back %}
+    {% endblock %}
+  </div>
+</div>
+</body>
+</html>

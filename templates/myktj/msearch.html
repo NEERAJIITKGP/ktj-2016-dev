@@ -1,0 +1,8 @@
+{% for res in results %}
+	<p class="mem_details">
+		{{res.first_name}} {{res.last_name}} ({{res.username}}) 
+		<a style="cursor:pointer" onclick="invite({{tid}},'{{res.username}}')">
+			<span class="add_member">+ Add Member</span>
+		</a>
+	</p>
+{% endfor %}

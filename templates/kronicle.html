@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>
+            Kronicle - Kshitij official Blog
+        </title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/static/Blog/css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="/static/Blog/css/keyframes.css"/>
+        <script src="/static/Blog/js/jquery-1.11.1.min.js"></script>
+        <script src="/static/Blog/js/load.js"></script>
+        <script src="/static/Blog/js/manage_content.js"></script>
+        <meta property="og:title" content="{{title}}" />
+
+        <meta property="og:url"    content="http://ktj.in/kronicle/{%if output != -1%}{{output}}{%endif%}" />
+        <meta property="og:description" content="{{meta}}" />
+        <meta property="og:image" content="{{metaImg}}" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="8589" />
+        <meta property="og:image:height" content="3508" />
+        <meta itemprop="sameas" content="https://en.wikipedia.org/wiki/Kshitij" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "48869156-77ca-43c5-b395-cc7b623b0c23", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+        <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<link rel="canonical" href="https://ktj.in/kronicle/{{blog.id}}" />
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script>
+            function init()
+                {
+                    var output={{output}}
+                    main_section=document.getElementById("main_section").innerHTML;
+                    //a=$("#main_section").children().length;
+                    $(".blog_post").addClass("blog_load");
+                    $(".blog_post").click(function (e){OpenPost(this);});
+                    $("#home_button").click(reset);
+                    $("#exit").click(reset);
+
+                    if (output!=-1){
+                        var open_post=document.getElementById("post_"+output);
+                        OpenPost(open_post) ;
+                      }
+                    $('body').mousemove(function(){$('.blog_post footer div:nth-child(2)').css('vertical-align','middle');});
+                }
+        </script>
+        <script type="text/javascript">
+window.twttr = (function (d, s, id) {
+  var t, js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src= "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+  return window.twttr || (t = { _e: [], ready: function (f) { t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+</script>
+
+
+<script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-66400807-1', 'auto');
+              ga('send', 'pageview');
+
+            </script>
+
+
+    </head>
+    <body onload="init()">
+      
+      <div id="wrapper">
+      <div id="exit" style="position:absolute;z-index:-1;height:100%;width:100%;" onclick='reset();'></div>
+      <div id="fb-root"></div>
+
+
+
+    <header id="main_header">            
+            <div id="background"> <div id="block_1"></div><div id="block_2"></div></div>
+          <div id="title"><a href="http://www.ktj.in" target="_blank"><img src="http://i.imgur.com/YVUoLTk.png?1" class="float_left shadowed"></a>
+            <!--<div class="fb-like" style="" data-href="https://www.facebook.com/ktj.iitkgp" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>-->
+            <span><a href="/kronicle" target="_blank"><img src="http://www.ktj.in/static/Blog/images/logo.png"></a>KRONICLE</span>
+            <a href="http://www.iitkgp.ac.in" target="_blank"><img class="float_right shadowed" src="http://www.ktj.in/static/Blog/images/kgp_logo.png"></a><a href="http://www.ktj.in" target="_blank"><img class="float_right shadowed" src="http://www.ktj.in/static/Blog/images/ktj.png"></a></div>
+</header>
+        <section id="main_container">
+          <aside id="main_aside">
+          <section class="aside_section" id="buttons">
+            <div style="text-align:center; cursor:pointer;" id="home_button"><span  style="text-align:center;">Home</span></div>
+            </section>
+
+<div class="fb-like-box" id="socialbox" data-href="https://www.facebook.com/ktj.iitkgp" data-height="100%" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
+              
+                <div id="socialbox1">
+                <div class="social1">
+                 
+                    
+                    </a>
+<a href="http://ktj.in/app" target="_blank"><!-- blog -->
+                <img src="http://www.ktj.in/static/submissions/Sponsors/download.png" style="height:55px;width:200px;padding-left:40px;padding-top:3px;">
+            </a>
+                    
+                </div>
+                </div>
+            </aside>
+            <section id="main_section">
+                <div id="post"><div id="blog_data"></div></div>
+                {% for blog in posts reversed%}
+                <article class="blog_post" id="post_{{blog.id}}">
+                    <header>
+                        {{blog.title}}
+                        <span class="float_right number">#{{blog.id}}</span>
+
+                        <div class="time">{{blog.Date}}<span class="float_right fbox">
+                          <div class="social">
+                            <span class="google">
+                              <g:plusone size="medium" href="http://ktj.in/kronicle/{{blog.id}}"></g:plusone>
+                            </span>
+                            <span class="Facebook">
+                              <iframe src="https://www.facebook.com/plugins/like.php?href=http://ktj.in/kronicle/{{blog.id}}&amp;show_faces=false&amp;layout=button_count" scrolling="no" frameborder="0" style="height: 21px; width: 100px" allowTransparency="true"></iframe>
+                            </span>
+  </div>
+                          </span></div>
+                        
+                    </header>
+                    <article>
+                        {{blog.content | safe|escape}}
+  
+<div class="fb-comments" data-href="http://ktj.in/kronicle/{{blog.id}}" data-numposts="10" data-colorscheme="light"></div>
+                    </article>
+                    <footer >
+                      <div class="fb-share-button" data-href="http://www.ktj.in/kronicle/{{blog.id}}" data-layout="button_count"></div>
+                      <div class="g-plus"  data-action="share" data-annotation="bubble" data-expandTo="bottom"data-href="http://www.ktj.in/kronicle/{{blog.id}}" data-height="24"></div>
+                    </footer>
+
+                </article>
+                {%endfor%}
+                
+            </section>
+        </section>
+        <footer id="main_footer"><span class="float_left"><a href="http://www.ktj.in" style="text-decoration:none;color:inherit;" target="_blank">www.ktj.in</a></span>Copyright. Team Kshitij 2016<span class="float_right"><a href="http://www.ktj.in/contacts" style="text-decoration:none;color:inherit;" target="_blank">Contacts</a></span></footer>
+      </div>
+    </body>
+
+</html>

@@ -1,0 +1,26 @@
+<div class="uploads">
+	<h4>Upload Submissions</h4>
+	<div id='upload'>
+		
+		<form id='upload_data' enctype='multipart/form-data'>
+			<select id="upload_event" name='sub_event' style='width:80%;'>
+				<option value="">--Select Event--</option>
+					
+					{% for team in teams %}
+						<option value="{{team.event.name}}">{{team.event.name}}</option>
+					{% endfor %}
+
+			</select>
+			<input name='sub_file' type='file'></input><br/>
+
+
+		</form>
+
+		<span id='uploadMessage'></span>
+
+		<div id='file_upload_button'>Upload File</div>
+		
+		<div id='upload_progress'></div>
+
+	</div>
+</div>

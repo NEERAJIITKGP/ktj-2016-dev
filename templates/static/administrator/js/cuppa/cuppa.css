@@ -1,0 +1,213 @@
+.blockade{
+	position:fixed;
+	border: none;
+	background:rgba(0,0,0,0.7);
+	top:0;
+	left:0;
+    right: 0px;
+    bottom: 0px;
+    z-index: auto;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.blocakde_transparent{
+	position:fixed;
+	border: none;
+	width:100%;
+	height:100%;
+	background: url(images/pixel_transparent.png) repeat !important;
+	top:0;
+	left:0;
+	float:left;
+    z-index: 9999;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.charger_small{
+	position:fixed;
+	background: url(images/charger.gif) center no-repeat;
+    width:32px;
+	height:32px;
+	top:50%;
+	left:50%;
+	margin-left:-16px;
+	margin-top:-16px;
+    z-index: 101;
+}
+.btn_close_gray{
+    position: relative;
+    width: 19px;
+    height: 19px;
+    background-image: url("images/close_gray.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.btn_close_white{
+    position: relative;
+    width: 26px;
+    height: 26px;
+    background-image: url("images/close_white.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.pixel_transparent{ background:url(images/pixel_transparent.png) repeat; }
+/* button_upload */
+    .button_upload{
+        position: relative;
+        display: inline-block;
+        border: 1px solid #3079ED;
+        background: #4d90fe;
+        color: #FFF;
+        text-align: center;
+        overflow: hidden;
+        padding: 4px 12px;
+    }
+    .button_upload:hover{ border: 1px solid #196AEB; background: #4a8dfc; }
+    .button_upload .text_button{ top: 0px; margin: 0px; }
+    .button_upload .progress_bar{ position: absolute; height: 2px; bottom: 0px; left: 0px; width: 0%; background: #004bca; }
+/* Input styles */
+    .input_cuppa{
+        position: relative;
+        display: inline-block;
+        height: 70px;
+        max-width: 600px;
+        min-width: 50px;
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.05);
+    }
+        .input_cuppa .input_cuppa_wrapper{
+            position: relative;
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        .input_cuppa .input_cuppa_left{
+            display: table-cell;
+            background-image: url("images/stype_input.png");
+            background-position: left top;
+            background-repeat: no-repeat;
+            text-align: left;
+            vertical-align: middle;
+            padding: 15px;
+            overflow: hidden;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        } .input_cuppa[class*="error"] .input_cuppa_left{ background-position: left bottom; }
+        .input_cuppa .input_cuppa_right{
+            display: table-cell;
+            background-image: url("images/stype_input.png");
+            background-position: right top;
+            background-repeat: no-repeat;
+            width: 48px;
+        } .input_cuppa[class*="error"] .input_cuppa_right{ background-position: right bottom; }
+        .input_cuppa input{
+            position: absolute;
+            background: none;
+            border: none;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            font-size: 14px;
+            padding:0px 15px 0px 15px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            overflow: hidden;
+        }
+/* Checkbox styles */
+    .checkbox_cuppa{
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 31px;
+        height: 31px;
+        background-image: url("images/stype_checkbox.png");
+        background-position: left top;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        overflow: hidden;
+    }
+    .checkbox_cuppa_checked{ background-position: right top; }
+    .checkbox_cuppa[class*="error"]{ background-position: left bottom !important; }
+/* Radio styles */
+    .radio_cuppa{
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 36px;
+        height: 36px;
+        background-image: url("images/style_radio.png");
+        background-position: left top;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        overflow: hidden;
+    } .radio_cuppa input{ cursor: pointer; visibility: hidden; }
+    .radio_cuppa_checked{ background-position: right top; }
+    .radio_cuppa[class*="error"]{ background-position: left bottom !important; }
+/* Select styles */
+    .select_cuppa{
+        position: relative;
+        display: inline-block;
+        height: 29px;
+        min-width: 50px;
+        overflow: hidden;
+        vertical-align: middle;
+    }
+        .select_cuppa .select_cuppa_wrapper{
+            position: relative;
+            display: table;
+            width: 100%;
+            height: 100%;
+        }
+        .select_cuppa .select_cuppa_left{
+            display: table-cell;
+            background-image: url("images/style_select.png");
+            background-position: left top;
+            background-repeat: no-repeat;
+            text-align: left;
+            vertical-align: middle;
+            padding: 15px;
+            overflow: hidden;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        } .select_cuppa[class*="error"] .select_cuppa_left{ background-position: left bottom !important; }
+        .select_cuppa .select_cuppa_right{
+            display: table-cell;
+            background-image: url("images/style_select.png");
+            background-position: right top;
+            background-repeat: no-repeat;
+            width: 48px;
+        } 
+        .select_cuppa:hover{
+            box-shadow: 0px 1px 2px rgba(0,0,0,0.10);
+        }
+        .select_cuppa:hover .select_cuppa_left{ background-position: left -39px; }
+        .select_cuppa:hover .select_cuppa_right{ background-position: right -39px; }
+        .select_cuppa[class*="error"] .select_cuppa_right{ background-position: right bottom !important; }
+        .select_cuppa .select_cuppa_text{
+            position: absolute;
+            left: 7px;
+            top: 7px;
+            right: 24px;
+            font-size: 13px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            overflow: hidden;
+            white-space: nowrap;
+            color: #444444;
+        }
+        .select_cuppa select{
+            position: absolute !important;
+            left: 0px !important;
+            top: 0px !important;
+            height: 100% !important;
+            width: 100% !important;
+            opacity: 0 !important;
+            -webkit-appearance: none;
+        }

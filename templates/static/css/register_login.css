@@ -1,0 +1,360 @@
+/*Registration page*/
+
+#registration_container{
+	position: fixed;
+	left: 200%;
+	background: #2C2638;
+	width: 100%;
+	min-width: 1200px;
+	min-height: 650px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: center;
+	z-index: 115;
+	/*overflow: hidden;*/
+	border-right: black 5px solid;
+    color:white;
+}
+
+.reg_heading{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	font-family: Nexa-Bold;
+	align-items: center;
+	width: 100%;
+	font-size: 50px;
+	color: white;
+	margin-top: 20px;
+	text-transform: uppercase;
+}
+
+.reg_heading span{
+	flex-grow:1;
+	text-align: center;
+}
+
+.home-register{
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+#registration_container form{
+	font-family: Trebuchet MS;
+	width: 90%;
+	height: 80%;
+	display: flex;
+	flex-direction: row;
+}
+
+.register-section{
+	display: flex;
+	flex-direction: column;
+	flex-flow: column wrap;
+	flex-grow: 1;
+	min-width: 350px;
+	margin-right: 5px;
+}
+
+.register-wrap{
+	display: flex;
+	flex-direction: column;
+	flex-grow:1;
+}
+
+
+.register-wrap .label{
+	color: white;
+	font-size: 18px;
+	font-family: Nexa-Light;
+	margin-bottom: 10px;
+}
+
+.input-element select{
+	border: #CF3540 2px solid;
+	background: black;
+	color: white;
+	outline: none;
+}
+
+.input-element input[type=text]{
+	height: 25px;
+	outline: none;
+	padding: 5px;
+	margin-right: 10px;
+	border: #CF3540 2px solid;
+	background: #717475;
+	color: white;
+}
+
+.input-element input[type=email]{
+	height: 25px;
+	outline: none;
+	padding: 5px;
+	margin-right: 10px;
+	border: #CF3540 2px solid;
+	background: #717475;
+	color: white;
+}
+
+.input-element input[type=password]{
+	height: 25px;
+	outline: none;
+	padding: 5px;
+	border: #CF3540 2px solid;
+	background: #717475;
+	color: white;
+}
+
+.input-element select{
+	height: 40px;
+	min-width: 80px;
+	padding: 5px;
+	margin-right: 10px;
+	border: #CF3540 2px solid;
+	background: #717475;
+	color: white;
+	outline: none;
+	max-width: 100%;
+}
+
+.input-element textarea{
+	padding: 10px;
+	border: #CF3540 2px solid;
+	background: #717475;
+	color: white;
+	outline: none;
+}
+
+.input-element .signup_click{
+	width: 150px;
+	height: 40px;
+	border-radius: 3px;
+	border: none;
+	background: #CF3540;
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+
+.errors{
+	color: white;
+	font-weight: bold;
+	font-family: Nexa-Bold;
+	width: 90%;
+}
+/*Registration page ends*/
+
+/*Login Page*/
+#login_container{
+	position: fixed;
+	left: 100%;
+	background: #2C2638;
+	width: 100%;
+	min-width: 1200px;
+	min-height: 650px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 120;
+	overflow: hidden;
+	border-right: black 5px solid;
+}
+
+#login_ktj_logo, #login_kgp_logo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+}
+
+#login_kgp_logo .home-login{
+	height: 60px;
+	width: 60px;
+	margin-bottom: 40px;
+	cursor: pointer;
+}
+
+#login-center{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	height: 80%;
+}
+
+#login_circle{
+	height: 400px;
+    width: 400px;
+    border-radius: 200px;
+    border: solid #717475 4px;
+    box-shadow: #CF3540 0px 0px 0px 2px;
+    background: #CF3540;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#login_circle img{
+	height:200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#login_circle form{
+	height: 60%;
+	display: flex;
+	top: 7%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-labels{
+	font-family: Nexa-Light;
+	margin-right: 15px;
+}
+
+.login-line input[type=text]{
+	height: 20px;
+	padding: 5px;
+	margin-right: 5px;
+	background-color: #717475;
+	color: white;
+	font-family: Nexa-Light;
+	outline: none;
+	border: none;
+	min-width: 200px;
+}
+
+.login-line input[type=password]{
+	height: 20px;
+	border: none;
+	padding: 5px;
+	color: white;
+	background-color: #717475;
+	font-family: Nexa-Light;
+	outline: none;
+	min-width: 200px;
+}
+
+.login-line .login-submit{
+	padding: 5px;
+	width: 120px;
+	font-family: Nexa-Bold;
+	font-weight: bold;
+	font-size: 24px;
+	border: 2px solid #CF3540;
+	text-align: center;
+	color: #CF3540;
+	margin-bottom: 15px;
+	background: #717475;
+}
+
+#register-login{
+	display: flex;
+}
+
+.register-login-box{
+	height: 50px;
+	width: 200px;
+	font-family: Nexa-Bold;
+	font-weight: bold;
+	font-size: 30px;
+	color: #000;
+	background: #CF3540;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+#register-success-gohome{
+	border-radius: 3px;
+	border: none;
+	background: #CF3540;
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 15px 60px;
+}
+#profile_display{
+	color: white;
+	/*display: flex;*/
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row wrap ;
+	width: 90%;
+	margin: 1% 5%;
+	height: 80%;
+	overflow: auto;
+}
+
+#profile_display .profile-section{
+	min-height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin: 0px 50px;
+	/*align-items: center;*/
+}
+
+#profile_display .profile-wrap{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	flex-grow: 1;
+}
+
+#profile_display .profile-wrap .label{
+	margin-right: 15px;
+	font-weight: bold;
+	background: #CF3540;
+	min-width: 150px;
+	padding: 10px 5px;
+	text-align: center;
+	border-radius: 1px;
+}
+
+.profile-element{
+	min-width: 240px;
+	padding: 10px 5px;
+	background: #fefefe;
+	color: #555;
+	width: 100%;
+}
+
+.user-logout-box{
+	height: 30px;
+	width: 120px;
+	font-family: Trebuchet MS;
+	font-weight: bold;
+	font-size: 18px;
+	color: #000;
+	background: #CF3540;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+	border-radius: 1px;
+}
+
+.errorlist{
+	list-style: none;
+}

@@ -1,0 +1,29 @@
+{% extends "main_exc.html" %}
+{% load static %}
+
+{% block qbox %}
+<div id="qbox">
+	<div id="questions">
+		You have already submitted this answer
+	</div>
+</div>
+{% endblock %}
+
+{% block content %}
+	<div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block play %}
+
+	<form action="../ques{{q_no}}" method="POST">
+		{% csrf_token %}
+		<input type="submit" id="playbutton" value="Next Question">
+	</form>
+
+{% endblock %}
+
+{% block back %}
+    <input type="submit" value="Back" id="backbutton">
+{% endblock %}

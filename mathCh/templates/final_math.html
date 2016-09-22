@@ -1,0 +1,23 @@
+{% extends "main_math.html" %}
+{% load static %}
+
+{% block qbox %}
+<div id="qbox">
+	You have successfully Submitted your answers.
+</div>
+{% endblock %}
+
+{% block content %}
+	<div id="content" style="display:none;">
+      {{ matter.introduction|safe|escape }}
+    </div>
+{% endblock %}
+
+{% block logout %}
+	<div id="logout">
+  <a href="../logout/"><img src="{% static "img/mathCh/main/signout.png" %}" /> </a>
+  </div>
+{% endblock %}
+
+{% block play %}
+{% endblock %}
